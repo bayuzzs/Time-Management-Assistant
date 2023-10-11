@@ -483,26 +483,4 @@ main img.floating.right-2 {
 }
 /* card5 */
 
-@media screen and (min-width: 768px) {
-    .container-features .description {
-        padding: 20px 40px;
-        text-align: left;
-    }
-    .container-features .description h2 {
-        font-size: 3rem;
-    }
-    .container-features p {
-        font-size: 1rem;
-        max-width: 500px;
-    }
-    .feature-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-    .feature-item {
-        margin-block: 0;
-    }
-}
 /* Features style end */
