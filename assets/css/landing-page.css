@@ -359,10 +359,11 @@ main img.floating.right-2 {
     background-color: white;
     max-width: 300px;
     padding: 20px 25px 40px 25px;
+    border: 3px solid white;
     border-radius: 15px;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
         0 4px 6px -4px rgb(0 0 0 / 0.1);
-    transition: 0.1s;
+    transition: 0.3s;
     margin-block: 10px;
 }
 .feature-item .icon {
@@ -371,19 +372,18 @@ main img.floating.right-2 {
     border-radius: 100%;
     margin-bottom: 15px;
     color: white;
+    transition: 0.3s;
 }
 .feature-item h4 {
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 10px;
+    transition: 0.3s;
 }
 .feature-item p {
     text-align: justify;
 }
 /* card1 */
-.feature-item.item-1 {
-    border: 0 solid #fdd527;
-}
 .feature-item.item-1 .icon {
     background-color: #fff9df;
     color: #fdd527;
@@ -401,9 +401,6 @@ main img.floating.right-2 {
 }
 /* card1 */
 /* card2 */
-.feature-item.item-2 {
-    border: 0 solid #6f41f1;
-}
 .feature-item.item-2 .icon {
     background-color: #f2e9ff;
     color: #6f41f1;
@@ -421,9 +418,6 @@ main img.floating.right-2 {
 }
 /* card2 */
 /* card3 */
-.feature-item.item-3 {
-    border: 0 solid #ff5436;
-}
 .feature-item.item-3 .icon {
     background-color: #ffdcdb;
     color: #ff5436;
@@ -441,9 +435,6 @@ main img.floating.right-2 {
 }
 /* card3 */
 /* card4 */
-.feature-item.item-4 {
-    border: 0 solid #50e3c2;
-}
 .feature-item.item-4 .icon {
     background-color: #d7fff6;
     padding: 10px 15px;
@@ -462,9 +453,6 @@ main img.floating.right-2 {
 }
 /* card4 */
 /* card5 */
-.feature-item.item-5 {
-    border: 0 solid #008fff;
-}
 .feature-item.item-5 .icon {
     background-color: #d4ecff;
     padding: 15px 15px;
