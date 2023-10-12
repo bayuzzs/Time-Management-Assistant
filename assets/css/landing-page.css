@@ -366,6 +366,14 @@ main img.floating.right-2 {
 /* Main style end */
 
 /* Features style start */
+section#features {
+    position: relative;
+}
+section#features img.left {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+}
 .container-features {
     margin-inline: auto;
     padding: 30px 20px;
@@ -512,6 +520,10 @@ main img.floating.right-2 {
 /* card5 */
 
 @media screen and (min-width: 768px) {
+    section#features img.left {
+        top: 50px;
+        left: -200px;
+    }
     .container-features .description {
         padding: 20px 40px;
         text-align: left;
