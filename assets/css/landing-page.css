@@ -1,6 +1,7 @@
 :root {
     --main-color: #008fff;
     --color-dark: #333333;
+    --card-color: #acdaff;
 }
 html {
     scroll-behavior: smooth;
@@ -287,16 +288,19 @@ main img.floating.right-2 {
     .container-main aside .floating.success {
         bottom: -75px;
         left: 280px;
+        animation: ngambang 2s ease-in-out infinite;
     }
     .container-main aside .floating.productivity {
         transform: scale(0.9);
         top: 20px;
         left: 60px;
+        animation: ngambang-2 2s ease-in-out infinite;
     }
     .container-main aside .floating.time {
         transform: scale(0.7);
         top: 20px;
         right: 90px;
+        animation: ngambang-3 2s ease-in-out infinite;
     }
     /* Blob start here */
     main img.floating.left {
@@ -324,6 +328,40 @@ main img.floating.right-2 {
         opacity: 0;
     }
 }
+@keyframes ngambang {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px); /* Atur jarak vertikal yang diinginkan */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes ngambang-2 {
+    0% {
+        transform: translateY(0) scale(0.9);
+    }
+    50% {
+        transform: translateY(-5px) scale(0.9); /* Atur jarak vertikal yang diinginkan */
+    }
+    100% {
+        transform: translateY(0) scale(0.9);
+    }
+}
+@keyframes ngambang-3 {
+    0% {
+        transform: translateY(0) scale(0.7);
+    }
+    50% {
+        transform: translateY(-5px) scale(0.7); /* Atur jarak vertikal yang diinginkan */
+    }
+    100% {
+        transform: translateY(0) scale(0.7);
+    }
+}
+
 /* Main style end */
 
 /* Features style start */
@@ -494,3 +532,122 @@ main img.floating.right-2 {
     }
 }
 /* Features style end */
+
+/* Team style start */
+.container-team {
+    margin-inline: auto;
+    padding: 30px 20px;
+    display: flex;
+    flex-flow: column;
+}
+.container-team .description {
+    text-align: center;
+}
+.container-team .description h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.container-team .description h2 span {
+    color: var(--main-color);
+}
+.container-team .description p {
+    font-size: 0.9rem;
+}
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 10px;
+}
+.team-item-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-block: 40px;
+    margin-inline: 40px;
+}
+.team-item-wrapper .img-wrap {
+    width: 130px;
+    margin-inline: auto;
+    border: 4px solid transparent;
+    border-radius: 100%;
+    filter: contrast(0.8);
+    transition: 0.2;
+    position: absolute;
+    top: -50px;
+    z-index: 2;
+    transition: 0.2s;
+}
+.team-item {
+    background-color: var(--card-color);
+    text-align: center;
+    padding: 30px 25px;
+    border-radius: 20px;
+    transform-origin: top;
+    transition: 0.2s;
+    display: inline-block;
+}
+.team-item h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+.team-item p {
+    margin-bottom: 10px;
+}
+.team-item hr {
+    margin-inline: auto;
+    height: 1px;
+    width: 40%;
+    background-color: var(--color-dark);
+    margin-bottom: 20px;
+}
+.team-item .logo-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.team-item .svg-wrap {
+    background-color: var(--main-color);
+    padding: 5px;
+    border-radius: 100%;
+}
+.team-item .svg-wrap:hover {
+    opacity: 0.7;
+}
+.team-item-wrapper:hover .team-item {
+    transform: scale(1.1);
+    background-color: var(--main-color);
+    color: white;
+}
+.team-item-wrapper:hover .img-wrap {
+    filter: contrast(1);
+    border: 4px solid var(--main-color);
+}
+.team-item-wrapper:hover hr {
+    background-color: white;
+}
+.team-item-wrapper:hover .svg-wrap {
+    background-color: var(--color-dark);
+}
+@media screen and (min-width: 768px) {
+    .container-team .description {
+        text-align: left;
+        margin-left: 40px;
+    }
+    .container-team .description h2 {
+        font-size: 3rem;
+    }
+    .container-team .description p {
+        font-size: 1rem;
+        max-width: 400px;
+        text-align: justify;
+    }
+    .team-container {
+        max-width: 800px;
+        margin-inline: auto;
+    }
+}
+/* Team style end */
