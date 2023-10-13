@@ -15,9 +15,6 @@ aside#illustration {
     position: absolute;
     display: none;
 }
-aside#illustration img.float {
-    display: none;
-}
 /* Register Style Start */
 section#register {
     display: block;
@@ -262,12 +259,14 @@ section#login.hide {
         display: none;
     }
     main .container aside#illustration {
-        display: block;
         height: 100vh;
         width: 50%;
         background-color: #e6eefb;
-        display: grid;
-        place-items: center;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
         top: 0;
         left: 0;
         z-index: 1000;
@@ -275,7 +274,18 @@ section#login.hide {
         border-bottom-right-radius: 30px;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
-        transition: all 0.5s ease;
+        transition: left 0.5s ease;
+    }
+    main .container aside#illustration .description img {
+        margin-inline: auto;
+    }
+    main .container aside#illustration .description p {
+        letter-spacing: 5px;
+        color: var(--main-color);
+        font-weight: 700;
+    }
+    main aside#illustration img.signin-illustration {
+        max-width: 80%;
     }
     main .container aside#illustration.swipe {
         left: 50%;
@@ -323,13 +333,18 @@ section#login.hide {
         width: 100vw;
         display: grid;
         place-items: center;
-        background-color: blue;
     }
     main .container {
         max-height: 75vh;
     }
     main .container aside#illustration {
         max-height: 75vh;
+    }
+    main .container aside#illustration .description img {
+        width: 190px;
+    }
+    main .container aside#illustration .description p {
+        font-size: 1.2rem;
     }
     .register-wrapper .register {
         letter-spacing: 0.3rem;
