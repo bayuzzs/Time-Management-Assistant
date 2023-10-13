@@ -24,3 +24,18 @@ links.forEach((link, index) => {
         window.scrollTo(0, destination - 100);
     });
 });
+
+// Buat animasi
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        } else {
+            entry.target.classList.remove("show");
+        }
+    });
+});
+// checking if feature card in viewport or  not
+document.querySelectorAll(".feature-item").forEach((feature) => {
+    observer.observe(feature);
+});

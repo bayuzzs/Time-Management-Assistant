@@ -137,6 +137,7 @@ main .container-main {
 }
 .main-content .description {
     padding-inline: 20px;
+    animation: zoomFadeIn 0.5s ease-in-out;
 }
 .main-content .description .title {
     letter-spacing: 3px;
@@ -191,6 +192,7 @@ main .container-main {
 }
 .container-main aside {
     padding: 20px 30px;
+    animation: zoomFadeIn 0.5s ease-in-out;
 }
 .container-main aside .img-container {
     position: relative;
@@ -362,7 +364,16 @@ main img.floating.right-2 {
         transform: translateY(0) scale(0.7);
     }
 }
-
+@keyframes zoomFadeIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 /* Main style end */
 
 /* Features style start */
@@ -413,6 +424,9 @@ section#features img.left {
         0 4px 6px -4px rgb(0 0 0 / 0.1);
     transition: 0.3s;
     margin-block: 10px;
+}
+.feature-item.show {
+    animation: zoomFadeIn 0.8s ease-in-out;
 }
 .feature-item .icon {
     display: inline-block;
