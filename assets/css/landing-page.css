@@ -336,7 +336,7 @@ main img.floating.right-2 {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-5px); /* Atur jarak vertikal yang diinginkan */
+        transform: translateY(-8px); /* Atur jarak vertikal yang diinginkan */
     }
     100% {
         transform: translateY(0);
@@ -347,7 +347,7 @@ main img.floating.right-2 {
         transform: translateY(0) scale(0.9);
     }
     50% {
-        transform: translateY(-5px) scale(0.9); /* Atur jarak vertikal yang diinginkan */
+        transform: translateY(-8px) scale(0.9); /* Atur jarak vertikal yang diinginkan */
     }
     100% {
         transform: translateY(0) scale(0.9);
@@ -358,7 +358,7 @@ main img.floating.right-2 {
         transform: translateY(0) scale(0.7);
     }
     50% {
-        transform: translateY(-5px) scale(0.7); /* Atur jarak vertikal yang diinginkan */
+        transform: translateY(-8px) scale(0.7); /* Atur jarak vertikal yang diinginkan */
     }
     100% {
         transform: translateY(0) scale(0.7);
