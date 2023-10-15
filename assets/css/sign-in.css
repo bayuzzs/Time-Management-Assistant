@@ -250,6 +250,9 @@ section#login.hide {
         position: absolute;
         z-index: -99;
         bottom: 0;
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-drag: none;
     }
     main aside#illustration img.float.left {
         left: 0;
