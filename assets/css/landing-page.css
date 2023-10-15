@@ -785,14 +785,16 @@ section#features img.left {
         width: 50%;
     }
     .contact-form-container .from-wrap form {
-        width: 500px;
+        max-width: 85%;
         margin-inline: auto;
     }
     .contact-form-container .illustration {
         width: 50%;
+        display: grid;
+        place-items: center;
     }
     .contact-form-container .illustration img {
-        max-width: 400px;
+        max-width: 90%;
     }
 }
 /* Contact style end */
