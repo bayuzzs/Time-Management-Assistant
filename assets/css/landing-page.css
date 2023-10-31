@@ -448,7 +448,9 @@ section#features img.left {
   flex-wrap: wrap;
   justify-content: center;
   color: var(--color-dark);
-  padding: 30px 10px;
+  padding: 30px;
+  max-width: 1000px;
+  margin-inline: auto;
 }
 .feature-item {
   background-color: white;
