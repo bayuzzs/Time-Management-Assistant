@@ -1,0 +1,40 @@
+:root {
+  --main-color: #008fff;
+  --color-dark: #333333;
+  --border-color: #1a2744;
+}
+body {
+  background: salmon;
+  font-family: 'Outfit', sans-serif;
+}
+
+.tma__sidebar {
+  width: 300px; /* Lebar sidebar */
+  height: 100%;
+  background-color: #333; /* Warna latar belakang sidebar */
+  position: fixed;
+  top: 0;
+  left: -300px; /* Sembunyikan sidebar di luar layar */
+  transition: left 0.3s;
+}
+
+.hamburger-menu {
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  left: 100%;
+  z-index: 2;
+  color: #fff; /* Warna hamburger menu */
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff; /* Warna garis hamburger menu */
+  margin: 5px 0;
+}
+
+.tma__sidebar.active {
+  left: 0; /* Tampilkan sidebar */
+}
