@@ -5,47 +5,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;500;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/dashboard.css">
 </head>
 
 <body>
-  <section class="tma__sidebar">
-    <div class="hamburger-menu" onclick="toggleSidebar()">
+  <!-- Sidebar start -->
+  <section class="sidebar">
+    <!-- Hamburger Menur -->
+    <div class="sidebar__hamburger" onclick="toggleSidebar()">
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
     </div>
-    <div class="tma__sidebar-profile">
-      <div class="tma__sidebar-profile__account">
-        <div class="tma__sidebar-profile__account__avatar"></div>
-        <div class="tma__sidebar-profile__account__name"></div>
+    <!-- Sidebar Profile -->
+    <div class="sidebar__profile">
+      <div class="sidebar__profile__account">
+        <div class="sidebar__profile__account__avatar">
+          <img src="assets/images/dashboard/avatar.svg" loading="lazy">
+        </div>
+        <p class="sidebar__profile__account__name">Bayu Maulana</p>
       </div>
-      <div class="tma__sidebar-profile__menu">
-        <a href="" class="settings"></a>
-        <a href="" class="notifications"></a>
+      <div class="sidebar__profile__menu">
+        <a href="#" class="settings">
+          <img src="assets/images/dashboard/settings.svg">
+        </a>
+        <a href="#" class="notifications">
+          <img src="assets/images/dashboard/notification.svg">
+        </a>
       </div>
     </div>
-    <div class="tma__sidebar-menu">
-      <nav class="tma__sidebar-menu__list">
+    <div class="sidebar__menu">
+      <nav class="sidebar__menu__list">
         <ul>
           <li><a href="#">All Activities</a></li>
           <li><a href="#">Calendar</a></li>
           <li><a href="#">History</a></li>
         </ul>
       </nav>
-      <div class="tma__sidebar-menu__logout">
-        <a href="#">Logout</a>
+      <div class="sidebar__menu__logout">
+        <a href="#"><span><img src="./assets/images/dashboard/logout.svg" alt=""></span>Logout</a>
       </div>
     </div>
   </section>
-  <script>
-    function toggleSidebar() {
-      var sidebar = document.querySelector('.tma__sidebar');
-      sidebar.classList.toggle('active');
-    }
-
-  </script>
+  <!-- Sidebar end -->
+  <script src="./assets/js/dashboard.js"></script>
 </body>
 
 </html>
