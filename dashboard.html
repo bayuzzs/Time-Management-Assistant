@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Dashboard</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,45 +18,57 @@
 </head>
 
 <body>
-  <!-- Sidebar start -->
-  <section class="sidebar">
-    <!-- Hamburger Menur -->
-    <div class="sidebar__hamburger" onclick="toggleSidebar()">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-    <!-- Sidebar Profile -->
-    <div class="sidebar__profile">
-      <div class="sidebar__profile__account">
-        <div class="sidebar__profile__account__avatar">
-          <img src="assets/images/dashboard/avatar.svg" loading="lazy">
+  <div class="tma">
+    <!-- Sidebar start -->
+    <section class="sidebar">
+      <!-- Hamburger Menur -->
+      <div class="sidebar__hamburger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <!-- Sidebar Profile -->
+      <div class="sidebar__profile">
+        <div class="sidebar__profile__account">
+          <div class="sidebar__profile__account__avatar">
+            <img src="assets/images/dashboard/avatar.svg" loading="lazy">
+          </div>
+          <p class="sidebar__profile__account__name">Bayu Maulana</p>
         </div>
-        <p class="sidebar__profile__account__name">Bayu Maulana</p>
+        <div class="sidebar__profile__menu">
+          <a href="#" class="settings">
+            <img src="assets/images/dashboard/settings.svg">
+          </a>
+          <a href="#" class="notifications">
+            <img src="assets/images/dashboard/notification.svg">
+          </a>
+        </div>
       </div>
-      <div class="sidebar__profile__menu">
-        <a href="#" class="settings">
-          <img src="assets/images/dashboard/settings.svg">
-        </a>
-        <a href="#" class="notifications">
-          <img src="assets/images/dashboard/notification.svg">
-        </a>
+      <div class="sidebar__menu">
+        <nav class="sidebar__menu__list">
+          <ul>
+            <li><a href="#">All Activities</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">History</a></li>
+          </ul>
+        </nav>
+        <div class="sidebar__menu__logout">
+          <a href="#"><span><img src="./assets/images/dashboard/logout.svg" alt=""></span>Logout</a>
+        </div>
       </div>
-    </div>
-    <div class="sidebar__menu">
-      <nav class="sidebar__menu__list">
-        <ul>
-          <li><a href="#">All Activities</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="#">History</a></li>
-        </ul>
-      </nav>
-      <div class="sidebar__menu__logout">
-        <a href="#"><span><img src="./assets/images/dashboard/logout.svg" alt=""></span>Logout</a>
+    </section>
+    <!-- Sidebar end -->
+
+    <!-- Main start -->
+    <main>
+      <div class="main__heading">
+        <div class="main__heading__priority"></div>
+        <div class="main__heading__all"></div>
+        <div class="main__heading__completed"></div>
       </div>
-    </div>
-  </section>
-  <!-- Sidebar end -->
+    </main>
+    <!-- Main end -->
+  </div>
   <script src="./assets/js/dashboard.js"></script>
 </body>
 

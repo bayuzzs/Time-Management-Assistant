@@ -4,7 +4,6 @@
   --border-color: #1a2744;
 }
 body {
-  background: salmon;
   font-family: 'Outfit', sans-serif;
 }
 
@@ -20,30 +19,30 @@ body {
   top: 0;
   left: -250px;
 
-  /* ini dihapus nanti */
-  /* left: 0; */
   transition: left 0.3s;
 }
 
 .sidebar__hamburger {
   cursor: pointer;
-  padding: 10px;
+  padding: 13px;
   position: absolute;
   top: 10px;
   left: 100%;
-  z-index: 2;
-  color: #fff; /* Warna hamburger menu */
+  z-index: 100;
+  background-color: var(--main-color);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
-.bar {
+.sidebar__hamburger div {
   width: 25px;
   height: 3px;
-  background-color: #fff; /* Warna garis hamburger menu */
+  background-color: #fff;
   margin: 5px 0;
 }
 
 .sidebar.active {
-  left: 0; /* Tampilkan sidebar */
+  left: 0;
 }
 
 .sidebar__profile {
@@ -121,5 +120,21 @@ body {
 
   color: white;
   text-decoration: none;
+}
+@media screen and (min-width: 1024px) {
+  .tma {
+    display: flex;
+  }
+  .sidebar {
+    position: static;
+    height: 100vh;
+  }
+  .sidebar__hamburger {
+    display: none;
+  }
+  main {
+    flex-grow: 1;
+    background-color: red;
+  }
 }
 /* sidebar end */
