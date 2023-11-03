@@ -24,19 +24,20 @@ body {
 
 .sidebar__hamburger {
   cursor: pointer;
-  padding: 13px;
+  padding: 10px 8px;
   position: absolute;
-  top: 10px;
+  top: 30px;
   left: 100%;
   z-index: 100;
   background-color: var(--main-color);
+  background-color: red;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 }
 
 .sidebar__hamburger div {
-  width: 25px;
-  height: 3px;
+  width: 20px;
+  height: 2px;
   background-color: #fff;
   margin: 5px 0;
 }
@@ -121,6 +122,79 @@ body {
   color: white;
   text-decoration: none;
 }
+/* sidebar end */
+
+/* Main start */
+main {
+  padding: 20px;
+}
+
+.main__heading {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+
+  margin-bottom: 20px;
+  padding: 10px 0;
+  border-radius: 10px;
+  background-color: #008fff;
+}
+.main__heading div {
+  width: 100px;
+  padding: 5px;
+  text-align: center;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  background-color: salmon;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.main__heading__priority-count {
+  width: min-content;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: red;
+}
+.main__heading__all-count {
+  width: min-content;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: red;
+}
+.main__heading__completed-count {
+  width: min-content;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: red;
+}
+@media screen and (min-width: 1024px) {
+  .main__heading {
+    padding: 20px 0;
+  }
+  .main__heading div {
+    width: 200px;
+    padding: 10px;
+    font-size: 1rem;
+
+    gap: 10px;
+  }
+  .main__heading__priority-count {
+    padding: 15px 20px;
+    border-radius: 10px;
+  }
+  .main__heading__all-count {
+    padding: 15px 20px;
+    border-radius: 10px;
+  }
+  .main__heading__completed-count {
+    padding: 15px 20px;
+    border-radius: 10px;
+  }
+}
+/* Main end */
 @media screen and (min-width: 1024px) {
   .tma {
     display: flex;
@@ -137,4 +211,3 @@ body {
     background-color: red;
   }
 }
-/* sidebar end */
