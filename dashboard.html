@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/dashboard.css">
@@ -64,17 +64,77 @@
       <div class="main__heading">
         <div class="main__heading__priority">
           <p class="main__heading__priority-count">0</p>
-          <p>Priority Tasks</p>
+          <p>Priority</p>
         </div>
         <div class="main__heading__all">
           <p class="main__heading__all-count">0</p>
           <p>All Tasks</p>
         </div>
-        <div class="main__heading__completed">
-          <p class="main__heading__completed-count">0</p>
-          <p>Completed Tasks</p>
+        <div class="main__heading__overdue">
+          <p class="main__heading__overdue-count">0</p>
+          <p>Overdue</p>
         </div>
       </div>
+      <div class="main__activity">
+        <div class="main__activity__heading">
+          <p class="main__activity__heading-text">Current Activites</p>
+          <div class="main__activity__heading-action">
+            <button class="add">
+              <img src="./assets/images/dashboard/add.svg">
+            </button>
+            <button class="edit">
+              <img src="./assets/images/dashboard/edit.svg">
+            </button>
+            <div class="main__activity__heading-action__find">
+              <input class="search" type="text" placeholder="Search...">
+              <select class="filter">
+                <option value="all">All</option>
+                <option value="important">Important</option>
+                <option value="overdue">overdue</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="main__activity__content">
+          <!-- <div class="main__activity__content__empty">
+            <img src="./assets/images/dashboard/empty.svg">
+            <p>No activities yet</p>
+          </div> -->
+          <div class="main__activity__content-item">
+            <div class="main__activity__content-item__title">
+              <p>Meeting With Client x</p>
+            </div>
+            <div class="main__activity__content-item__detail">
+              <p class="main__activity__content-item__detail-date">22 Nov 2023</p>
+              <p class="main__activity__content-item__detail-priority">Important</p>
+            </div>
+            <div class="main__activity__content-item__description">
+              <p>Wear formal clothes, get ready</p>
+            </div>
+            <div class="main__activity__content-item__action">
+              <a href="#" class="main__activity__content-item__action-change">Change</a>
+              <a href="#" class="main__activity__content-item__action-delete">Delete</a>
+              <a href="#" class="main__activity__content-item__action-delete">Delete</a>
+            </div>
+          </div>
+          <div class="main__activity__content-item">
+            <div class="main__activity__content-item__title">
+              <p>Meeting With Client x</p>
+            </div>
+            <div class="main__activity__content-item__detail">
+              <p class="main__activity__content-item__detail-date">22 Nov 2023</p>
+              <p class="main__activity__content-item__detail-priority">Important</p>
+            </div>
+            <div class="main__activity__content-item__description">
+              <p>Wear formal clothes, get ready</p>
+            </div>
+            <div class="main__activity__content-item__action">
+              <a href="#" class="main__activity__content-item__action-change">Change</a>
+              <a href="#" class="main__activity__content-item__action-delete">Delete</a>
+              <a href="#" class="main__activity__content-item__action-delete">Delete</a>
+            </div>
+          </div>
+        </div>
     </main>
     <!-- Main end -->
   </div>
