@@ -4,6 +4,8 @@
   --border-color: #1a2744;
   --base-color: #f5f5f5;
   --color-danger: #d46a6a;
+  --color-success: #77dd77;
+  --color-edit: #ff7f50;
 }
 body {
   font-family: 'Outfit', sans-serif;
@@ -205,7 +207,7 @@ main {
   display: flex;
   justify-content: right;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 .main__activity__heading-action button {
   padding: 5px;
@@ -215,7 +217,7 @@ main {
   background-color: pink;
 }
 .main__activity__heading-action .edit {
-  background-color: chartreuse;
+  background-color: var(--color-edit);
 }
 .main__activity__heading-action__find {
   display: flex;
@@ -238,21 +240,30 @@ main {
 }
 .main__activity__content {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+  align-items: center;
+  background-color: blue;
+  overflow: scroll;
+  /* height: 500px; */
 }
+/* .main__activity__content::-webkit-scrollbar {
+  display: none;
+} */
 .main__activity__content-item {
-  max-width: 50%;
+  min-width: 200px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
 
   font-size: 0.8rem;
   background-color: var(--base-color);
 }
 .main__activity__content-item__title {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 5px;
 }
@@ -261,6 +272,12 @@ main {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+}
+.main__activity__content-item__time {
+  margin-bottom: 20px;
+}
+.main__activity__content-item__description {
+  text-align: justify;
   margin-bottom: 20px;
 }
 .main__activity__content-item__detail-priority {
@@ -271,13 +288,13 @@ main {
 }
 .main__activity__content-item__action {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: flex-end;
+  gap: 5px;
 }
-.main__activity__content-item__action-change {
+.main__activity__content-item__action-edit {
   text-decoration: none;
   color: white;
-  background-color: yellowgreen;
+  background-color: var(--color-edit);
   padding: 3px;
   border-radius: 5px;
 }
@@ -285,6 +302,13 @@ main {
   text-decoration: none;
   color: white;
   background-color: var(--color-danger);
+  padding: 3px;
+  border-radius: 5px;
+}
+.main__activity__content-item__action-complete {
+  text-decoration: none;
+  color: white;
+  background-color: var(--color-success);
   padding: 3px;
   border-radius: 5px;
 }
@@ -326,7 +350,7 @@ main {
 
 /* This responsive to collapse hamburger menu and
 make the sidebar static again */
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
   .tma {
     display: flex;
   }
@@ -339,5 +363,20 @@ make the sidebar static again */
   }
   main {
     flex-grow: 1;
+  }
+} */
+@media screen and (min-width: 1024px) {
+  .sidebar {
+    position: static;
+    height: 100vh;
+  }
+  .sidebar__hamburger {
+    display: none;
+  }
+  main {
+    position: fixed;
+    left: 250px;
+    width: calc(100% - 250px);
+    top: 0;
   }
 }
