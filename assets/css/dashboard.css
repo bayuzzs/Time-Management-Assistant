@@ -1,5 +1,5 @@
 :root {
-  --main-color: #008fff;
+  --main-color: rgb(0, 145, 255);
   --color-dark: #333333;
   --border-color: #1a2744;
   --base-color: #f5f5f5;
@@ -15,13 +15,16 @@ body {
 .sidebar {
   display: flex;
   flex-flow: column;
-
   width: 250px;
-  height: 100%;
+  height: 100vh;
+  max-height: 100vh;
   background-color: var(--base-color);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+
   position: fixed;
   top: 0;
   left: -250px;
+  z-index: 999;
 
   transition: left 0.3s;
 }
@@ -30,11 +33,10 @@ body {
   cursor: pointer;
   padding: 10px 8px;
   position: absolute;
-  top: 30px;
-  left: 100%;
+  top: 100px;
+  left: calc(100% + 1px);
   z-index: 100;
   background-color: var(--main-color);
-  background-color: red;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -83,7 +85,6 @@ body {
   padding: 8px;
   border-radius: 10px;
 }
-
 .sidebar__menu {
   flex-grow: 1;
   display: flex;
@@ -119,6 +120,7 @@ body {
   gap: 5px;
   justify-content: center;
 
+  margin-bottom: 50px;
   min-width: 170px;
   border-radius: 8px;
   padding: 15px 0;
@@ -137,7 +139,7 @@ main {
   padding: 20px;
 }
 
-.main__heading {
+.heading {
   display: flex;
   justify-content: space-evenly;
   align-items: stretch;
@@ -146,7 +148,9 @@ main {
   border-radius: 10px;
   background-color: var(--base-color);
 }
-.main__heading div {
+.heading__priority,
+.heading__all,
+.heading__overdue {
   width: 100px;
   padding: 5px;
   text-align: center;
@@ -158,225 +162,260 @@ main {
   align-items: center;
   gap: 5px;
 }
-.main__heading__priority {
+.heading__priority {
   background-color: salmon;
 }
-.main__heading__all {
+.heading__all {
   background-color: salmon;
 }
-.main__heading__overdue {
+.heading__overdue {
   background-color: salmon;
 }
-.main__heading__priority-count {
+.heading__priority-count {
   width: min-content;
   padding: 10px 15px;
   border-radius: 8px;
   background-color: red;
 }
-.main__heading__all-count {
+.heading__all-count {
   width: min-content;
   padding: 10px 15px;
   border-radius: 8px;
   background-color: red;
 }
-.main__heading__overdue-count {
+.heading__overdue-count {
   width: min-content;
   padding: 10px 15px;
   border-radius: 8px;
   background-color: red;
 }
-.main__activity {
+.activity {
   padding: 20px 10px;
-  /* background-color: salmon; */
 }
-.main__activity__heading {
+.activity__heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-.main__activity__heading-text {
+.activity__heading-text {
   /* max-width: 50px; */
   padding: 10px;
   border-radius: 5px;
 
   font-size: 0.8rem;
   line-height: 1rem;
-  background-color: var(--base-color);
+  background-color: var(--main-color);
+  color: #fff;
 }
-.main__activity__heading-action {
+.activity__heading-action {
   display: flex;
   justify-content: right;
   align-items: center;
   gap: 5px;
 }
-.main__activity__heading-action button {
+.activity__heading-action-add,
+.activity__heading-action-edit {
   padding: 5px;
   border-radius: 5px;
+  cursor: pointer;
 }
-.main__activity__heading-action .add {
+.activity__heading-action-add:hover,
+.activity__heading-action-edit:hover {
+  opacity: 0.8;
+}
+.activity__heading-action-add {
   background-color: pink;
 }
-.main__activity__heading-action .edit {
+.activity__heading-action-edit {
   background-color: var(--color-edit);
 }
-.main__activity__heading-action__find {
+.activity__heading-action__find {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-.main__activity__heading-action .search {
+.activity__heading-action .search,
+.activity__heading-action .filter {
   background-color: var(--base-color);
   max-width: 100px;
   padding: 5px;
   border-radius: 5px;
   font-size: 0.8rem;
 }
-.main__activity__heading-action .filter {
-  background-color: var(--base-color);
-  max-width: 100px;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 0.8rem;
-}
-.main__activity__content {
+.activity__content {
   display: flex;
   flex-direction: column;
   padding: 10px;
   gap: 10px;
-  align-items: center;
-  background-color: blue;
-  overflow: scroll;
-  /* height: 500px; */
 }
-/* .main__activity__content::-webkit-scrollbar {
-  display: none;
-} */
-.main__activity__content-item {
+.activity__content-item {
   min-width: 200px;
   max-width: 300px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
   padding: 15px;
   border-radius: 10px;
 
   font-size: 0.8rem;
   background-color: var(--base-color);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
-.main__activity__content-item__title {
+.activity__content-item__left-title {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 5px;
 }
-.main__activity__content-item__detail {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+.activity__content-item__left-priority,
+.activity__content-item__left-daily,
+.activity__content-item__left-weekly,
+.activity__content-item__left-monthly {
+  display: inline-block;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--color-danger);
+  color: white;
+  font-size: 0.8rem;
+  margin-bottom: 15px;
 }
-.main__activity__content-item__time {
-  margin-bottom: 20px;
+.activity__content-item__left-daily {
+  /* display: none; */
 }
-.main__activity__content-item__description {
+.activity__content-item__left-weekly {
+  /* display: none; */
+}
+.activity__content-item__left-monthly {
+  /* display: none; */
+}
+.activity__content-item__left-description {
+  max-width: 200px;
   text-align: justify;
-  margin-bottom: 20px;
 }
-.main__activity__content-item__detail-priority {
-  padding: 3px 5px;
+.activity__content-item__right-time {
   border-radius: 5px;
-  color: white;
-  background-color: var(--color-danger);
+  padding: 10px 5px;
+  background-color: #fff;
+  color: var(--main-color);
+  font-size: 0.8rem;
+  text-align: center;
 }
-.main__activity__content-item__action {
+.activity__content-item__right-time p {
+  line-height: 1rem;
+}
+.activity__content-item__right-action {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   gap: 5px;
+  margin-top: -30px;
+  transition: all 0.2s;
 }
-.main__activity__content-item__action-edit {
-  text-decoration: none;
-  color: white;
+.activity__content-item__right-action.show {
+  margin-top: 0;
+}
+.activity__content-item__right-action-edit,
+.activity__content-item__right-action-delete,
+.activity__content-item__right-action-complete {
+  padding: 5px;
+  border-radius: 5px;
+  transform: scale(0);
+  transform-origin: bottom;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.activity__content-item__right-action-edit:hover,
+.activity__content-item__right-action-delete:hover,
+.activity__content-item__right-action-complete:hover {
+  opacity: 0.8;
+}
+.activity__content-item__right-action-edit.show,
+.activity__content-item__right-action-delete.show,
+.activity__content-item__right-action-complete.show {
+  transform: scale(1);
+  margin-top: 10px;
+  display: block;
+}
+.activity__content-item__right-action-edit {
   background-color: var(--color-edit);
-  padding: 3px;
-  border-radius: 5px;
 }
-.main__activity__content-item__action-delete {
-  text-decoration: none;
-  color: white;
+.activity__content-item__right-action-delete {
   background-color: var(--color-danger);
-  padding: 3px;
-  border-radius: 5px;
 }
-.main__activity__content-item__action-complete {
-  text-decoration: none;
-  color: white;
+.activity__content-item__right-action-complete {
   background-color: var(--color-success);
-  padding: 3px;
-  border-radius: 5px;
+}
+@media screen and (min-width: 768px) {
+  .activity__content {
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+  }
+  .activity__heading-action__find {
+    flex-direction: row;
+  }
+  .activity__heading-action__find .search {
+    max-width: 200px;
+  }
 }
 @media screen and (min-width: 1024px) {
-  .main__heading {
+  .heading {
     padding: 20px 0;
   }
-  .main__heading div {
+  .heading__priority,
+  .heading__all,
+  .heading__overdue {
     width: 200px;
     padding: 10px;
     font-size: 1rem;
 
     gap: 10px;
   }
-  .main__heading__priority-count {
+  .heading__priority-count,
+  .heading__all-count,
+  .heading__overdue-count {
     padding: 15px 20px;
     border-radius: 10px;
   }
-  .main__heading__all-count {
-    padding: 15px 20px;
-    border-radius: 10px;
-  }
-  .main__heading__overdue-count {
-    padding: 15px 20px;
-    border-radius: 10px;
-  }
-  .main__activity__heading-text {
+  .activity__heading-text {
     font-size: 1rem;
-    padding: 15px;
   }
-  .main__activity__heading-action__find {
-    flex-direction: row;
+  .activity__heading-action {
+    gap: 10px;
   }
-  .main__activity__heading-action__find .search {
-    max-width: 200px;
+  .activity__heading-action .search,
+  .activity__heading-action .filter {
+    font-size: 1rem;
+  }
+  .activity__content-item {
+    font-size: 0.9rem;
+  }
+  .activity__content-item__title {
+    font-size: 1rem;
   }
 }
 /* Main end */
 
 /* This responsive to collapse hamburger menu and
 make the sidebar static again */
-/* @media screen and (min-width: 1024px) {
-  .tma {
-    display: flex;
-  }
-  .sidebar {
-    position: static;
-    height: 100vh;
-  }
-  .sidebar__hamburger {
-    display: none;
-  }
-  main {
-    flex-grow: 1;
-  }
-} */
 @media screen and (min-width: 1024px) {
   .sidebar {
-    position: static;
-    height: 100vh;
+    top: 0;
+    left: 0;
   }
   .sidebar__hamburger {
     display: none;
   }
   main {
-    position: fixed;
-    left: 250px;
-    width: calc(100% - 250px);
-    top: 0;
+    margin-left: 250px;
   }
 }

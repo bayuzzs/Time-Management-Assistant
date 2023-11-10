@@ -18,248 +18,121 @@
 </head>
 
 <body>
-  <div class="tma">
-    <!-- Sidebar start -->
-    <section class="sidebar">
-      <!-- Hamburger Menur -->
-      <div class="sidebar__hamburger" onclick="toggleSidebar()">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <!-- Sidebar Profile -->
-      <div class="sidebar__profile">
-        <div class="sidebar__profile__account">
-          <div class="sidebar__profile__account__avatar">
-            <img src="assets/images/dashboard/avatar.svg" loading="lazy">
-          </div>
-          <p class="sidebar__profile__account__name">Bayu Maulana</p>
+  <!-- Sidebar start -->
+  <section class="sidebar">
+    <!-- Hamburger Menur -->
+    <div class="sidebar__hamburger" onclick="toggleSidebar()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <!-- Sidebar Profile -->
+    <div class="sidebar__profile">
+      <div class="sidebar__profile__account">
+        <div class="sidebar__profile__account__avatar">
+          <img src="assets/images/dashboard/avatar.svg" loading="lazy">
         </div>
-        <div class="sidebar__profile__menu">
-          <a href="#" class="settings">
-            <img src="assets/images/dashboard/settings.svg">
-          </a>
-          <a href="#" class="notifications">
-            <img src="assets/images/dashboard/notification.svg">
-          </a>
-        </div>
+        <p class="sidebar__profile__account__name">Bayu Maulana</p>
       </div>
-      <div class="sidebar__menu">
-        <nav class="sidebar__menu__list">
-          <ul>
-            <li><a href="#">All Activities</a></li>
-            <li><a href="#">Calendar</a></li>
-            <li><a href="#">History</a></li>
-          </ul>
-        </nav>
-        <div class="sidebar__menu__logout">
-          <a href="#"><span><img src="./assets/images/dashboard/logout.svg" alt=""></span>Logout</a>
-        </div>
+      <div class="sidebar__profile__menu">
+        <a href="#" class="settings">
+          <img src="assets/images/dashboard/settings.svg">
+        </a>
+        <a href="#" class="notifications">
+          <img src="assets/images/dashboard/notification.svg">
+        </a>
       </div>
-    </section>
-    <!-- Sidebar end -->
+    </div>
+    <div class="sidebar__menu">
+      <nav class="sidebar__menu__list">
+        <ul>
+          <li><a href="#">All Activities</a></li>
+          <li><a href="#">Calendar</a></li>
+          <li><a href="#">History</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__menu__logout">
+        <a href="#"><span><img src="./assets/images/dashboard/logout.svg"></span>Logout</a>
+      </div>
+    </div>
+  </section>
+  <!-- Sidebar end -->
 
-    <!-- Main start -->
-    <main>
-      <div class="main__heading">
-        <div class="main__heading__priority">
-          <p class="main__heading__priority-count">0</p>
-          <p>Priority</p>
-        </div>
-        <div class="main__heading__all">
-          <p class="main__heading__all-count">0</p>
-          <p>All Tasks</p>
-        </div>
-        <div class="main__heading__overdue">
-          <p class="main__heading__overdue-count">0</p>
-          <p>Overdue</p>
-        </div>
+  <!-- Main start -->
+  <main>
+    <div class="heading">
+      <div class="heading__priority">
+        <p class="heading__priority-count">0</p>
+        <p>Priority</p>
       </div>
-      <div class="main__activity">
-        <div class="main__activity__heading">
-          <p class="main__activity__heading-text">Current Activites</p>
-          <div class="main__activity__heading-action">
-            <button class="add">
-              <img src="./assets/images/dashboard/add.svg">
-            </button>
-            <button class="edit">
-              <img src="./assets/images/dashboard/edit.svg">
-            </button>
-            <div class="main__activity__heading-action__find">
-              <input class="search" type="text" placeholder="Search...">
-              <select class="filter">
-                <option value="all">All</option>
-                <option value="important">Important</option>
-                <option value="overdue">overdue</option>
-              </select>
-            </div>
+      <div class="heading__all">
+        <p class="heading__all-count">0</p>
+        <p>All Tasks</p>
+      </div>
+      <div class="heading__overdue">
+        <p class="heading__overdue-count">0</p>
+        <p>Overdue</p>
+      </div>
+    </div>
+    <div class="activity">
+      <div class="activity__heading">
+        <p class="activity__heading-text">Current Activites</p>
+        <div class="activity__heading-action">
+          <a href="#" class="activity__heading-action-add">
+            <img src="./assets/images/dashboard/add.svg">
+          </a>
+          <button class="activity__heading-action-edit" onclick="toggleEdit()">
+            <img src="./assets/images/dashboard/edit.svg">
+          </button>
+          <div class="activity__heading-action__find">
+            <input class="search" type="text" placeholder="Search...">
+            <select class="filter">
+              <option value="all">All</option>
+              <option value="important">Important</option>
+              <option value="overdue">overdue</option>
+            </select>
           </div>
         </div>
-        <div class="main__activity__content">
-          <!-- <div class="main__activity__content__empty">
+      </div>
+      <div class="activity__content">
+        <!-- <div class="activity__content__empty">
             <img src="./assets/images/dashboard/empty.svg">
             <p>No activities yet</p>
           </div> -->
-          <div class="main__activity__content-item">
-            <div class="main__activity__content-item__title">
-              <p>Meeting With Client x</p>
-            </div>
-            <div class="main__activity__content-item__detail">
-              <p class="main__activity__content-item__detail-date">22 Nov 2023</p>
-              <p class="main__activity__content-item__detail-priority">Important</p>
-            </div>
-            <p class="main__activity__content-item__time">20:15:00</p>
-            <p class="main__activity__content-item__description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, architecto fuga! Voluptatibus eaque
-              quam repellat ab ea unde est debitis, quis doloremque minus harum! Sapiente error cupiditate consequuntur
-              magni fugiat.
+        <div class="activity__content-item">
+          <div class="activity__content-item__left">
+            <p class="activity__content-item__left-title">Meeting With Client x</p>
+            <p class="activity__content-item__left-priority">Important</p>
+            <p class="activity__content-item__left-daily">Daily</p>
+            <p class="activity__content-item__left-weekly">Weekly</p>
+            <p class="activity__content-item__left-monthly">Monthly</p>
+            <p class="activity__content-item__left-description">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam sapiente dignissimos
+              repellendus tempora neque, eveniet magnam eligendi ut modi.
             </p>
-            <div class="main__activity__content-item__action">
-              <a href="#" class="main__activity__content-item__action-edit">
-                <img src="./assets/images/dashboard/edit.svg">
-              </a>
-              <a href="#" class="main__activity__content-item__action-delete">
-                <img src="./assets/images/dashboard/delete.svg">
-              </a>
-              <a href="#" class="main__activity__content-item__action-complete">
-                <img src="./assets/images/dashboard/complete.svg">
-              </a>
-            </div>
           </div>
-          <div class="main__activity__content-item">
-            <div class="main__activity__content-item__title">
-              <p>Meeting With Client x</p>
+          <div class="activity__content-item__right">
+            <div class="activity__content-item__right-time">
+              <p>22 November 2023</p>
+              <p>20:15:00</p>
             </div>
-            <div class="main__activity__content-item__detail">
-              <p class="main__activity__content-item__detail-date">22 Nov 2023</p>
-              <p class="main__activity__content-item__detail-priority">Important</p>
-            </div>
-            <p class="main__activity__content-item__time">20:15:00</p>
-            <p class="main__activity__content-item__description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, architecto fuga! Voluptatibus eaque
-              quam repellat ab ea unde est debitis, quis doloremque minus harum! Sapiente error cupiditate consequuntur
-              magni fugiat.
-            </p>
-            <div class="main__activity__content-item__action">
-              <a href="#" class="main__activity__content-item__action-edit">
+            <div class="activity__content-item__right-action">
+              <button class="activity__content-item__right-action-edit btn">
                 <img src="./assets/images/dashboard/edit.svg">
-              </a>
-              <a href="#" class="main__activity__content-item__action-delete">
+              </button>
+              <button class="activity__content-item__right-action-delete btn">
                 <img src="./assets/images/dashboard/delete.svg">
-              </a>
-              <a href="#" class="main__activity__content-item__action-complete">
+              </button>
+              <button class="activity__content-item__right-action-complete btn">
                 <img src="./assets/images/dashboard/complete.svg">
-              </a>
-            </div>
-          </div>
-          <div class="main__activity__content-item">
-            <div class="main__activity__content-item__title">
-              <p>Meeting With Client x</p>
-            </div>
-            <div class="main__activity__content-item__detail">
-              <p class="main__activity__content-item__detail-date">22 Nov 2023</p>
-              <p class="main__activity__content-item__detail-priority">Important</p>
-            </div>
-            <p class="main__activity__content-item__time">20:15:00</p>
-            <p class="main__activity__content-item__description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, architecto fuga! Voluptatibus eaque
-              quam repellat ab ea unde est debitis, quis doloremque minus harum! Sapiente error cupiditate consequuntur
-              magni fugiat.
-            </p>
-            <div class="main__activity__content-item__action">
-              <a href="#" class="main__activity__content-item__action-edit">
-                <img src="./assets/images/dashboard/edit.svg">
-              </a>
-              <a href="#" class="main__activity__content-item__action-delete">
-                <img src="./assets/images/dashboard/delete.svg">
-              </a>
-              <a href="#" class="main__activity__content-item__action-complete">
-                <img src="./assets/images/dashboard/complete.svg">
-              </a>
-            </div>
-          </div>
-          <div class="main__activity__content-item">
-            <div class="main__activity__content-item__title">
-              <p>Meeting With Client x</p>
-            </div>
-            <div class="main__activity__content-item__detail">
-              <p class="main__activity__content-item__detail-date">22 Nov 2023</p>
-              <p class="main__activity__content-item__detail-priority">Important</p>
-            </div>
-            <p class="main__activity__content-item__time">20:15:00</p>
-            <p class="main__activity__content-item__description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, architecto fuga! Voluptatibus eaque
-              quam repellat ab ea unde est debitis, quis doloremque minus harum! Sapiente error cupiditate consequuntur
-              magni fugiat.
-            </p>
-            <div class="main__activity__content-item__action">
-              <a href="#" class="main__activity__content-item__action-edit">
-                <img src="./assets/images/dashboard/edit.svg">
-              </a>
-              <a href="#" class="main__activity__content-item__action-delete">
-                <img src="./assets/images/dashboard/delete.svg">
-              </a>
-              <a href="#" class="main__activity__content-item__action-complete">
-                <img src="./assets/images/dashboard/complete.svg">
-              </a>
-            </div>
-          </div>
-          <div class="main__activity__content-item">
-            <div class="main__activity__content-item__title">
-              <p>Meeting With Client x</p>
-            </div>
-            <div class="main__activity__content-item__detail">
-              <p class="main__activity__content-item__detail-date">22 Nov 2023</p>
-              <p class="main__activity__content-item__detail-priority">Important</p>
-            </div>
-            <p class="main__activity__content-item__time">20:15:00</p>
-            <p class="main__activity__content-item__description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, architecto fuga! Voluptatibus eaque
-              quam repellat ab ea unde est debitis, quis doloremque minus harum! Sapiente error cupiditate consequuntur
-              magni fugiat.
-            </p>
-            <div class="main__activity__content-item__action">
-              <a href="#" class="main__activity__content-item__action-edit">
-                <img src="./assets/images/dashboard/edit.svg">
-              </a>
-              <a href="#" class="main__activity__content-item__action-delete">
-                <img src="./assets/images/dashboard/delete.svg">
-              </a>
-              <a href="#" class="main__activity__content-item__action-complete">
-                <img src="./assets/images/dashboard/complete.svg">
-              </a>
-            </div>
-          </div>
-          <div class="main__activity__content-item">
-            <div class="main__activity__content-item__title">
-              <p>Meeting With Client x</p>
-            </div>
-            <div class="main__activity__content-item__detail">
-              <p class="main__activity__content-item__detail-date">22 Nov 2023</p>
-              <p class="main__activity__content-item__detail-priority">Important</p>
-            </div>
-            <p class="main__activity__content-item__time">20:15:00</p>
-            <p class="main__activity__content-item__description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, architecto fuga! Voluptatibus eaque
-              quam repellat ab ea unde est debitis, quis doloremque minus harum! Sapiente error cupiditate consequuntur
-              magni fugiat.
-            </p>
-            <div class="main__activity__content-item__action">
-              <a href="#" class="main__activity__content-item__action-edit">
-                <img src="./assets/images/dashboard/edit.svg">
-              </a>
-              <a href="#" class="main__activity__content-item__action-delete">
-                <img src="./assets/images/dashboard/delete.svg">
-              </a>
-              <a href="#" class="main__activity__content-item__action-complete">
-                <img src="./assets/images/dashboard/complete.svg">
-              </a>
+              </button>
             </div>
           </div>
         </div>
-    </main>
-    <!-- Main end -->
-  </div>
+      </div>
+    </div>
+  </main>
+  <!-- Main end -->
   <script src="./assets/js/dashboard.js"></script>
 </body>
 
