@@ -3,14 +3,16 @@ function toggleSidebar() {
   sidebar.classList.toggle('active');
 }
 function toggleEdit() {
-  const parentButtons = document.querySelector(
+  const parentButtons = document.querySelectorAll(
     '.activity__content-item__right-action'
   );
   const buttons = document.querySelectorAll(
     '.activity__content-item__right-action .btn'
   );
-  console.log(parentButtons);
-  parentButtons.classList.toggle('show');
+  parentButtons.forEach((button) => {
+    console.log(button);
+    button.classList.toggle('show');
+  });
   buttons.forEach((button) => {
     button.classList.toggle('show');
   });

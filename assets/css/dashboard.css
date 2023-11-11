@@ -252,14 +252,17 @@ main {
   font-size: 0.8rem;
 }
 .activity__content {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto;
+  place-items: center;
+  background-color: red;
   padding: 10px;
   gap: 10px;
 }
 .activity__content-item {
-  min-width: 200px;
-  max-width: 300px;
+  min-width: 250px;
+  /* tengok nanti */
+  /* max-width: 300px; */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -356,8 +359,7 @@ main {
 }
 @media screen and (min-width: 768px) {
   .activity__content {
-    flex-flow: row wrap;
-    justify-content: space-evenly;
+    grid-template-columns: auto auto;
     gap: 10px;
   }
   .activity__heading-action__find {
@@ -396,11 +398,20 @@ main {
   .activity__heading-action .filter {
     font-size: 1rem;
   }
+  .activity__content {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .activity__content-item {
     font-size: 0.9rem;
   }
   .activity__content-item__title {
     font-size: 1rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .activity__content {
+    background-color: salmon;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 /* Main end */
