@@ -51,29 +51,36 @@ body {
 .sidebar.active {
   left: 0;
 }
-
 .sidebar__profile {
   display: flex;
   flex-flow: column;
 }
-
 .sidebar__profile__account {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 20px 10px;
+  gap: 10px;
+  padding: 20px 0;
 }
 .sidebar__profile__account__avatar {
   border-radius: 100%;
 }
-.sidebar__profile__account__name {
-  color: white;
-  background-color: var(--main-color);
-  padding: 10px;
-  border-radius: 5px;
+.sidebar__profile__account__detail-name,
+.sidebar__profile__account__detail-email {
+  max-width: 150px;
+  word-wrap: break-word;
 }
-
+.sidebar__profile__account__detail-name {
+  background-color: var(--main-color);
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+}
+.sidebar__profile__account__detail-email {
+  font-size: 0.9rem;
+  font-weight: 300;
+  padding: 0 5px;
+}
 .sidebar__profile__menu {
   display: flex;
   justify-content: center;
@@ -85,45 +92,41 @@ body {
   padding: 8px;
   border-radius: 10px;
 }
+.sidebar__profile__menu a:hover {
+  filter: brightness(0.9);
+}
 .sidebar__menu {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
 
-  padding: 20px 0;
-}
-.sidebar__menu__list ul {
-  min-width: 170px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  padding: 20px;
 }
 .sidebar__menu__list ul li a {
-  display: inline-block;
-  width: 100%;
-  padding: 15px 0;
-  background-color: var(--main-color);
-  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
 
-  color: white;
-  text-align: center;
+  color: var(--color-dark);
   text-decoration: none;
+
+  transition: 0.3s;
 }
-.sidebar__menu__list ul li a:hover {
-  filter: brightness(0.9);
+.sidebar__menu__list ul li a:hover,
+.sidebar__menu__list ul li a.active {
+  color: white;
+  background-color: var(--main-color);
 }
 .sidebar__menu__logout a {
   display: flex;
-  gap: 5px;
-  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
 
   margin-bottom: 50px;
   min-width: 170px;
-  border-radius: 8px;
-  padding: 15px 0;
   background-color: var(--color-danger);
 
   color: white;
@@ -255,7 +258,6 @@ main {
   display: grid;
   grid-template-columns: auto;
   place-items: center;
-  background-color: red;
   padding: 10px;
   gap: 10px;
 }
@@ -304,6 +306,9 @@ main {
 .activity__content-item__left-description {
   max-width: 200px;
   text-align: justify;
+}
+.activity__content-item__right {
+  max-width: 110px;
 }
 .activity__content-item__right-time {
   border-radius: 5px;
@@ -411,7 +416,7 @@ main {
 @media screen and (min-width: 1440px) {
   .activity__content {
     background-color: salmon;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 /* Main end */
