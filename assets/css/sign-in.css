@@ -1,422 +1,446 @@
 :root {
-    --main-color: #008fff;
-    --color-dark: #333333;
-    --border-color: #1a2744;
+  --main-color: #008fff;
+  --color-dark: #333333;
+  --border-color: #1a2744;
 }
 body {
-    background: #f5f5f5;
-    font-family: "Outfit", sans-serif;
+  background: #f5f5f5;
+  font-family: 'Outfit', sans-serif;
 }
 main {
-    position: relative;
-    animation: zoomFadeIn 0.5s ease-in-out;
+  position: relative;
+  animation: zoomFadeIn 0.5s ease-in-out;
 }
 aside#illustration {
-    position: absolute;
-    display: none;
+  position: absolute;
+  display: none;
 }
 /* Register Style Start */
 section#register {
-    display: block;
-    animation: zoomFadeIn 0.3s ease-in-out;
+  display: block;
+  animation: zoomFadeIn 0.3s ease-in-out;
 }
 section#register.hide {
-    display: none;
+  display: none;
 }
 .register-wrapper {
-    padding: 20px;
-    color: var(--color-dark);
-    line-height: 1.25;
+  padding: 20px;
+  color: var(--color-dark);
+  line-height: 1.25;
 }
 .register-wrapper .register {
-    color: var(--main-color);
-    letter-spacing: 0.2rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 10px;
+  color: var(--main-color);
+  letter-spacing: 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 .register-wrapper h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 .register-wrapper h2 span {
-    color: var(--main-color);
+  color: var(--main-color);
 }
 .register-wrapper .desc {
-    font-weight: 200;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
+  font-weight: 200;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
 }
 .register-wrapper .desc span {
-    color: var(--main-color);
-    cursor: pointer;
+  color: var(--main-color);
+  cursor: pointer;
 }
 .register-wrapper .desc span:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .register-wrapper form {
-    padding-block: 20px;
+  padding-block: 20px;
 }
 .register-wrapper form label {
-    font-weight: 500;
-    margin-bottom: 20px;
-    display: block;
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: block;
 }
 .register-wrapper form label div {
-    position: relative;
+  position: relative;
 }
 .register-wrapper form label input {
-    margin-top: 10px;
-    border: 1px solid var(--border-color);
-    font-size: 0.9rem;
-    display: block;
-    padding: 10px 35px 10px 15px;
-    width: 100%;
-    border-radius: 10px;
+  margin-top: 10px;
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  display: block;
+  padding: 10px 35px 10px 15px;
+  width: 100%;
+  border-radius: 10px;
 }
 .register-wrapper form label input:focus {
-    outline: 1px solid var(--main-color);
-    border: 1px solid var(--main-color);
+  outline: 1px solid var(--main-color);
+  border: 1px solid var(--main-color);
 }
 .register-wrapper label span.user {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
 }
 .register-wrapper label span.mail {
-    position: absolute;
-    top: 15px;
-    right: 10px;
-    width: 17px;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  width: 17px;
 }
 .register-wrapper label span.lock {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 13px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 13px;
+}
+.register-wrapper label .toggle-password-register {
+  position: absolute;
+  top: 5px;
+  width: min-content;
+  padding: 5px;
+  right: -50px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: aqua;
+}
+.register-wrapper label .toggle-password-register:hover {
+  opacity: 0.5;
 }
 .register-wrapper form button {
-    width: 100%;
-    padding: 10px;
-    background-color: var(--main-color);
-    border-radius: 10px;
-    color: white;
-    letter-spacing: 5px;
-    font-weight: 500;
-    transition: opacity 0.3s;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-        0 4px 6px -4px rgb(0 0 0 / 0.1);
+  width: 100%;
+  padding: 10px;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  color: white;
+  letter-spacing: 5px;
+  font-weight: 500;
+  transition: opacity 0.3s;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 .register-wrapper form button:hover {
-    cursor: pointer;
-    opacity: 0.7;
+  cursor: pointer;
+  opacity: 0.7;
 }
 .register-wrapper p.policy {
-    text-align: center;
-    font-weight: 200;
-    font-size: 0.9rem;
+  text-align: center;
+  font-weight: 200;
+  font-size: 0.9rem;
 }
 .register-wrapper p.policy small a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .register-wrapper p.policy small a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 /* Register Style End */
 
 /* Login style Start */
 section#login {
-    display: block;
-    animation: zoomFadeIn 0.3s ease-in-out;
+  display: block;
+  animation: zoomFadeIn 0.3s ease-in-out;
 }
 section#login.hide {
-    display: none;
+  display: none;
 }
 .login-wrapper {
-    padding: 20px;
-    color: var(--color-dark);
-    line-height: 1.25;
+  padding: 20px;
+  color: var(--color-dark);
+  line-height: 1.25;
 }
 .login-wrapper .login {
-    color: var(--main-color);
-    letter-spacing: 0.2rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 10px;
+  color: var(--main-color);
+  letter-spacing: 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 .login-wrapper h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 .login-wrapper h2 span {
-    color: var(--main-color);
+  color: var(--main-color);
 }
 .login-wrapper .desc {
-    font-weight: 200;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
+  font-weight: 200;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
 }
 .login-wrapper .desc span {
-    color: var(--main-color);
-    cursor: pointer;
+  color: var(--main-color);
+  cursor: pointer;
 }
 .login-wrapper .desc span:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .login-wrapper form {
-    padding-block: 20px;
+  padding-block: 20px;
 }
 .login-wrapper form label {
-    font-weight: 500;
-    margin-bottom: 20px;
-    display: block;
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: block;
 }
 .login-wrapper form label div {
-    position: relative;
+  position: relative;
 }
 .login-wrapper form label input {
-    margin-top: 10px;
-    border: 1px solid var(--border-color);
-    font-size: 0.9rem;
-    display: block;
-    padding: 10px 35px 10px 15px;
-    width: 100%;
-    border-radius: 10px;
+  margin-top: 10px;
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  display: block;
+  padding: 10px 35px 10px 15px;
+  width: 100%;
+  border-radius: 10px;
 }
 .login-wrapper form label input:focus {
-    outline: 1px solid var(--main-color);
-    border: 1px solid var(--main-color);
+  outline: 1px solid var(--main-color);
+  border: 1px solid var(--main-color);
 }
 .login-wrapper label span.user {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
 }
 .login-wrapper label span.mail {
-    position: absolute;
-    top: 15px;
-    right: 10px;
-    width: 17px;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  width: 17px;
 }
 .login-wrapper label span.lock {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 13px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 13px;
+}
+.login-wrapper label .toggle-password-login {
+  position: absolute;
+  top: 5px;
+  width: min-content;
+  padding: 5px;
+  right: -50px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: aqua;
+}
+.login-wrapper label .toggle-password-login:hover {
+  opacity: 0.5;
 }
 .login-wrapper form button {
-    width: 100%;
-    padding: 10px;
-    background-color: var(--main-color);
-    border-radius: 10px;
-    color: white;
-    letter-spacing: 5px;
-    font-weight: 500;
-    transition: opacity 0.3s;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-        0 4px 6px -4px rgb(0 0 0 / 0.1);
+  width: 100%;
+  padding: 10px;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  color: white;
+  letter-spacing: 5px;
+  font-weight: 500;
+  transition: opacity 0.3s;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 .login-wrapper form button:hover {
-    cursor: pointer;
-    opacity: 0.7;
+  cursor: pointer;
+  opacity: 0.7;
 }
 .login-wrapper p.policy {
-    text-align: center;
-    font-weight: 200;
-    font-size: 0.9rem;
+  text-align: center;
+  font-weight: 200;
+  font-size: 0.9rem;
 }
 .login-wrapper p.policy small a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .login-wrapper p.policy small a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 /* Login style End */
 @media screen and (min-width: 768px) {
-    main .container {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        height: 100vh;
-        margin-inline: auto;
-        position: relative;
-    }
-    main aside#illustration img.float {
-        display: block;
-        position: absolute;
-        z-index: -99;
-        bottom: 0;
-        pointer-events: none;
-        user-select: none;
-        -webkit-user-drag: none;
-    }
-    main aside#illustration img.float.left {
-        left: 0;
-    }
-    main aside#illustration img.float.right {
-        right: 0;
-        display: none;
-    }
-    main .container aside#illustration {
-        height: 100vh;
-        width: 50%;
-        background-color: #e6eefb;
-        display: flex;
-        flex-flow: column;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        border-top-right-radius: 30px;
-        border-bottom-right-radius: 30px;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        transition: left 0.5s ease;
-    }
-    main .container aside#illustration .description img {
-        margin-inline: auto;
-    }
-    main .container aside#illustration .description p {
-        letter-spacing: 5px;
-        color: var(--main-color);
-        font-weight: 700;
-    }
-    main aside#illustration img.signin-illustration {
-        max-width: 80%;
-    }
-    main .container aside#illustration.swipe {
-        left: 50%;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-top-left-radius: 30px;
-        border-bottom-left-radius: 30px;
-    }
-    main .container aside#illustration.swipe img.float.left {
-        display: none;
-    }
-    main .container aside#illustration.swipe img.float.right {
-        display: block;
-    }
-    main aside#illustration.swipe img.signin-illustration {
-        transform: scaleX(-1);
-    }
-    section#register {
-        animation: none;
-        transition: all 0.5s;
-    }
-    section#register.hide {
-        display: block;
-    }
-    section#register.scale-down {
-        opacity: 0;
-        scale: 0;
-    }
-    section#login {
-        animation: none;
-        transition: all 0.5s;
-    }
-    section#login.hide {
-        display: block;
-    }
-    section#login.scale-down {
-        display: block;
-        opacity: 0;
-        scale: 0;
-    }
+  main .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    margin-inline: auto;
+    position: relative;
+  }
+  main aside#illustration img.float {
+    display: block;
+    position: absolute;
+    z-index: -99;
+    bottom: 0;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  main aside#illustration img.float.left {
+    left: 0;
+  }
+  main aside#illustration img.float.right {
+    right: 0;
+    display: none;
+  }
+  main .container aside#illustration {
+    height: 100vh;
+    width: 50%;
+    background-color: #e6eefb;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transition: left 0.5s ease;
+  }
+  main .container aside#illustration .description img {
+    margin-inline: auto;
+  }
+  main .container aside#illustration .description p {
+    letter-spacing: 5px;
+    color: var(--main-color);
+    font-weight: 700;
+  }
+  main aside#illustration img.signin-illustration {
+    max-width: 80%;
+  }
+  main .container aside#illustration.swipe {
+    left: 50%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
+  main .container aside#illustration.swipe img.float.left {
+    display: none;
+  }
+  main .container aside#illustration.swipe img.float.right {
+    display: block;
+  }
+  main aside#illustration.swipe img.signin-illustration {
+    transform: scaleX(-1);
+  }
+  section#register {
+    animation: none;
+    transition: all 0.5s;
+  }
+  section#register.hide {
+    display: block;
+  }
+  section#register.scale-down {
+    opacity: 0;
+    scale: 0;
+  }
+  section#login {
+    animation: none;
+    transition: all 0.5s;
+  }
+  section#login.hide {
+    display: block;
+  }
+  section#login.scale-down {
+    display: block;
+    opacity: 0;
+    scale: 0;
+  }
 }
 @media screen and (min-width: 1536px) {
-    main {
-        height: 100vh;
-        width: 100vw;
-        display: grid;
-        place-items: center;
-    }
-    main .container {
-        max-height: 75vh;
-    }
-    main .container aside#illustration {
-        max-height: 75vh;
-    }
-    main .container aside#illustration .description img {
-        width: 190px;
-    }
-    main .container aside#illustration .description p {
-        font-size: 1.2rem;
-    }
-    .register-wrapper .register {
-        letter-spacing: 0.3rem;
-        font-size: 1.2rem;
-    }
-    .register-wrapper h2 {
-        font-size: 3rem;
-        margin-bottom: 20px;
-    }
-    .register-wrapper .desc {
-        font-weight: 200;
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-    }
-    .register-wrapper form {
-        padding-block: 40px;
-    }
-    .register-wrapper form label {
-        font-size: 1.2rem;
-    }
-    .register-wrapper form label input {
-        font-size: 1.2rem;
-    }
-    .register-wrapper form button {
-        font-size: 1.2rem;
-    }
-    .register-wrapper p.policy {
-        text-align: center;
-        font-weight: 200;
-        font-size: 1rem;
-    }
-    .login-wrapper .login {
-        letter-spacing: 0.3rem;
-        font-size: 1.2rem;
-    }
-    .login-wrapper h2 {
-        font-size: 3rem;
-        margin-bottom: 20px;
-    }
-    .login-wrapper .desc {
-        font-weight: 200;
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-    }
-    .login-wrapper form {
-        padding-block: 40px;
-    }
-    .login-wrapper form label {
-        font-size: 1.2rem;
-    }
-    .login-wrapper form label input {
-        font-size: 1.2rem;
-    }
-    .login-wrapper form button {
-        font-size: 1.2rem;
-    }
-    .login-wrapper p.policy {
-        text-align: center;
-        font-weight: 200;
-        font-size: 1rem;
-    }
+  main {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+  }
+  main .container {
+    max-height: 75vh;
+  }
+  main .container aside#illustration {
+    max-height: 75vh;
+  }
+  main .container aside#illustration .description img {
+    width: 190px;
+  }
+  main .container aside#illustration .description p {
+    font-size: 1.2rem;
+  }
+  .register-wrapper .register {
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem;
+  }
+  .register-wrapper h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  .register-wrapper .desc {
+    font-weight: 200;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  .register-wrapper form {
+    padding-block: 40px;
+  }
+  .register-wrapper form label {
+    font-size: 1.2rem;
+  }
+  .register-wrapper form label input {
+    font-size: 1.2rem;
+  }
+  .register-wrapper form button {
+    font-size: 1.2rem;
+  }
+  .register-wrapper p.policy {
+    text-align: center;
+    font-weight: 200;
+    font-size: 1rem;
+  }
+  .login-wrapper .login {
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem;
+  }
+  .login-wrapper h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  .login-wrapper .desc {
+    font-weight: 200;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  .login-wrapper form {
+    padding-block: 40px;
+  }
+  .login-wrapper form label {
+    font-size: 1.2rem;
+  }
+  .login-wrapper form label input {
+    font-size: 1.2rem;
+  }
+  .login-wrapper form button {
+    font-size: 1.2rem;
+  }
+  .login-wrapper p.policy {
+    text-align: center;
+    font-weight: 200;
+    font-size: 1rem;
+  }
 }
 @keyframes zoomFadeIn {
-    0% {
-        /* transform: scale(0); */
-        opacity: 0;
-    }
-    100% {
-        /* transform: scale(1); */
-        opacity: 1;
-    }
+  0% {
+    /* transform: scale(0); */
+    opacity: 0;
+  }
+  100% {
+    /* transform: scale(1); */
+    opacity: 1;
+  }
 }

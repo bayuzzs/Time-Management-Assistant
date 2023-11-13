@@ -40,10 +40,10 @@
           <h2>Sign up for <span>free</span></h2>
           <p class="desc">Already have an account? <span class="login">Log In</span></p>
           <form>
-            <label class="username">
-              Username
+            <label class="name">
+              Name
               <div>
-                <input type="text" name="username">
+                <input type="text" name="name">
                 <span class="user"><img src="assets/images/sign-in/user.svg"></span>
               </div>
             </label>
@@ -57,8 +57,9 @@
             <label>
               Password
               <div>
-                <input type="password" name="password">
+                <input type="password" name="password" id="register-password">
                 <span class="lock"><img src="assets/images/sign-in/lock.svg"></span>
+                <p class="toggle-password-register" onclick="togglePasswordRegister()">show</p>
               </div>
             </label>
             <button type="submit">SIGN UP</button>
@@ -86,8 +87,9 @@
             <label>
               Password
               <div>
-                <input type="password" name="password">
+                <input type="password" name="password" id="login-password">
                 <span class="lock"><img src="assets/images/sign-in/lock.svg"></span>
+                <p class="toggle-password-login" onclick="togglePasswordLogin()">show</p>
               </div>
             </label>
             <button type="submit">LOG IN</button>
