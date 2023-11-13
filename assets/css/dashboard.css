@@ -80,13 +80,39 @@ body {
   align-items: center;
   gap: 20px;
 }
-.sidebar__profile__menu a {
-  background-color: var(--main-color);
+.sidebar__profile__menu .settings,
+.sidebar__profile__menu .notifications {
+  background-color: #e6eefb;
+  color: var(--main-color);
   padding: 8px;
   border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
 }
-.sidebar__profile__menu a:hover {
-  filter: brightness(0.9);
+.sidebar__profile__menu .notifications {
+  position: relative;
+}
+.sidebar__profile__menu .settings:hover,
+.sidebar__profile__menu .notifications:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+/* if button were clicked */
+.sidebar__profile__menu .notifications.clicked {
+  background-color: var(--main-color);
+  color: white;
+}
+/* if button have notifications exist */
+.sidebar__profile__menu .notifications.exist::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .sidebar__menu {
   flex-grow: 1;
@@ -102,11 +128,12 @@ body {
   gap: 10px;
   padding: 10px;
   border-radius: 10px;
+  margin-bottom: 3px;
 
   color: var(--color-dark);
   text-decoration: none;
 
-  transition: 0.3s;
+  transition: 0.2s;
 }
 .sidebar__menu__list ul li a:hover,
 .sidebar__menu__list ul li a.active {
