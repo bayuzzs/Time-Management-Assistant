@@ -1,0 +1,16 @@
+.fc-toolbar-title {
+  font-size: 1.4rem !important;
+}
+.fc-button-primary {
+  border-radius: 5px !important;
+  margin-right: 5px !important;
+  border: none !important;
+  outline: none !important;
+  background-color: var(--main-color) !important;
+}
+.fc-button-primary:hover {
+  filter: brightness(0.8);
+}
+.fc-button-primary:focus {
+  outline: none !important;
+}

@@ -10,7 +10,6 @@ function toggleEdit() {
     '.activity__content-item__right-action .btn'
   );
   parentButtons.forEach((button) => {
-    console.log(button);
     button.classList.toggle('show');
   });
   buttons.forEach((button) => {
