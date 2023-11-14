@@ -1,5 +1,5 @@
 :root {
-  --main-color: rgb(0, 145, 255);
+  --main-color: #0091ff;
   --color-dark: #333333;
   --border-color: #1a2744;
   --base-color: #f5f5f5;
@@ -169,7 +169,7 @@ body {
   gap: 20px;
   padding: 30px 20px 50px 20px;
   border-bottom-left-radius: 30px;
-  background-color: var(--main-color);
+  background-color: #45adff;
 }
 .banner__text {
   max-width: 240px;
@@ -195,27 +195,41 @@ body {
   margin-top: -40px;
 }
 .heading__priority,
-.heading__all,
-.heading__overdue {
-  padding: 20px 0;
-  text-align: center;
+.heading__overdue,
+.heading__all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+  color: #ffffff;
+  padding: 10px 0;
   font-size: 0.8rem;
   border-radius: 10px;
+  text-align: center;
+}
+.heading__priority img,
+.heading__overdue img,
+.heading__all img {
+  display: none;
+  padding: 5px;
+  border: 2px solid white;
+  border-radius: 100%;
 }
 .heading__priority {
-  background-color: #fff9df;
-}
-.heading__all {
-  color: #ffffff;
-  background-color: #ff635e;
+  background-color: #fdd527;
 }
 .heading__overdue {
-  color: #ffffff;
+  background-color: #ff635e;
+}
+.heading__all {
   background-color: #1a2744;
 }
-.heading__priority-count,
-.heading__all-count,
-.heading__overdue-count {
+.heading__priority__detail-count,
+.heading__overdue__detail-count,
+.heading__all__detail-count {
+  font-size: 1.3rem;
+  font-weight: 600;
   margin-bottom: 10px;
 }
 .activity {
@@ -237,14 +251,8 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .activity__heading-text {
-  /* max-width: 50px; */
-  padding: 10px;
-  border-radius: 5px;
-
-  font-size: 0.8rem;
-  line-height: 1rem;
-  background-color: var(--main-color);
-  color: #fff;
+  color: var(--border-color);
+  font-weight: 600;
 }
 .activity__heading-action {
   display: flex;
@@ -316,10 +324,13 @@ body {
   width: fit-content;
   padding: 5px;
   border-radius: 5px;
-  background-color: var(--color-danger);
+  background-color: var(--main-color);
   color: #ffffff;
   font-size: 0.8rem;
   margin-bottom: 15px;
+}
+.activity__content-item__left-priority {
+  background-color: #fdd527;
 }
 .activity__content-item__left-daily {
   /* display: none; */
@@ -342,6 +353,7 @@ body {
   padding: 10px 5px;
   background-color: #fff;
   color: var(--main-color);
+  font-weight: 600;
   font-size: 0.8rem;
   text-align: center;
 }
@@ -399,6 +411,27 @@ body {
   .banner__text-description {
     font-size: 1rem;
   }
+  .heading {
+    margin-top: -60px;
+  }
+  .heading__priority,
+  .heading__overdue,
+  .heading__all {
+    padding: 30px 0;
+    font-size: 1rem;
+    text-align: left;
+  }
+  .heading__priority img,
+  .heading__overdue img,
+  .heading__all img {
+    display: block;
+  }
+  .heading__priority__detail-count,
+  .heading__overdue__detail-count,
+  .heading__all__detail-count {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
   .activity__content {
     grid-template-columns: auto auto;
     gap: 10px;
@@ -412,6 +445,7 @@ body {
 }
 @media screen and (min-width: 1024px) {
   .banner {
+    padding: 30px 20px 70px 20px;
     border-bottom-left-radius: 60px;
   }
   .banner__text {
@@ -423,19 +457,13 @@ body {
   .banner__text-description {
     font-size: 1.2rem;
   }
-  .heading__priority,
-  .heading__all,
-  .heading__overdue {
-    /* padding: 30px 0; */
-    font-size: 1rem;
-  }
-  .heading__priority-count,
-  .heading__all-count,
-  .heading__overdue-count {
-    font-size: 1.5rem;
+  .heading__priority__detail-count,
+  .heading__overdue__detail-count,
+  .heading__all__detail-count {
+    font-size: 1.7rem;
   }
   .activity__heading-text {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
   .activity__heading-action {
     gap: 10px;
