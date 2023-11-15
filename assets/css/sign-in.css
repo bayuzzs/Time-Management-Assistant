@@ -2,9 +2,16 @@
   --main-color: #008fff;
   --color-dark: #333333;
   --border-color: #1a2744;
+  --base-color: #f5f5f5;
 }
+/* remove show password behaviour from browser */
+input[type='password']::-ms-reveal,
+input[type='password']::-ms-clear {
+  display: none;
+}
+/* style start */
 body {
-  background: #f5f5f5;
+  background: var(--base-color);
   font-family: 'Outfit', sans-serif;
 }
 main {
@@ -75,6 +82,9 @@ section#register.hide {
   width: 100%;
   border-radius: 10px;
 }
+.register-wrapper form label input#register-password {
+  padding: 10px 60px 10px 15px;
+}
 .register-wrapper form label input:focus {
   outline: 1px solid var(--main-color);
   border: 1px solid var(--main-color);
@@ -98,19 +108,22 @@ section#register.hide {
   width: 13px;
 }
 .register-wrapper label .toggle-password-register {
+  display: none;
   position: absolute;
-  top: 5px;
-  width: min-content;
+  top: 2px;
+  width: max-content;
   padding: 5px;
-  right: -50px;
-  border-radius: 5px;
+  right: 25px;
   cursor: pointer;
-  background-color: aqua;
+  background-color: #ffffff;
+}
+.register-wrapper label .toggle-password-register.active {
+  display: block;
 }
 .register-wrapper label .toggle-password-register:hover {
-  opacity: 0.5;
+  background-color: #e4dbdb;
 }
-.register-wrapper form button {
+.register-wrapper form button[type='submit'] {
   width: 100%;
   padding: 10px;
   background-color: var(--main-color);
@@ -121,7 +134,7 @@ section#register.hide {
   transition: opacity 0.3s;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
-.register-wrapper form button:hover {
+.register-wrapper form button[type='submit']:hover {
   cursor: pointer;
   opacity: 0.7;
 }
@@ -198,6 +211,9 @@ section#login.hide {
   width: 100%;
   border-radius: 10px;
 }
+.login-wrapper form label input#login-password {
+  padding: 10px 60px 10px 15px;
+}
 .login-wrapper form label input:focus {
   outline: 1px solid var(--main-color);
   border: 1px solid var(--main-color);
@@ -221,19 +237,22 @@ section#login.hide {
   width: 13px;
 }
 .login-wrapper label .toggle-password-login {
+  display: none;
   position: absolute;
-  top: 5px;
-  width: min-content;
+  top: 2px;
+  width: max-content;
   padding: 5px;
-  right: -50px;
-  border-radius: 5px;
+  right: 25px;
   cursor: pointer;
-  background-color: aqua;
+  background-color: #ffffff;
+}
+.login-wrapper label .toggle-password-login.active {
+  display: block;
 }
 .login-wrapper label .toggle-password-login:hover {
-  opacity: 0.5;
+  background-color: #e4dbdb;
 }
-.login-wrapper form button {
+.login-wrapper form button[type='submit'] {
   width: 100%;
   padding: 10px;
   background-color: var(--main-color);
@@ -244,7 +263,7 @@ section#login.hide {
   transition: opacity 0.3s;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
-.login-wrapper form button:hover {
+.login-wrapper form button[type='submit']:hover {
   cursor: pointer;
   opacity: 0.7;
 }
