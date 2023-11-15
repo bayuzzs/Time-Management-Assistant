@@ -31,9 +31,11 @@ function togglePasswordRegister() {
   if (passwordRegister.type === 'password') {
     toggleIcon.src = '/assets/images/sign-in/eye-slashed.svg';
     passwordRegister.type = 'text';
+    passwordRegister.focus();
   } else {
     toggleIcon.src = '/assets/images/sign-in/eye.svg';
     passwordRegister.type = 'password';
+    passwordRegister.focus();
   }
 }
 
@@ -51,8 +53,10 @@ function togglePasswordLogin() {
   if (passwordLogin.type === 'password') {
     toggleIcon.src = '/assets/images/sign-in/eye-slashed.svg';
     passwordLogin.type = 'text';
+    passwordLogin.focus();
   } else {
     toggleIcon.src = '/assets/images/sign-in/eye.svg';
     passwordLogin.type = 'password';
+    passwordLogin.focus();
   }
 }
