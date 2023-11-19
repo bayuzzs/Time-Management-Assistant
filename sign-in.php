@@ -39,7 +39,7 @@
           <p class="register">REGISTER NOW</p>
           <h2>Sign up for <span>free</span></h2>
           <p class="desc">Already have an account? <span class="login">Log In</span></p>
-          <form>
+          <form action="utils/signup.php" method="POST">
             <label class="name">
               Name
               <div>

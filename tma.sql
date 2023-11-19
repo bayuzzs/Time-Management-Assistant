@@ -16,7 +16,6 @@ CREATE TABLE activities (
   description TEXT NOT NULL,
   date DATE NOT NULL,
   time TIME NOT NULL,
-  timeZone VARCHAR(50) NOT NULL,
   repetition ENUM('none', 'daily', 'weekly', 'monthly') NOT NULL,
   priority ENUM('none', 'important') NOT NULL,
   PRIMARY KEY (id_activity),
@@ -35,14 +34,34 @@ CREATE TABLE history_activities (
   FOREIGN KEY (id_user) REFERENCES users(id_user)
 );
 
-INSERT INTO users (name, email, password) VALUES
-('admin', 'admin@gmail.com', '333'),
-('user', 'user@gmail.com', '333'),
-('bayu', 'bayu@gmail', '333'),
-('ibnu', 'ibnu@gmail', '333'),
-('ali', 'ali@gmail', '333');
+-- INSERT INTO users (name, email, password) VALUES
+-- ('bayu', 'bayu@gmail', '333'),
+-- ('ibnu', 'ibnu@gmail', '333'),
+-- ('ali', 'ali@gmail', '333'),
+-- ('dwi', 'dwi@gmail', '333'),
+-- ('fazra', 'fazra@gmail', '333'),
+-- ('ajeng', 'ajeng@gmail', '333');
 
-INSERT INTO activities (id_user, title, description, date, time, timeZone, repetition, priority) VALUES
--- add activities here with different time
-(1, 'meeting', 'meeting with client', '2022-01-01', '10:00:00', 'Asia/Jakarta', 'none', 'none'),
-(2, 'lunch', 'lunch with client', '2022-01-01', '12:00:00', 'Asia/Jakarta', 'none', 'none');
+-- INSERT INTO activities 
+-- (id_activity, id_user, title, description, date, time, repetition, priority) VALUES 
+-- (1, 1, 'Title 1', 'Description 1', '2021-01-01', '10:00:00', 'none', 'none'),
+-- (2, 2, 'Title 2', 'Description 2', '2021-01-02', '10:00:00', 'daily', 'none'),
+-- (3, 3, 'Title 3', 'Description 3', '2021-01-03', '10:00:00', 'weekyly', 'important'),
+-- (4, 4, 'Title 4', 'Description 4', '2021-01-04', '10:00:00', 'monthly', 'none'),
+-- (5, 5, 'Title 5', 'Description 5', '2021-01-05', '10:00:00', 'none', 'important');
+
+-- INSERT INTO history_activities
+-- (id_history, id_user, title, description, date) VALUES
+-- (1, 1, 'Title 1', 'Description 1', '2021-01-01'),
+-- (2, 2, 'Title 2', 'Description 2', '2021-01-02'),
+-- (3, 3, 'Title 3', 'Description 3', '2021-01-03'),
+-- (4, 4, 'Title 4', 'Description 4', '2021-01-04'),
+-- (5, 5, 'Title 5', 'Description 5', '2021-01-05');
+
+-- SELECT id_activity, title, description, date, time, repetition, priority
+-- FROM activities JOIN users ON (activities.id_user = users.id_user) 
+-- WHERE email = 'bayu@gmail';
+
+-- SELECT id_history, title, description, date FROM history_activities 
+-- JOIN users ON (history_activities.id_user = users.id_user) 
+-- WHERE email = 'bayu@gmail';
