@@ -89,7 +89,7 @@ if (isset($_SESSION["error"])) {
           <p class="login">START YOU JOURNEY</p>
           <h2>Log in To <span>Chrono</span></h2>
           <p class="desc">Don't have an account? <span class="signup">Sign Up</span></p>
-          <form>
+          <form action="utils/signin.php" method="POST">
             <label>
               Email
               <div>

@@ -1,5 +1,5 @@
 <?php
-require_once "process.php";
+require_once "mysqli.php";
 session_start();
 $name = $mysqli->real_escape_string($_POST["name"]);
 $email = $mysqli->real_escape_string($_POST["email"]);
@@ -11,6 +11,10 @@ if ($mysqli->query("SELECT * FROM `users` WHERE `email` = '$email'")->num_rows >
   header("Location: /sign-in.php");
   exit();
 }
+
+// hash password
+$password = password_hash($password, PASSWORD_BCRYPT);
+// masukkan data pengguna baru
 $sql = "INSERT INTO `users` (`name`, `email`, `password`) VALUES (?, ?, ?)";
 
 if ($stmt = $mysqli->prepare($sql)) {
