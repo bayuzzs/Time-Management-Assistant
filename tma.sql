@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS tma;
 CREATE DATABASE tma;
 USE tma;
 
@@ -5,8 +6,9 @@ CREATE TABLE users (
   id_user INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
-  password VARCHAR(100) NOT NULL,
-  PRIMARY KEY (id_user)
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id_user),
+  CONSTRAINT `uq_email` UNIQUE (email)
 );
 
 CREATE TABLE activities (

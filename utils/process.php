@@ -6,14 +6,11 @@ $username = "root";
 $password = "";
 $database = "tma";
 
-$conn = new mysqli($servername, $username, $password, $database);
+$mysqli = new mysqli($servername, $username, $password, $database);
 
 // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if ($mysqli->connect_error) {
+  die("Connection failed: " . $mysqli->connect_error);
 }
-
-// Connection successful
-echo "Connected to database successfully";
 
 ?>

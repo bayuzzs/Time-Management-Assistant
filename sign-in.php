@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (isset($_SESSION["success"])) {
+  echo '<script>alert("' . $_SESSION["success"] . '");</script>';
+  unset($_SESSION["success"]);
+}
+if (isset($_SESSION["error"])) {
+  echo '<script>alert("' . $_SESSION["error"] . '");</script>';
+  unset($_SESSION["error"]);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

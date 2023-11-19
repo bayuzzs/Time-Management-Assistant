@@ -1,21 +1,23 @@
 <?php
 require_once "process.php";
-$name = $_POST['name'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+session_start();
+$name = $mysqli->real_escape_string($_POST["name"]);
+$email = $mysqli->real_escape_string($_POST["email"]);
+$password = $mysqli->real_escape_string($_POST["password"]);
 
-var_dump($name, $email, $password);
-// // Check if the email already exists
-// $query = "SELECT * FROM users WHERE email = '$email'";
-// $result = mysqli_query($conn, $query);
-// if (mysqli_num_rows($result) > 0) {
-//   die("Email already exists");
-// }
-// // Insert the data into the database
-// $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
-// $result = mysqli_query($conn, $query);
-// if (!$result) {
-//   die("Error inserting data: " . mysqli_error($conn));
-// }
+// kalau email pengguna sudah ada dalam database
+if ($mysqli->query("SELECT * FROM `users` WHERE `email` = '$email'")->num_rows > 0) {
+  $_SESSION["error"] = "Email already exists";
+  header("Location: /sign-in.php");
+  exit();
+}
+$sql = "INSERT INTO `users` (`name`, `email`, `password`) VALUES (?, ?, ?)";
 
+if ($stmt = $mysqli->prepare($sql)) {
+  $stmt->bind_param("sss", $name, $email, $password);
+  $stmt->execute();
+  $mysqli->close();
+}
+$_SESSION["success"] = "Account created successfully";
+header("Location: /sign-in.php");
 ?>
