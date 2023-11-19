@@ -54,21 +54,22 @@ if (isset($_SESSION["error"])) {
             <label class="name">
               Name
               <div>
-                <input type="text" name="name">
+                <input type="text" name="name" required>
                 <span class="user"><img src="assets/images/sign-in/user.svg"></span>
               </div>
             </label>
             <label>
               Email
               <div>
-                <input type="email" name="email">
+                <input type="email" name="email" required>
                 <span class="mail"><img src="assets/images/sign-in/mail.svg"></span>
               </div>
             </label>
             <label>
               Password
               <div>
-                <input type="password" name="password" id="register-password" oninput="toggleRegisterPassword()">
+                <input type="password" name="password" id="register-password" required
+                  oninput="toggleRegisterPassword()">
                 <span class="lock"><img src="assets/images/sign-in/lock.svg"></span>
                 <button type="button" class="toggle-password-register" onclick="togglePasswordRegister()">
                   <img src="/assets/images/sign-in/eye.svg">
@@ -93,14 +94,14 @@ if (isset($_SESSION["error"])) {
             <label>
               Email
               <div>
-                <input type="email" name="email">
+                <input type="email" name="email" required>
                 <span class="mail"><img src="assets/images/sign-in/mail.svg"></span>
               </div>
             </label>
             <label>
               Password
               <div>
-                <input type="password" name="password" id="login-password" oninput="toggleLoginPassword()">
+                <input type="password" name="password" id="login-password" required oninput="toggleLoginPassword()">
                 <span class="lock"><img src="assets/images/sign-in/lock.svg"></span>
                 <button type="button" class="toggle-password-login" onclick="togglePasswordLogin()">
                   <img src="/assets/images/sign-in/eye.svg">

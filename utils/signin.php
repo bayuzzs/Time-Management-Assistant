@@ -28,6 +28,6 @@ if (!password_verify($password, $row["password"])) {
 }
 
 // all condition fulfilled, execute this code
-$_SESSION["success"] = "Invalid email or password";
+$_SESSION["success"] = "Login Successfully";
 header("Location: /sign-in.php");
 ?>
