@@ -13,28 +13,55 @@ function loginUser($email, $password)
 
   if ($user && password_verify($password, $user['password'])) {
     // Successful login
-    return $user['id_user'];
+    return ['user' => $user['id_user'], 'email' => $user['email']];
   } else {
     // Failed login
     return false;
   }
 }
 
-function setAuthCookie($userID)
+function setAuthCookie($userID, $email)
 {
-  setcookie("auth_user", $userID, time() + (3600 * 24 * 30), "/");
-  $token = $userID;
   $salt = "garam_laut";
+  $token = hash('sha256', $email . $salt);
 
-  $token .= $salt;
-  $hashedToken = hash('sha2156', $token);
+  setcookie("auth_user", $userID, time() + (3600 * 24 * 30), "/");
+  setcookie("auth_token", $token, time() + (3600 * 24 * 30), "/");
+}
 
-  setcookie("auth_token", $hashedToken, time() + (3600 * 24 * 30), "/");
-
-  // Save the token in the database for future verification
+function checkAuthCookie($authUser, $authToken)
+{
+  // get user
   global $mysqli;
-  $stmt = $mysqli->prepare("UPDATE users SET auth_token = ? WHERE id = ?");
-  $stmt->bind_param("si", $hashedToken, $userID);
-  $stmt->execute();
+  $sql = "SELECT email FROM `users` WHERE `id_user` = ?";
+  if ($stmt = $mysqli->prepare($sql)) {
+    $stmt->bind_param("s", $authUser);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    $stmt->close();
+  }
+
+  // if user not found
+  if (!$user) {
+    return false;
+  }
+
+  // user found, check token
+  $salt = "garam_laut";
+  $token = hash('sha256', $user['email'] . $salt);
+
+  // if token doesn't match
+  if (!hash_equals($token, $authToken)) {
+    return false;
+  }
+
+  return true;
+}
+
+function unsetAuthCookie()
+{
+  setcookie("auth_user", "", -1, "/");
+  setcookie("auth_token", "", -1, "/");
 }
 ?>

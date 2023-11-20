@@ -1,7 +1,8 @@
 <?php
-$uniqueID = uniqid();
-
-// Remove the prefix and limit the length to 11 characters
-$randomUserID = substr($uniqueID, 0, 11);
-echo $randomUserID;
+require_once 'utils/auth.php';
+if (!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
+  echo 'user gada cok';
+} else {
+  echo 'user ada cok';
+}
 ?>

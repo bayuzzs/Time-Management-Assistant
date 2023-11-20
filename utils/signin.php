@@ -8,16 +8,18 @@ $email = $mysqli->real_escape_string($_POST["email"]);
 $password = $mysqli->real_escape_string($_POST["password"]);
 
 // login with loginUser function
-$id = loginUser($email, $password);
+$user = loginUser($email, $password);
 
-// if email or password doesn't match
-if (!$id) {
+// if email or password doesn't match, id will be false
+if (!$user) {
   $_SESSION["error"] = "Invalid email or password";
   header("Location: /sign-in.php");
   exit();
 }
 
-$_SESSION["success"] = "Login Successfully, id = $id";
+// all condition passed, execute this code
+setAuthCookie($user["user"], $user["email"]);
+$_SESSION["success"] = "Login Successfully, id = " . $user["user"];
 header("Location: /dashboard.php");
 exit();
 
