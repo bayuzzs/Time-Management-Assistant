@@ -1,6 +1,8 @@
 <?php
 require_once "mysqli.php";
+require_once "functions.php";
 session_start();
+$id = generateRandomUserID();
 $name = $mysqli->real_escape_string($_POST["name"]);
 $email = $mysqli->real_escape_string($_POST["email"]);
 $password = $mysqli->real_escape_string($_POST["password"]);
@@ -13,12 +15,12 @@ if ($mysqli->query("SELECT * FROM `users` WHERE `email` = '$email'")->num_rows >
 }
 
 // hash password
-$password = password_hash($password, PASSWORD_BCRYPT);
+$password = password_hash($password, PASSWORD_BCRYPT, ["cost" => 12]);
 // masukkan data pengguna baru
-$sql = "INSERT INTO `users` (`name`, `email`, `password`) VALUES (?, ?, ?)";
+$sql = "INSERT INTO `users` (`id_user`, `name`, `email`, `password`) VALUES (?, ?, ?, ?)";
 
 if ($stmt = $mysqli->prepare($sql)) {
-  $stmt->bind_param("sss", $name, $email, $password);
+  $stmt->bind_param("ssss", $id, $name, $email, $password);
   $stmt->execute();
   $mysqli->close();
 }

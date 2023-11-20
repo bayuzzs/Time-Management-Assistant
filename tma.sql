@@ -3,7 +3,7 @@ CREATE DATABASE tma;
 USE tma;
 
 CREATE TABLE users (
-  id_user INT NOT NULL AUTO_INCREMENT,
+  id_user CHAR(11) NOT NULL,
   name VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
   password VARCHAR(255) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE users (
 
 CREATE TABLE activities (
   id_activity INT NOT NULL AUTO_INCREMENT,
-  id_user INT NOT NULL,
+  id_user CHAR(11) NOT NULL,
   title VARCHAR(50) NOT NULL,
   description TEXT NOT NULL,
   date DATE NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE activities (
 
 CREATE TABLE history_activities (
   id_history INT NOT NULL AUTO_INCREMENT,
-  id_user INT NOT NULL,
+  id_user CHAR(11) NOT NULL,
   title VARCHAR(50) NOT NULL,
   description TEXT NOT NULL,
   date DATE NOT NULL,
