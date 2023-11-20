@@ -5,19 +5,49 @@ function loginUser($email, $password)
 {
   global $mysqli;
 
-  $stmt = $mysqli->prepare("SELECT id_user, email, password FROM users WHERE email = ?");
+  $stmt = $mysqli->prepare("SELECT id_user, name, email, password FROM users WHERE email = ?");
   $stmt->bind_param("s", $email);
   $stmt->execute();
   $result = $stmt->get_result();
   $user = $result->fetch_assoc();
+  $stmt->close();
 
   if ($user && password_verify($password, $user['password'])) {
     // Successful login
-    return ['user' => $user['id_user'], 'email' => $user['email']];
+    $user = [
+      'id_user' => $user['id_user'],
+      'name' => $user['name'],
+      'email' => $user['email'],
+    ];
+    return $user;
   } else {
     // Failed login
     return false;
   }
+}
+
+function loginFromCookie($userID)
+{
+  // Fetch user details from the database
+  global $mysqli;
+  $stmt = $mysqli->prepare("SELECT id_user, name, email FROM users WHERE id_user = ?");
+  $stmt->bind_param("s", $userID);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $user = $result->fetch_assoc();
+  $stmt->close();
+
+  // Return the user details
+  if ($user) {
+    return [
+      'id_user' => $user['id_user'],
+      'name' => $user['name'],
+      'email' => $user['email'],
+    ];
+  }
+
+  // Invalid or missing cookies
+  return false;
 }
 
 function setAuthCookie($userID, $email)

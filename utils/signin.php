@@ -9,7 +9,6 @@ $password = $mysqli->real_escape_string($_POST["password"]);
 
 // login with loginUser function
 $user = loginUser($email, $password);
-
 // if email or password doesn't match, id will be false
 if (!$user) {
   $_SESSION["error"] = "Invalid email or password";
@@ -18,8 +17,8 @@ if (!$user) {
 }
 
 // all condition passed, execute this code
-setAuthCookie($user["user"], $user["email"]);
-$_SESSION["success"] = "Login Successfully, id = " . $user["user"];
+setAuthCookie($user["id_user"], $user["email"]);
+$_SESSION["success"] = "Login Successfully!";
 header("Location: /dashboard.php");
 exit();
 

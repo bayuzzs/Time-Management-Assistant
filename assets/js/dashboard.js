@@ -1,7 +1,3 @@
-function toggleSidebar() {
-  let sidebar = document.querySelector('.sidebar');
-  sidebar.classList.toggle('active');
-}
 function toggleEdit() {
   const parentButtons = document.querySelectorAll(
     '.activity__content-item__right-action'

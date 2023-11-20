@@ -1,4 +1,16 @@
 <?php
+require_once 'utils/auth.php';
+
+// check user and token from cookie
+if (isset($_COOKIE["auth_user"]) && isset($_COOKIE["auth_token"])) {
+  // if user already login
+  if (checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
+    header("Location: /dashboard.php");
+    exit();
+  }
+}
+
+
 session_start();
 if (isset($_SESSION["success"])) {
   echo '<script>alert("' . $_SESSION["success"] . '");</script>';
