@@ -9,9 +9,9 @@ $password = $mysqli->real_escape_string($_POST["password"]);
 
 // kalau email pengguna sudah ada dalam database
 if ($mysqli->query("SELECT * FROM `users` WHERE `email` = '$email'")->num_rows > 0) {
-  $_SESSION["error"] = "Email already exists";
-  header("Location: /sign-in.php");
-  exit();
+  $_SESSION["message"] = "Email already exists!";
+  $_SESSION["type"] = "error";
+  exit(header("Location: /sign-in.php"));
 }
 
 // hash password
@@ -24,6 +24,7 @@ if ($stmt = $mysqli->prepare($sql)) {
   $stmt->execute();
   $mysqli->close();
 }
-$_SESSION["success"] = "Account created successfully";
-header("Location: /sign-in.php");
+$_SESSION["message"] = "Account created successfully!";
+$_SESSION["type"] = "success";
+exit(header("Location: /sign-in.php"));
 ?>

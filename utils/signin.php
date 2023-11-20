@@ -9,20 +9,22 @@ $password = $mysqli->real_escape_string($_POST["password"]);
 
 // login with loginUser function
 $user = loginUser($email, $password);
+
 // if email or password doesn't match, id will be false
 if (!$user) {
-  $_SESSION["error"] = "Invalid email or password";
-  header("Location: /sign-in.php");
-  exit();
+  $_SESSION["message"] = "Invalid email or password!";
+  $_SESSION["type"] = "error";
+  exit(header("Location: /sign-in.php"));
 }
 
 // all condition passed, execute this code
 setAuthCookie($user["id_user"], $user["email"]);
-$_SESSION["success"] = "Login Successfully!";
-header("Location: /dashboard.php");
-exit();
+$_SESSION["message"] = "Login Successfully!";
+$_SESSION["type"] = "success";
+exit(header("Location: /dashboard.php"));
 
-// fetch email, password field from database according to use input
+// INI KODE LAMA JAGA-JAGA AJA! 
+// // fetch email, password field from database according to use input
 // $sql = "SELECT email, password FROM `users` WHERE `email` = '$email'";
 // $result = $mysqli->query($sql);
 

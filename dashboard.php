@@ -3,10 +3,6 @@ require_once 'utils/auth.php';
 require_once 'utils/functions.php';
 session_start();
 
-if (isset($_SESSION["success"])) {
-  echo '<script>alert("' . $_SESSION["success"] . '");</script>';
-  unset($_SESSION["success"]);
-}
 // check user and token from cookie
 if (!isset($_COOKIE["auth_user"]) || !isset($_COOKIE["auth_token"])) {
   // if user not login yet
@@ -14,7 +10,7 @@ if (!isset($_COOKIE["auth_user"]) || !isset($_COOKIE["auth_token"])) {
   exit();
 }
 
-// if user not login yet
+// if user not login yet, kick them to the signin page
 if (!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
   header("Location: /sign-in.php");
   exit();
@@ -22,6 +18,14 @@ if (!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
 
 // get user data
 $user = loginFromCookie($_COOKIE["auth_user"]);
+
+// check session to show an alert
+if (isset($_SESSION['message'], $_SESSION['type'])) {
+  $message = $_SESSION['message'];
+  $type = $_SESSION['type'];
+  unset($_SESSION['message']);
+  unset($_SESSION['type']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -46,11 +50,21 @@ $user = loginFromCookie($_COOKIE["auth_user"]);
 </head>
 
 <body>
+  <?php if (isset($message, $type)): ?>
+    <div class="alert alert-<?= $type ?>">
+      <p class="alert__message">
+        <?= $message ?>
+      </p>
+    </div>
+  <?php endif; ?>
+
+  <!-- Sidebar start -->
   <?php
   // destructuring from user data
   ['id_user' => $id_user, 'name' => $name, 'email' => $email] = $user;
   renderSidebar($id_user, $name, $email, 'dashboard');
   ?>
+  <!-- Sidebar end -->
   <!-- Main start -->
   <main>
     <div class="banner">

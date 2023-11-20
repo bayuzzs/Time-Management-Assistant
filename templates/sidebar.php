@@ -1,12 +1,11 @@
 <?php
 // Declare global variables
 // global ;
-if (!isset($id) || !isset($name) || !isset($email)) {
+if (!isset($id_user, $name, $email, $active)) {
   die('make sidebar yang bener napa');
 }
 ?>
 
-<!-- Sidebar start -->
 <section class="sidebar">
   <!-- Hamburger Menur -->
   <div class="sidebar__hamburger" onclick="toggleSidebar()">
@@ -124,4 +123,3 @@ if (!isset($id) || !isset($name) || !isset($email)) {
     sidebar.classList.toggle('active');
   }
 </script>
-<!-- Sidebar end -->

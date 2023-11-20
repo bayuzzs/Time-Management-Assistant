@@ -9,7 +9,7 @@ function generateRandomUserID()
   return $randomUserID;
 }
 
-function renderSidebar($id, $name, $email, $active)
+function renderSidebar($id_user, $name, $email, $active)
 {
   // pathnya karena fungsi ini dipanggil contooh di /dashbord.php
   require_once 'templates/sidebar.php';
