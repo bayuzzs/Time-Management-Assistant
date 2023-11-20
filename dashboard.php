@@ -52,6 +52,7 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
 <body>
   <?php if (isset($message, $type)): ?>
     <div class="alert alert-<?= $type ?>">
+      <img src="assets/images/<?= $type ?>.svg">
       <p class="alert__message">
         <?= $message ?>
       </p>

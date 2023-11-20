@@ -69,6 +69,7 @@ body {
 .sidebar__profile__account__detail-email {
   max-width: 150px;
   word-wrap: break-word;
+  margin-bottom: 5px;
 }
 .sidebar__profile__account__detail-email {
   font-size: 0.9rem;

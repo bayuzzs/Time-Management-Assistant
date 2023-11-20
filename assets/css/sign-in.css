@@ -467,6 +467,10 @@ section#login.hide {
 
 /* alert style start */
 .alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
   position: fixed;
   top: 20px;
   width: 300px;
