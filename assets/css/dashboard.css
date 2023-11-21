@@ -396,7 +396,7 @@
   background-color: #ffffff;
   border-radius: 15px;
   max-width: 300px;
-  max-height: 600px;
+  max-height: 90vh;
   overflow-y: auto;
 }
 .modal__add__form {
@@ -424,6 +424,7 @@
   outline: 2px solid var(--main-color);
 }
 .modal__add__form-description {
+  min-height: 50px;
   resize: vertical;
 }
 .modal__add__form__datetime {
@@ -536,6 +537,20 @@
 @media screen and (min-width: 768px) {
   .modal__add {
     max-width: 500px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .modal__add {
+    max-width: 800px;
+  }
+  .modal__add__form__priority,
+  .modal__add__form__repetition,
+  .modal__add__form__button {
+    gap: 20px;
+  }
+  .modal__add__form__button-cancel,
+  .modal__add__form__button-add {
+    padding: 10px 30px;
   }
 }
 /* Main end */

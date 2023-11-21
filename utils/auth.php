@@ -1,6 +1,4 @@
 <?php
-require_once 'mysqli.php';
-
 function loginUser($email, $password)
 {
   global $mysqli;

@@ -1,17 +1,22 @@
 <?php
+require_once 'utils/mysqli.php';
 require_once 'utils/auth.php';
 require_once 'utils/functions.php';
 session_start();
 
 // check user and token from cookie
 if (!isset($_COOKIE["auth_user"]) || !isset($_COOKIE["auth_token"])) {
-  // if user not login yet
+  // if doesn't have cookie
+  $_SESSION['message'] = "You need to login first!";
+  $_SESSION['type'] = "error";
   header("Location: /sign-in.php");
   exit();
 }
 
-// if user not login yet, kick them to the signin page
+// if user cookie isn't valid
 if (!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
+  $_SESSION['message'] = "You need to login first!";
+  $_SESSION['type'] = "error";
   header("Location: /sign-in.php");
   exit();
 }
@@ -142,14 +147,15 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
   <!-- Modal add start -->
   <div class="modal">
     <div class="modal__add" id="modalAdd">
-      <form class="modal__add__form">
+      <form class="modal__add__form" action="utils/add_activity.php" method="POST">
         <p>Task Details</p>
-        <input class="modal__add__form-title" type="text" name="title" placeholder="Title">
-        <textarea class="modal__add__form-description" name="description" rows="5" placeholder="Description"></textarea>
+        <input class="modal__add__form-title" type="text" name="title" placeholder="Title" required>
+        <textarea class="modal__add__form-description" name="description" rows="5" placeholder="Description"
+          required></textarea>
         <p>Task Date</p>
         <div class="modal__add__form__datetime">
           <input class="modal__add__form__datetime-date" type="date" name="date">
-          <input class="modal__add__form__datetime-time" type="time" name="time">
+          <input class="modal__add__form__datetime-time" type="time" name="time" required>
         </div>
         <p>Task Priority</p>
         <div class="modal__add__form__priority">

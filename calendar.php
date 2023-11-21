@@ -1,4 +1,5 @@
 <?php
+require_once 'utils/mysqli.php';
 require_once 'utils/auth.php';
 require_once 'utils/functions.php';
 session_start();
