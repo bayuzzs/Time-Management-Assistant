@@ -21,6 +21,8 @@ if (isset($_COOKIE["auth_user"]) && isset($_COOKIE["auth_token"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chrono - Time Management Assistant</title>
 
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

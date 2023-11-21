@@ -68,6 +68,7 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
   <!-- Sidebar end -->
   <!-- Main start -->
   <main>
+    <!-- banner start -->
     <div class="banner">
       <div class="banner__text">
         <p class="banner__text-greeting">Welcome,
@@ -79,6 +80,7 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
         <img src="assets/images/dashboard/hero.png">
       </div>
     </div>
+    <!-- banner end -->
     <div class="heading">
       <div class="heading__priority">
         <img src="assets/images/dashboard/timer-priority.svg">
@@ -103,15 +105,20 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
       </div>
     </div>
     <div class="activity">
-      <button href="#" class="activity__add" title="add">
-        <img src="./assets/images/dashboard/add.svg">
+      <!-- floatin action start-->
+      <button class="activity__action" title="action" onclick="toggleAction()">
+        <img class="activity__action-icon" src="./assets/images/dashboard/clock-plus.svg">
+        <button class="activity__action-add" title="add" onclick="showModalAdd()">
+          <img src="./assets/images/dashboard/add.svg">
+        </button>
+        <button class="activity__action-edit" title="edit" onclick="toggleEdit()">
+          <img src="./assets/images/dashboard/edit.svg">
+        </button>
       </button>
+      <!-- floatin action end-->
       <div class="activity__heading">
         <p class="activity__heading-text">Current Activites</p>
         <div class="activity__heading-action">
-          <button class="activity__heading-action-edit" onclick="toggleEdit()">
-            <img src="./assets/images/dashboard/edit.svg">
-          </button>
           <div class="activity__heading-action__find">
             <input class="search" type="text" placeholder="Search...">
             <select class="filter">
@@ -123,254 +130,67 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
         </div>
       </div>
       <div class="activity__content">
-        <!-- <div class="activity__content__empty">
-            <img src="./assets/images/dashboard/empty.svg">
-            <p>No activities yet</p>
-          </div> -->
-        <div class="activity__content-item">
-          <div class="activity__content-item__left">
-            <p class="activity__content-item__left-title">Meeting With Client x</p>
-            <p class="activity__content-item__left-priority">Important</p>
-            <p class="activity__content-item__left-daily">Daily</p>
-            <p class="activity__content-item__left-weekly">Weekly</p>
-            <p class="activity__content-item__left-monthly">Monthly</p>
-            <p class="activity__content-item__left-description">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam sapiente dignissimos
-              repellendus tempora neque, eveniet magnam eligendi ut modi.
-            </p>
-          </div>
-          <div class="activity__content-item__right">
-            <div class="activity__content-item__right-time">
-              <p>22 November 2023</p>
-              <p>20:15:00</p>
-            </div>
-            <div class="activity__content-item__right-action">
-              <button class="activity__content-item__right-action-edit btn">
-                <img src="./assets/images/dashboard/edit.svg">
-              </button>
-              <button class="activity__content-item__right-action-delete btn">
-                <img src="./assets/images/dashboard/delete.svg">
-              </button>
-              <button class="activity__content-item__right-action-complete btn">
-                <img src="./assets/images/dashboard/complete.svg">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="activity__content-item">
-          <div class="activity__content-item__left">
-            <p class="activity__content-item__left-title">Meeting With Client x</p>
-            <p class="activity__content-item__left-priority">Important</p>
-            <p class="activity__content-item__left-daily">Daily</p>
-            <p class="activity__content-item__left-weekly">Weekly</p>
-            <p class="activity__content-item__left-monthly">Monthly</p>
-            <p class="activity__content-item__left-description">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam sapiente dignissimos
-              repellendus tempora neque, eveniet magnam eligendi ut modi.
-            </p>
-          </div>
-          <div class="activity__content-item__right">
-            <div class="activity__content-item__right-time">
-              <p>22 November 2023</p>
-              <p>20:15:00</p>
-            </div>
-            <div class="activity__content-item__right-action">
-              <button class="activity__content-item__right-action-edit btn">
-                <img src="./assets/images/dashboard/edit.svg">
-              </button>
-              <button class="activity__content-item__right-action-delete btn">
-                <img src="./assets/images/dashboard/delete.svg">
-              </button>
-              <button class="activity__content-item__right-action-complete btn">
-                <img src="./assets/images/dashboard/complete.svg">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="activity__content-item">
-          <div class="activity__content-item__left">
-            <p class="activity__content-item__left-title">Meeting With Client x</p>
-            <p class="activity__content-item__left-priority">Important</p>
-            <p class="activity__content-item__left-daily">Daily</p>
-            <p class="activity__content-item__left-weekly">Weekly</p>
-            <p class="activity__content-item__left-monthly">Monthly</p>
-            <p class="activity__content-item__left-description">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam sapiente dignissimos
-              repellendus tempora neque, eveniet magnam eligendi ut modi.
-            </p>
-          </div>
-          <div class="activity__content-item__right">
-            <div class="activity__content-item__right-time">
-              <p>22 November 2023</p>
-              <p>20:15:00</p>
-            </div>
-            <div class="activity__content-item__right-action">
-              <button class="activity__content-item__right-action-edit btn">
-                <img src="./assets/images/dashboard/edit.svg">
-              </button>
-              <button class="activity__content-item__right-action-delete btn">
-                <img src="./assets/images/dashboard/delete.svg">
-              </button>
-              <button class="activity__content-item__right-action-complete btn">
-                <img src="./assets/images/dashboard/complete.svg">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="activity__content-item">
-          <div class="activity__content-item__left">
-            <p class="activity__content-item__left-title">Meeting With Client x</p>
-            <p class="activity__content-item__left-priority">Important</p>
-            <p class="activity__content-item__left-daily">Daily</p>
-            <p class="activity__content-item__left-weekly">Weekly</p>
-            <p class="activity__content-item__left-monthly">Monthly</p>
-            <p class="activity__content-item__left-description">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam sapiente dignissimos
-              repellendus tempora neque, eveniet magnam eligendi ut modi.
-            </p>
-          </div>
-          <div class="activity__content-item__right">
-            <div class="activity__content-item__right-time">
-              <p>22 November 2023</p>
-              <p>20:15:00</p>
-            </div>
-            <div class="activity__content-item__right-action">
-              <button class="activity__content-item__right-action-edit btn">
-                <img src="./assets/images/dashboard/edit.svg">
-              </button>
-              <button class="activity__content-item__right-action-delete btn">
-                <img src="./assets/images/dashboard/delete.svg">
-              </button>
-              <button class="activity__content-item__right-action-complete btn">
-                <img src="./assets/images/dashboard/complete.svg">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="activity__content-item">
-          <div class="activity__content-item__left">
-            <p class="activity__content-item__left-title">Meeting With Client x</p>
-            <p class="activity__content-item__left-priority">Important</p>
-            <p class="activity__content-item__left-daily">Daily</p>
-            <p class="activity__content-item__left-weekly">Weekly</p>
-            <p class="activity__content-item__left-monthly">Monthly</p>
-            <p class="activity__content-item__left-description">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam sapiente dignissimos
-              repellendus tempora neque, eveniet magnam eligendi ut modi.
-            </p>
-          </div>
-          <div class="activity__content-item__right">
-            <div class="activity__content-item__right-time">
-              <p>22 November 2023</p>
-              <p>20:15:00</p>
-            </div>
-            <div class="activity__content-item__right-action">
-              <button class="activity__content-item__right-action-edit btn">
-                <img src="./assets/images/dashboard/edit.svg">
-              </button>
-              <button class="activity__content-item__right-action-delete btn">
-                <img src="./assets/images/dashboard/delete.svg">
-              </button>
-              <button class="activity__content-item__right-action-complete btn">
-                <img src="./assets/images/dashboard/complete.svg">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="activity__content-item">
-          <div class="activity__content-item__left">
-            <p class="activity__content-item__left-title">Meeting With Client x</p>
-            <p class="activity__content-item__left-priority">Important</p>
-            <p class="activity__content-item__left-daily">Daily</p>
-            <p class="activity__content-item__left-weekly">Weekly</p>
-            <p class="activity__content-item__left-monthly">Monthly</p>
-            <p class="activity__content-item__left-description">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam sapiente dignissimos
-              repellendus tempora neque, eveniet magnam eligendi ut modi.
-            </p>
-          </div>
-          <div class="activity__content-item__right">
-            <div class="activity__content-item__right-time">
-              <p>22 November 2023</p>
-              <p>20:15:00</p>
-            </div>
-            <div class="activity__content-item__right-action">
-              <button class="activity__content-item__right-action-edit btn">
-                <img src="./assets/images/dashboard/edit.svg">
-              </button>
-              <button class="activity__content-item__right-action-delete btn">
-                <img src="./assets/images/dashboard/delete.svg">
-              </button>
-              <button class="activity__content-item__right-action-complete btn">
-                <img src="./assets/images/dashboard/complete.svg">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="activity__content-item">
-          <div class="activity__content-item__left">
-            <p class="activity__content-item__left-title">Meeting With Client x</p>
-            <p class="activity__content-item__left-priority">Important</p>
-            <p class="activity__content-item__left-daily">Daily</p>
-            <p class="activity__content-item__left-weekly">Weekly</p>
-            <p class="activity__content-item__left-monthly">Monthly</p>
-            <p class="activity__content-item__left-description">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam sapiente dignissimos
-              repellendus tempora neque, eveniet magnam eligendi ut modi.
-            </p>
-          </div>
-          <div class="activity__content-item__right">
-            <div class="activity__content-item__right-time">
-              <p>22 November 2023</p>
-              <p>20:15:00</p>
-            </div>
-            <div class="activity__content-item__right-action">
-              <button class="activity__content-item__right-action-edit btn">
-                <img src="./assets/images/dashboard/edit.svg">
-              </button>
-              <button class="activity__content-item__right-action-delete btn">
-                <img src="./assets/images/dashboard/delete.svg">
-              </button>
-              <button class="activity__content-item__right-action-complete btn">
-                <img src="./assets/images/dashboard/complete.svg">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="activity__content-item">
-          <div class="activity__content-item__left">
-            <p class="activity__content-item__left-title">Meeting With Client x</p>
-            <p class="activity__content-item__left-priority">Important</p>
-            <p class="activity__content-item__left-daily">Daily</p>
-            <p class="activity__content-item__left-weekly">Weekly</p>
-            <p class="activity__content-item__left-monthly">Monthly</p>
-            <p class="activity__content-item__left-description">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam sapiente dignissimos
-              repellendus tempora neque, eveniet magnam eligendi ut modi.
-            </p>
-          </div>
-          <div class="activity__content-item__right">
-            <div class="activity__content-item__right-time">
-              <p>22 November 2023</p>
-              <p>20:15:00</p>
-            </div>
-            <div class="activity__content-item__right-action">
-              <button class="activity__content-item__right-action-edit btn">
-                <img src="./assets/images/dashboard/edit.svg">
-              </button>
-              <button class="activity__content-item__right-action-delete btn">
-                <img src="./assets/images/dashboard/delete.svg">
-              </button>
-              <button class="activity__content-item__right-action-complete btn">
-                <img src="./assets/images/dashboard/complete.svg">
-              </button>
-            </div>
-          </div>
+        <div class="activity__content__empty">
+          <img src="./assets/images/dashboard/empty.png">
+          <p>No activities yet</p>
         </div>
       </div>
     </div>
   </main>
   <!-- Main end -->
+
+  <!-- Modal add start -->
+  <div class="modal">
+    <div class="modal__add" id="modalAdd">
+      <form class="modal__add__form">
+        <p>Task Details</p>
+        <input class="modal__add__form-title" type="text" name="title" placeholder="Title">
+        <textarea class="modal__add__form-description" name="description" rows="5" placeholder="Description"></textarea>
+        <p>Task Date</p>
+        <div class="modal__add__form__datetime">
+          <input class="modal__add__form__datetime-date" type="date" name="date">
+          <input class="modal__add__form__datetime-time" type="time" name="time">
+        </div>
+        <p>Task Priority</p>
+        <div class="modal__add__form__priority">
+          <label>
+            <input type="radio" name="priority" value="none" checked>
+            None
+          </label>
+          <label>
+            <input type="radio" name="priority" value="important">
+            Important
+          </label>
+        </div>
+        <p>Task Repetition</p>
+        <div class="modal__add__form__repetition">
+          <label>
+            <input type="radio" name="repetition" value="none" checked>
+            None
+          </label>
+          <label>
+            <input type="radio" name="repetition" value="daily">
+            Daily
+          </label>
+          <label>
+            <input type="radio" name="repetition" value="weekly">
+            Weekly
+          </label>
+          <label>
+            <input type="radio" name="repetition" value="monthly">
+            Monthly
+          </label>
+        </div>
+        <div class="modal__add__form__button">
+          <button class="modal__add__form__button-cancel" type="reset" title="Cancel"
+            onclick="hideModalAdd()">Cancel</button>
+          <button class="modal__add__form__button-add" type="submit" title="Add Activity">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Modal add end -->
+
   <script src="./assets/js/dashboard.js"></script>
 </body>
 

@@ -1,13 +1,9 @@
-<svg width="20px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#ffffff">
-  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-  <g id="SVGRepo_iconCarrier">
-    <g id="layer1">
-      <g transform="translate(2, 2)"> <!-- Pusat transformasi diatur ke (4, 4) -->
-        <path
-          d="M 16,0 2,14 1.1054688,16.681641 a 3.5,3.5 0 0 1 2.2109374,2.21289 L 6,18 20,4 Z M 16,1.4140625 18.585938,4 17.767578,4.8183594 15.181641,2.2324219 Z M 14.474609,2.9394531 15.414062,3.8789062 4.25,15.042969 4.9570312,15.75 16.121094,4.5859375 17.060547,5.5253906 5.4589844,17.125 3.7246094,17.703125 C 3.3579209,17.110435 2.8874809,16.640377 2.2949219,16.273438 l 0.578125,-1.734376 z M 0.7890625,17.630859 0,20 2.3691406,19.210938 A 2.5,2.5 0 0 0 0.7890625,17.630859 Z"
-          style="fill:#ffffff; fill-opacity:1; stroke:none; stroke-width:0px;"></path>
-      </g>
-    </g>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 36 36">
+  <path fill="#ffffff"
+    d="m4.22 23.2l-1.9 8.2a2.06 2.06 0 0 0 2 2.5a2.14 2.14 0 0 0 .43 0L13 32l15.84-15.78L20 7.4Z"
+    class="clr-i-solid clr-i-solid-path-1" />
+  <path fill="#ffffff"
+    d="m33.82 8.32l-5.9-5.9a2.07 2.07 0 0 0-2.92 0L21.72 5.7l8.83 8.83l3.28-3.28a2.07 2.07 0 0 0-.01-2.93Z"
+    class="clr-i-solid clr-i-solid-path-2" />
+  <path fill="none" d="M0 0h36v36H0z" />
 </svg>

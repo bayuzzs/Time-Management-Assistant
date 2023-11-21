@@ -99,11 +99,6 @@
   bottom: 20px;
   z-index: 9999;
 }
-.activity__action:hover {
-}
-.activity__action.show {
-  background-color: salmon;
-}
 .activity__action-edit,
 .activity__action-add {
   position: fixed;
@@ -114,10 +109,6 @@
   cursor: pointer;
   transition: right 0.3s;
   z-index: 999;
-}
-.activity__action-edit:hover,
-.activity__action-add:hover {
-  filter: brightness(0.9);
 }
 .activity__action-add {
   background-color: var(--main-color);
@@ -380,163 +371,25 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9999;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
-  animation: hideModal 0.5s;
-}
-.modal.show {
-  display: flex;
-  animation: showModal 0.5s;
 }
 .modal__add {
   display: flex;
   flex-direction: column;
   padding: 20px;
   background-color: #ffffff;
-  border-radius: 15px;
-  max-width: 300px;
-  max-height: 600px;
+  max-width: ;
+  max-height: 500px;
   overflow-y: auto;
 }
 .modal__add__form {
   display: flex;
   flex-direction: column;
 }
-/* give margin to p child */
-.modal__add__form > p {
-  margin-bottom: 5px;
-}
-.modal__add__form-title,
-.modal__add__form-description {
-  color: var(--main-color);
-  background-color: var(--input-color);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 5px;
-}
-.modal__add__form-title::placeholder,
-.modal__add__form-description::placeholder {
-  color: var(--main-color);
-}
-.modal__add__form-title:focus,
-.modal__add__form-description:focus {
-  outline: 2px solid var(--main-color);
-}
 .modal__add__form-description {
   resize: vertical;
-}
-.modal__add__form__datetime {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 5px;
-  margin-bottom: 10px;
-}
-.modal__add__form__datetime-date,
-.modal__add__form__datetime-time {
-  color: var(--main-color);
-  background-color: var(--input-color);
-  padding: 5px;
-  border-radius: 5px;
-  width: 100%;
-  text-align: center;
-}
-.modal__add__form__datetime-date:focus,
-.modal__add__form__datetime-time:focus {
-  outline: 2px solid var(--main-color);
-}
-.modal__add__form__priority {
-  display: flex;
-  gap: 5px;
-  margin-bottom: 10px;
-}
-.modal__add__form__priority label {
-  padding: 8px 20px;
-  border-radius: 10px;
-  background-color: var(--input-color);
-  color: var(--main-color);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.modal__add__form__priority label:has(input[type='radio']:checked) {
-  background-color: var(--main-color);
-  color: #ffffff;
-}
-.modal__add__form__priority label input[type='radio'] {
-  display: none;
-}
-.modal__add__form__repetition {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 5px;
-  margin-bottom: 20px;
-}
-.modal__add__form__repetition label {
-  padding: 8px 20px;
-  border-radius: 10px;
-  background-color: var(--input-color);
-  color: var(--main-color);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.modal__add__form__repetition label:has(input[type='radio']:checked) {
-  background-color: var(--main-color);
-  color: #ffffff;
-}
-.modal__add__form__repetition label input[type='radio'] {
-  display: none;
-}
-.modal__add__form__button {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-.modal__add__form__button-cancel,
-.modal__add__form__button-add {
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-.modal__add__form__button-cancel {
-  color: var(--main-color);
-  background-color: #ffffff;
-  border: 1px solid var(--main-color);
-  transition: all 0.2s;
-}
-.modal__add__form__button-cancel:hover {
-  color: #ffffff;
-  background-color: var(--main-color);
-}
-.modal__add__form__button-add {
-  color: #ffffff;
-  background-color: var(--main-color);
-  border: 1px solid var(--main-color);
-  transition: all 0.2s;
-}
-.modal__add__form__button-add:hover {
-  color: var(--main-color);
-  background-color: #ffffff;
-}
-@keyframes showModal {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes hideModal {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@media screen and (min-width: 768px) {
-  .modal__add {
-    max-width: 500px;
-  }
 }
 /* Main end */
 
