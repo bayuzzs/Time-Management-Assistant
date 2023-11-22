@@ -35,17 +35,17 @@ function loginFromCookie($userID)
   $user = $result->fetch_assoc();
   $stmt->close();
 
-  // Return the user details
-  if ($user) {
-    return [
-      'id_user' => $user['id_user'],
-      'name' => $user['name'],
-      'email' => $user['email'],
-    ];
+  // Invalid or missing cookies
+  if (!$user) {
+    return false;
   }
 
-  // Invalid or missing cookies
-  return false;
+  // Return the user details
+  return [
+    'id_user' => $user['id_user'],
+    'name' => $user['name'],
+    'email' => $user['email'],
+  ];
 }
 
 function setAuthCookie($userID, $email)

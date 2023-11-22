@@ -19,6 +19,8 @@ if (!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
 
 // get user data
 $user = loginFromCookie($_COOKIE["auth_user"]);
+// destructuring from user data
+['id_user' => $id_user, 'name' => $name, 'email' => $email] = $user;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +46,6 @@ $user = loginFromCookie($_COOKIE["auth_user"]);
 
 <body>
   <?php
-  // destructuring from user data
-  ['id_user' => $id_user, 'name' => $name, 'email' => $email] = $user;
   renderSidebar($id_user, $name, $email, 'calendar');
   ?>
   <!-- Main start -->

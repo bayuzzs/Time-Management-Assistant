@@ -5,13 +5,14 @@ function toggleAction() {
   document.querySelector('.activity__action-edit').classList.toggle('show');
 }
 
+// munculin modal buat tambah data
 function showModalAdd() {
-  const modal = document.querySelector('.modal');
-  modal.classList.add('show');
+  document.querySelector('.modal').classList.add('show');
+  document.querySelector('.modal__add__form-title').focus();
 }
+// sembunyiin modal buat tambah data
 function hideModalAdd() {
-  const modal = document.querySelector('.modal');
-  modal.classList.remove('show');
+  document.querySelector('.modal').classList.remove('show');
 }
 
 function toggleEdit() {
