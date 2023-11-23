@@ -35,14 +35,14 @@ if (empty($title) || empty($description) || empty($date) || empty($time) || empt
   exit(header("Location: /dashboard.php"));
 }
 
-// convert date and time and check if it's in the future
-$datetime = strtotime($date . ' ' . $time);
-// kenapa dibalik?, karna klo date null jadi 00000 jadi false klo ga dibalik
-if (!($datetime > time())) {
-  $_SESSION['message'] = "Can only add upcoming activities!";
-  $_SESSION['type'] = "error";
-  exit(header("Location: /dashboard.php"));
-}
+// // convert date and time and check if it's in the future
+// $datetime = strtotime($date . ' ' . $time);
+// // kenapa dibalik?, karna klo date null jadi 00000 jadi false klo ga dibalik
+// if (!($datetime > time())) {
+//   $_SESSION['message'] = "Can only add upcoming activities!";
+//   $_SESSION['type'] = "error";
+//   exit(header("Location: /dashboard.php"));
+// }
 
 $query = "INSERT INTO activities (id_user, title, description, date, time, repetition, priority) VALUES (?, ?, ?, ?, ?, ?, ?)";
 $stmt = $mysqli->prepare($query);

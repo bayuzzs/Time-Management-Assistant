@@ -33,6 +33,47 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
   unset($_SESSION['message']);
   unset($_SESSION['type']);
 }
+
+// Ambil activity
+$stmt = $mysqli->prepare("SELECT * FROM activities WHERE id_user = ?");
+$stmt->bind_param("s", $id_user);
+$stmt->execute();
+$activities = $stmt->get_result();
+$activities = $activities->fetch_all(MYSQLI_ASSOC);
+// die(var_dump(array_column($activities, 'priority')));
+$stmt->close();
+
+$totalActivities = 0;
+$importantActivities = 0;
+$overdueActivities = 0;
+$strtotime = strtotime($activities[0]['date'] . ' ' . $activities[0]['time']);
+$strtotime1 = strtotime($activities[1]['date'] . ' ' . $activities[1]['time']);
+$strtotime2 = strtotime($activities[2]['date'] . ' ' . $activities[2]['time']);
+$strtotime3 = strtotime($activities[3]['date'] . ' ' . $activities[3]['time']);
+// var_dump($strtotime < time());
+// var_dump($strtotime1 < time());
+// var_dump($strtotime2 < time());
+// var_dump($strtotime3 < time());
+// var_dump($strtotime3 > time());
+// var_dump(strtotime($activities[3]['date'] . ' ' . $activities[3]['time']) < time());
+// die();
+if (count($activities)) {
+  foreach ($activities as $activity) {
+    // die(var_dump(strtotime($activity['date'] . ' ' . $activity['time']) < time()));
+    $totalActivities++;
+    if ($activity['priority'] == 'important') {
+      $importantActivities++;
+    }
+    if (strtotime($activity['date'] . ' ' . $activity['time']) < time()) {
+      $overdueActivities++;
+    }
+  }
+  // $totalActivities = count($activities);
+  // $importantActivities = array_count_values(array_column($activities, 'priority'))['important'];
+  // $overdueActivities = array_count_values(array_column($activities, 'repetition'))['overdue'];
+  // die(var_dump(array_count_values(array_column($activities, 'date'))));
+  // die(var_dump($activities));
+}
 ?>
 
 <!DOCTYPE html>
@@ -90,21 +131,27 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
       <div class="heading__priority">
         <img src="assets/images/dashboard/timer-priority.svg">
         <div class="heading__priority__detail">
-          <p class="heading__priority__detail-count">0</p>
+          <p class="heading__priority__detail-count">
+            <?= $importantActivities ?>
+          </p>
           <p>Priority Tasks</p>
         </div>
       </div>
       <div class="heading__overdue">
         <img src="assets/images/dashboard/timer-overdue.svg">
         <div class="heading__overdue__detail">
-          <p class="heading__overdue__detail-count">0</p>
+          <p class="heading__overdue__detail-count">
+            <?= $overdueActivities ?>
+          </p>
           <p>Overdue Tasks</p>
         </div>
       </div>
       <div class="heading__all">
         <img src="assets/images/dashboard/timer-all.svg">
         <div class="heading__all__detail">
-          <p class="heading__all__detail-count">0</p>
+          <p class="heading__all__detail-count">
+            <?= $totalActivities ?>
+          </p>
           <p>All Tasks</p>
         </div>
       </div>
@@ -135,22 +182,14 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
         </div>
       </div>
       <div class="activity__content">
-        <?php
-        // Ambil activity
-        $stmt = $mysqli->prepare("SELECT * FROM activities WHERE id_user = ?");
-        $stmt->bind_param("s", $id_user);
-        $stmt->execute();
-        $activities = $stmt->get_result();
-        $stmt->close();
-        ?>
-        <?php if (!($activities->num_rows)): ?>
+        <?php if (!count($activities)): ?>
           <!-- empty activity -->
           <div class="activity__content__empty">
             <img src="./assets/images/dashboard/empty.png">
             <p>No activities yet</p>
           </div>
         <?php endif; ?>
-        <?php while ($activitiy = $activities->fetch_assoc()) {
+        <?php foreach ($activities as $activitiy) {
           [
             'title' => $title,
             'description' => $description,

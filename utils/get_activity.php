@@ -16,7 +16,7 @@ if (!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
   die();
 }
 
-$query = "SELECT * FROM activities JOIN users ON (users.id_user = activities.id_user) WHERE users.id_user = ?";
+$query = "SELECT * FROM activities WHERE id_user = ?";
 $userId = $_COOKIE["auth_user"];
 
 // Prepare the statement
@@ -36,19 +36,4 @@ $stmt->execute();
 $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 // Output the JSON data
 echo json_encode($result);
-
-
-// Output the JSON data
-
-
-// if user cookie invalid
-// if (!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
-// die(var_dump($_REQUEST));
-// if doesn't have cookie
-// if (!isset($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
-//   $_SESSION['message'] = "You need to login first!";
-//   $_SESSION['type'] = "error";
-//   exit(header("Location: /sign-in.php"));
-// }
-
 ?>
