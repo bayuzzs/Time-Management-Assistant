@@ -1,4 +1,18 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+  // fetch activities
+  let activities = await fetch('/utils/get_activity.php')
+    .then((response) => response.json())
+    .then((datas) => datas);
+  activities = activities.map((data) => {
+    return {
+      id: data.id_activity,
+      title: data.title,
+      start: `${data.date}T${data.time}`,
+    };
+  });
+  // console.log(events);
+  console.log(activities);
+  // render calendar
   const calendarEl = document.getElementById('calendar');
   const calendar = new FullCalendar.Calendar(calendarEl, {
     eventMouseEnter: function (info) {
@@ -14,24 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
       center: 'title',
       right: 'prev,next',
     },
-    events: [
-      {
-        title: 'Meeting asdasdsdsadsadsadsadasdsa',
-        start: '2023-11-09',
-      },
-      {
-        title: 'Meeting',
-        start: '2023-11-08',
-      },
-      {
-        title: 'Meeting',
-        start: '2023-11-10T10:30:00',
-      },
-      {
-        title: 'Mancing',
-        start: '2023-11-11T10:30:00',
-      },
-    ],
+    events: activities,
     dayMaxEventRows: true, // for all non-TimeGrid views
     views: {
       timeGrid: {

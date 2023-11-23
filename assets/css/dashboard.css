@@ -226,7 +226,6 @@
   max-width: 200px;
   text-align: justify;
   word-wrap: break-word;
-  background-color: red;
 }
 .activity__content-item__right {
   max-width: 110px;
@@ -262,6 +261,11 @@
   transform-origin: bottom;
   transition: all 0.2s;
   cursor: pointer;
+}
+.activity__content-item__right-action-edit img,
+.activity__content-item__right-action-delete img,
+.activity__content-item__right-action-complete img {
+  max-width: 20px;
 }
 .activity__content-item__right-action-edit:hover,
 .activity__content-item__right-action-delete:hover,

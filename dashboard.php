@@ -46,20 +46,8 @@ $stmt->close();
 $totalActivities = 0;
 $importantActivities = 0;
 $overdueActivities = 0;
-$strtotime = strtotime($activities[0]['date'] . ' ' . $activities[0]['time']);
-$strtotime1 = strtotime($activities[1]['date'] . ' ' . $activities[1]['time']);
-$strtotime2 = strtotime($activities[2]['date'] . ' ' . $activities[2]['time']);
-$strtotime3 = strtotime($activities[3]['date'] . ' ' . $activities[3]['time']);
-// var_dump($strtotime < time());
-// var_dump($strtotime1 < time());
-// var_dump($strtotime2 < time());
-// var_dump($strtotime3 < time());
-// var_dump($strtotime3 > time());
-// var_dump(strtotime($activities[3]['date'] . ' ' . $activities[3]['time']) < time());
-// die();
 if (count($activities)) {
   foreach ($activities as $activity) {
-    // die(var_dump(strtotime($activity['date'] . ' ' . $activity['time']) < time()));
     $totalActivities++;
     if ($activity['priority'] == 'important') {
       $importantActivities++;
@@ -68,11 +56,6 @@ if (count($activities)) {
       $overdueActivities++;
     }
   }
-  // $totalActivities = count($activities);
-  // $importantActivities = array_count_values(array_column($activities, 'priority'))['important'];
-  // $overdueActivities = array_count_values(array_column($activities, 'repetition'))['overdue'];
-  // die(var_dump(array_count_values(array_column($activities, 'date'))));
-  // die(var_dump($activities));
 }
 ?>
 
