@@ -1,6 +1,9 @@
 <?php
+$overdue = strtotime($date . ' ' . $time) < time() ? 'overdue' : 'none';
+
 $priority = $priority == 'none' ? '<p class="activity__content-item__left-priority"></p>' : '<p class="activity__content-item__left-priority">' . $priority . '</p>';
 $repetition = $repetition == 'none' ? '<p class="activity__content-item__left-repetition"></p>' : '<p class="activity__content-item__left-repetition">' . $repetition . '</p>';
+$overdue = $overdue == 'none' ? '<p class="activity__content-item__left-overdue"></p>' : '<p class="activity__content-item__left-overdue">' . $overdue . '</p>';
 ?>
 <div class="activity__content-item">
   <div class="activity__content-item__left">
@@ -9,6 +12,7 @@ $repetition = $repetition == 'none' ? '<p class="activity__content-item__left-re
     </p>
     <?= $priority ?>
     <?= $repetition ?>
+    <?= $overdue ?>
     <p class="activity__content-item__left-description">
       <?= $description ?>
     </p>
