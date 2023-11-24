@@ -171,7 +171,7 @@
 .activity__content {
   display: grid;
   grid-template-columns: auto;
-  place-items: center;
+  place-items: stretch;
   padding: 10px;
   gap: 10px;
 }
@@ -183,8 +183,6 @@
 }
 .activity__content-item {
   min-width: 250px;
-  /* tengok nanti */
-  /* max-width: 300px; */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -201,7 +199,6 @@
 }
 .activity__content-item__left-title {
   max-width: 200px;
-  text-align: justify;
   word-wrap: break-word;
   font-size: 1rem;
   font-weight: 600;
@@ -218,13 +215,16 @@
   font-size: 0.8rem;
   margin-bottom: 15px;
 }
+.activity__content-item__left-priority:empty,
+.activity__content-item__left-repetition:empty {
+  display: none;
+}
 .activity__content-item__left-priority {
   color: #000000;
   background-color: #fdd527;
 }
 .activity__content-item__left-description {
   max-width: 200px;
-  text-align: justify;
   word-wrap: break-word;
 }
 .activity__content-item__right {

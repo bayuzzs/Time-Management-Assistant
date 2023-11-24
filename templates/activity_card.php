@@ -1,14 +1,14 @@
+<?php
+$priority = $priority == 'none' ? '<p class="activity__content-item__left-priority"></p>' : '<p class="activity__content-item__left-priority">' . $priority . '</p>';
+$repetition = $repetition == 'none' ? '<p class="activity__content-item__left-repetition"></p>' : '<p class="activity__content-item__left-repetition">' . $repetition . '</p>';
+?>
 <div class="activity__content-item">
   <div class="activity__content-item__left">
     <p class="activity__content-item__left-title">
       <?= $title ?>
     </p>
-    <p class="activity__content-item__left-priority">
-      <?= $priority == 'none' ? '' : $priority ?>
-    </p>
-    <p class="activity__content-item__left-repetition">
-      <?= $repetition == 'none' ? '' : $repetition ?>
-    </p>
+    <?= $priority ?>
+    <?= $repetition ?>
     <p class="activity__content-item__left-description">
       <?= $description ?>
     </p>
