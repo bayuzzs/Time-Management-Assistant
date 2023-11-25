@@ -47,6 +47,14 @@ document.addEventListener('DOMContentLoaded', async function () {
     initialView: 'dayGridMonth',
   });
   calendar.render();
+
+  // for alert
+  const message = document.querySelector('.alert');
+  if (message) {
+    setTimeout(function () {
+      message.classList.add('alert-hide');
+    }, 2500);
+  }
 });
 
 function showModalAdd() {

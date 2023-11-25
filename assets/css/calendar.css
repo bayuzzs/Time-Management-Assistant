@@ -213,3 +213,58 @@ main {
   }
 }
 /* Main end */
+
+/* alert style start */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  position: fixed;
+  top: 20px;
+  width: 300px;
+  left: calc(50% - 150px);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  z-index: 9999;
+  animation: alert 0.5s;
+  transition: opacity 0.5s;
+}
+.alert-success {
+  background-color: var(--main-color);
+}
+.alert-error {
+  background-color: #ff635e;
+}
+.alert.alert-hide {
+  opacity: 0;
+}
+.alert__message {
+  color: white;
+}
+@keyframes alert {
+  0% {
+    top: -50px;
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    top: 20px;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media screen and (min-width: 768px) {
+  .alert {
+    width: 400px;
+    left: calc(50% - 200px);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .alert {
+    width: 500px;
+    left: calc(50% - 250px);
+  }
+}
+/* alert style end */

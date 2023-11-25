@@ -19,6 +19,15 @@ if (!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
 
 // get user data
 $user = loginFromCookie($_COOKIE["auth_user"]);
+
+// check session to show an alert
+if (isset($_SESSION['message'], $_SESSION['type'])) {
+  $message = $_SESSION['message'];
+  $type = $_SESSION['type'];
+  unset($_SESSION['message']);
+  unset($_SESSION['type']);
+}
+
 // destructuring from user data
 ['id_user' => $id_user, 'name' => $name, 'email' => $email] = $user;
 ?>
@@ -45,6 +54,14 @@ $user = loginFromCookie($_COOKIE["auth_user"]);
 </head>
 
 <body>
+  <?php if (isset($message, $type)): ?>
+    <div class="alert alert-<?= $type ?>">
+      <img src="assets/images/<?= $type ?>.svg">
+      <p class="alert__message">
+        <?= $message ?>
+      </p>
+    </div>
+  <?php endif; ?>
   <?php
   renderSidebar($id_user, $name, $email, 'calendar');
   ?>
