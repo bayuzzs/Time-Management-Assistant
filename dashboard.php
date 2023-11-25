@@ -174,6 +174,7 @@ if (count($activities)) {
         <?php endif; ?>
         <?php foreach ($activities as $activitiy) {
           [
+            'id_activity' => $id_activity,
             'title' => $title,
             'description' => $description,
             'date' => $date,
@@ -181,15 +182,15 @@ if (count($activities)) {
             'priority' => $priority,
             'repetition' => $repetition
           ] = $activitiy;
-          renderActivity($title, $description, $date, $time, $priority, $repetition);
+          renderActivity($id_activity, $title, $description, $date, $time, $priority, $repetition);
         } ?>
       </div>
     </div>
   </main>
   <!-- Main end -->
 
-  <!-- modal add start -->
   <div class="modal">
+    <!-- modal add start -->
     <div class="modal__add" id="modalAdd">
       <form class="modal__add__form" action="utils/add_activity.php" method="POST">
         <p>Task Details</p>
@@ -238,8 +239,20 @@ if (count($activities)) {
         </div>
       </form>
     </div>
+    <!-- modal add end -->
+
+    <!-- Modal delete start -->
+    <div class="modal__delete" id="modalDelete">
+      <p class="modal__delete-title"></p>
+      <form class="modal__delete__form" action="utils/delete_activity.php" method="POST">
+        <input class="modal__delete__form-id" name="id_activity" type="hidden">
+        <button class="modal__delete__form-cancel" type="reset" onclick="hideModalDelete()">Cancel</button>
+        <button class="modal__delete__form-delete" type="submit" onclick="deleteActivity()">Delete</button>
+      </form>
+    </div>
+    <!-- Modal delete end -->
   </div>
-  <!-- modal add end -->
+
   <script src="./assets/js/dashboard.js"></script>
 </body>
 

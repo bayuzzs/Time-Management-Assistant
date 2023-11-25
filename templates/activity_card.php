@@ -1,15 +1,14 @@
 <?php
 $overdue = strtotime($date . ' ' . $time) < time() ? 'overdue' : 'none';
 
+$title = '<p class="activity__content-item__left-title">' . $title . '</p>';
 $priority = $priority == 'none' ? '<p class="activity__content-item__left-priority"></p>' : '<p class="activity__content-item__left-priority">' . $priority . '</p>';
 $repetition = $repetition == 'none' ? '<p class="activity__content-item__left-repetition"></p>' : '<p class="activity__content-item__left-repetition">' . $repetition . '</p>';
 $overdue = $overdue == 'none' ? '<p class="activity__content-item__left-overdue"></p>' : '<p class="activity__content-item__left-overdue">' . $overdue . '</p>';
 ?>
 <div class="activity__content-item">
   <div class="activity__content-item__left">
-    <p class="activity__content-item__left-title">
-      <?= $title ?>
-    </p>
+    <?= $title ?>
     <?= $priority ?>
     <?= $repetition ?>
     <?= $overdue ?>
@@ -30,7 +29,8 @@ $overdue = $overdue == 'none' ? '<p class="activity__content-item__left-overdue"
       <button class="activity__content-item__right-action-edit btn">
         <img src="./assets/images/dashboard/edit.svg">
       </button>
-      <button class="activity__content-item__right-action-delete btn">
+      <button class="activity__content-item__right-action-delete btn" data-id="<?= $id_activity ?>"
+        onclick="showModalDelete(event)">
         <img src="./assets/images/dashboard/delete.svg">
       </button>
       <button class="activity__content-item__right-action-complete btn">

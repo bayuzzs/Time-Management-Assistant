@@ -32,7 +32,7 @@ $user_id = $_COOKIE['auth_user'];
 if (empty($title) || empty($description) || empty($date) || empty($time) || empty($priority) || empty($repetition)) {
   $_SESSION['message'] = "All fields are required!";
   $_SESSION['type'] = "error";
-  exit(header("Location: /dashboard.php"));
+  exit(header("Location: " . $_SERVER['HTTP_REFERER']));
 }
 
 // convert date and time and check if it's in the future
@@ -41,7 +41,7 @@ $datetime = strtotime($date . ' ' . $time);
 if (!($datetime > time())) {
   $_SESSION['message'] = "Can only add upcoming activities!";
   $_SESSION['type'] = "error";
-  exit(header("Location: /dashboard.php"));
+  exit(header("Location: " . $_SERVER['HTTP_REFERER']));
 }
 
 $query = "INSERT INTO activities (id_user, title, description, date, time, repetition, priority) VALUES (?, ?, ?, ?, ?, ?, ?)";

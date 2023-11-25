@@ -171,7 +171,7 @@
 .activity__content {
   display: grid;
   grid-template-columns: auto;
-  place-items: stretch;
+  place-items: start stretch;
   padding: 10px;
   gap: 10px;
 }
@@ -184,7 +184,7 @@
 .activity__content-item {
   min-width: 250px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 
   padding: 15px;
@@ -401,7 +401,7 @@
   animation: showModal 0.5s;
 }
 .modal__add {
-  display: flex;
+  display: none;
   flex-direction: column;
   padding: 20px;
   background-color: #ffffff;
@@ -409,6 +409,9 @@
   max-width: 300px;
   max-height: 90vh;
   overflow-y: auto;
+}
+.modal__add.show {
+  display: flex;
 }
 .modal__add__form {
   display: flex;
@@ -529,6 +532,50 @@
   color: var(--main-color);
   background-color: #ffffff;
 }
+/* modal delete */
+.modal__delete {
+  display: none;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  max-width: 300px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal__delete.show {
+  display: flex;
+}
+.modal__delete-title {
+  font-size: 1.5rem;
+}
+.modal__delete__form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-top: 50px;
+}
+.modal__delete__form-cancel {
+  color: #ffffff;
+  background-color: var(--main-color);
+  transition: all 0.2s;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.modal__delete__form-delete {
+  color: #ffffff;
+  background-color: var(--color-danger);
+  transition: all 0.2s;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.modal__delete__form-cancel:hover,
+.modal__delete__form-delete:hover {
+  opacity: 0.7;
+}
+
 @keyframes showModal {
   0% {
     opacity: 0;
@@ -549,6 +596,9 @@
   .modal__add {
     max-width: 500px;
   }
+  .modal__delete {
+    max-width: 500px;
+  }
 }
 @media screen and (min-width: 1024px) {
   .modal__add {
@@ -562,6 +612,9 @@
   .modal__add__form__button-cancel,
   .modal__add__form__button-add {
     padding: 10px 30px;
+  }
+  .modal__delete {
+    max-width: 800px;
   }
 }
 /* Main end */

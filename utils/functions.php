@@ -15,7 +15,7 @@ function renderSidebar($id_user, $name, $email, $active)
   require_once 'templates/sidebar.php';
 }
 
-function renderActivity($title, $description, $date, $time, $priority, $repetition)
+function renderActivity($id_activity, $title, $description, $date, $time, $priority, $repetition)
 {
   require 'templates/activity_card.php';
 }

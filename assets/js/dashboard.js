@@ -8,11 +8,34 @@ function toggleAction() {
 // munculin modal buat tambah data
 function showModalAdd() {
   document.querySelector('.modal').classList.add('show');
+  document.querySelector('.modal__add').classList.add('show');
   document.querySelector('.modal__add__form-title').focus();
 }
+
 // sembunyiin modal buat tambah data
 function hideModalAdd() {
   document.querySelector('.modal').classList.remove('show');
+  document.querySelector('.modal__add').classList.remove('show');
+}
+
+function showModalDelete(event) {
+  const currentCard = event.currentTarget.parentNode.parentNode.parentNode;
+  let title = currentCard.querySelector(
+    '.activity__content-item__left-title'
+  ).innerHTML;
+  document.querySelector(
+    '.modal__delete-title'
+  ).innerHTML = `Are you sure you want to delete "<b>${title}</b>" activity?`;
+  document.querySelector('.modal').classList.add('show');
+  document.querySelector('.modal__delete').classList.add('show');
+  document.querySelector('.modal__delete__form-id').value =
+    event.currentTarget.dataset.id;
+}
+
+// sembunyiin modal buat delete data
+function hideModalDelete() {
+  document.querySelector('.modal').classList.remove('show');
+  document.querySelector('.modal__delete').classList.remove('show');
 }
 
 function toggleEdit() {

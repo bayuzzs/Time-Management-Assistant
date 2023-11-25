@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async function () {
   // fetch activities
-  let activities = await fetch('/utils/get_activity.php')
+  let activities = await fetch('/utils/get_activities.php')
     .then((response) => response.json())
     .then((datas) => datas);
   activities = activities.map((data) => {
@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       title: data.title,
       // start: new Date(`${data.date} ${data.time}`).toISOString(),
       start: `${data.date}T${data.time}`,
+      end: `${data.date}T${data.time}`,
+      allDay: false,
     };
   });
   console.log(activities);
@@ -36,11 +38,12 @@ document.addEventListener('DOMContentLoaded', async function () {
     },
     events: activities,
     // dayMaxEventRows: true, // for all non-TimeGrid views
-    views: {
-      timeGrid: {
-        dayMaxEventRows: 6, // adjust to 6 only for timeGridWeek/timeGridDay
-      },
-    },
+    // views: {
+    //   timeGrid: {
+    //     dayMaxEventRows: 6, // adjust to 6 only for timeGridWeek/timeGridDay
+    //   },
+    // },
+    timeFormat: 'H:mm',
     initialView: 'dayGridMonth',
   });
   calendar.render();
