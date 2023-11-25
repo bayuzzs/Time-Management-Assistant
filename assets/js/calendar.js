@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       start: `${data.date}T${data.time}`,
     };
   });
-  // console.log(events);
-  console.log(activities);
+
   // render calendar
   const calendarEl = document.getElementById('calendar');
   const calendar = new FullCalendar.Calendar(calendarEl, {
@@ -22,11 +21,19 @@ document.addEventListener('DOMContentLoaded', async function () {
     eventMouseLeave: function (info) {
       info.el.style.opacity = '1';
     },
+    customButtons: {
+      add_event: {
+        text: 'Add',
+        click: function () {
+          alert();
+        },
+      },
+    },
     contentHeight: 1000,
     headerToolbar: {
       left: 'dayGridMonth,timeGridWeek,timeGridDay,listYear',
       center: 'title',
-      right: 'prev,next',
+      right: 'add_event,prev,next',
     },
     events: activities,
     dayMaxEventRows: true, // for all non-TimeGrid views

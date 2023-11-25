@@ -37,7 +37,7 @@ if (empty($title) || empty($description) || empty($date) || empty($time) || empt
 
 // convert date and time and check if it's in the future
 $datetime = strtotime($date . ' ' . $time);
-// kenapa dibalik?, karna klo date null jadi 00000 jadi false klo ga dibalik
+// kenapa dibalik?, karna klo date null itu = 00000 jadi false klo ga dibalik
 if (!($datetime > time())) {
   $_SESSION['message'] = "Can only add upcoming activities!";
   $_SESSION['type'] = "error";

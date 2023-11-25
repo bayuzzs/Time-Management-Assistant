@@ -54,11 +54,6 @@ $user = loginFromCookie($_COOKIE["auth_user"]);
     </div>
   </main>
   <!-- Main end -->
-  <style>
-    #calendar {
-      max-height: 95vh;
-    }
-  </style>
   <script type="javascript" src="./assets/js/dashboard.js"></script>
   <script src="./assets/js/calendar.js"></script>
 
