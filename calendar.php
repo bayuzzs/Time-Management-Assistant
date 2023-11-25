@@ -54,6 +54,59 @@ $user = loginFromCookie($_COOKIE["auth_user"]);
     </div>
   </main>
   <!-- Main end -->
+
+  <!-- modal add start -->
+  <div class="modal">
+    <div class="modal__add" id="modalAdd">
+      <form class="modal__add__form" action="utils/add_activity.php" method="POST">
+        <p>Task Details</p>
+        <input class="modal__add__form-title" type="text" name="title" placeholder="Title" tabindex="1" required>
+        <textarea class="modal__add__form-description" name="description" rows="5" placeholder="Description"
+          tabindex="2" required></textarea>
+        <p>Task Date</p>
+        <div class="modal__add__form__datetime">
+          <input class="modal__add__form__datetime-date" type="date" name="date" tabindex="3" required>
+          <input class="modal__add__form__datetime-time" type="time" name="time" tabindex="4" required>
+        </div>
+        <p>Task Priority</p>
+        <div class="modal__add__form__priority">
+          <label>
+            <input type="radio" name="priority" value="none" checked>
+            None
+          </label>
+          <label>
+            <input type="radio" name="priority" value="important">
+            Important
+          </label>
+        </div>
+        <p>Task Repetition</p>
+        <div class="modal__add__form__repetition">
+          <label>
+            <input type="radio" name="repetition" value="none" checked>
+            None
+          </label>
+          <label>
+            <input type="radio" name="repetition" value="daily">
+            Daily
+          </label>
+          <label>
+            <input type="radio" name="repetition" value="weekly">
+            Weekly
+          </label>
+          <label>
+            <input type="radio" name="repetition" value="monthly">
+            Monthly
+          </label>
+        </div>
+        <div class="modal__add__form__button">
+          <button class="modal__add__form__button-cancel" type="reset" title="Cancel" tabindex="5"
+            onclick="hideModalAdd()">Cancel</button>
+          <button class="modal__add__form__button-add" type="submit" title="Add Activity" tabindex="6">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- modal add end -->
   <script type="javascript" src="./assets/js/dashboard.js"></script>
   <script src="./assets/js/calendar.js"></script>
 

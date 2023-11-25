@@ -188,7 +188,7 @@ if (count($activities)) {
   </main>
   <!-- Main end -->
 
-  <!-- Modal add start -->
+  <!-- modal add start -->
   <div class="modal">
     <div class="modal__add" id="modalAdd">
       <form class="modal__add__form" action="utils/add_activity.php" method="POST">
@@ -239,8 +239,7 @@ if (count($activities)) {
       </form>
     </div>
   </div>
-  <!-- Modal add end -->
-
+  <!-- modal add end -->
   <script src="./assets/js/dashboard.js"></script>
 </body>
 

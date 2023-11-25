@@ -7,10 +7,11 @@ document.addEventListener('DOMContentLoaded', async function () {
     return {
       id: data.id_activity,
       title: data.title,
+      // start: new Date(`${data.date} ${data.time}`).toISOString(),
       start: `${data.date}T${data.time}`,
     };
   });
-
+  console.log(activities);
   // render calendar
   const calendarEl = document.getElementById('calendar');
   const calendar = new FullCalendar.Calendar(calendarEl, {
@@ -24,9 +25,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     customButtons: {
       add_event: {
         text: 'Add',
-        click: function () {
-          alert();
-        },
+        click: showModalAdd,
       },
     },
     contentHeight: 1000,
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       right: 'add_event,prev,next',
     },
     events: activities,
-    dayMaxEventRows: true, // for all non-TimeGrid views
+    // dayMaxEventRows: true, // for all non-TimeGrid views
     views: {
       timeGrid: {
         dayMaxEventRows: 6, // adjust to 6 only for timeGridWeek/timeGridDay
@@ -46,3 +45,12 @@ document.addEventListener('DOMContentLoaded', async function () {
   });
   calendar.render();
 });
+
+function showModalAdd() {
+  document.querySelector('.modal').classList.add('show');
+  document.querySelector('.modal__add__form-title').focus();
+}
+// sembunyiin modal buat tambah data
+function hideModalAdd() {
+  document.querySelector('.modal').classList.remove('show');
+}

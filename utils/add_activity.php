@@ -54,12 +54,12 @@ if ($stmt->execute()) {
   $_SESSION['message'] = "Activity added successfully!";
   $_SESSION['type'] = "success";
   $stmt->close();
-  exit(header("Location: /dashboard.php"));
+  exit(header("Location: " . $_SERVER['HTTP_REFERER']));
 } else {
   // Insertion failed
   $_SESSION['message'] = "Insertion failed!";
   $_SESSION['type'] = "error";
   $stmt->close();
-  exit(header("Location: /dashboard.php"));
+  exit(header("Location: " . $_SERVER['HTTP_REFERER']));
 }
 ?>
