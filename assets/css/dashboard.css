@@ -547,7 +547,7 @@
   display: flex;
 }
 .modal__delete-title {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 .modal__delete__form {
   display: flex;
@@ -598,6 +598,9 @@
   }
   .modal__delete {
     max-width: 500px;
+  }
+  .modal__delete-title {
+    font-size: 1.3rem;
   }
 }
 @media screen and (min-width: 1024px) {

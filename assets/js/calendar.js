@@ -4,12 +4,11 @@ document.addEventListener('DOMContentLoaded', async function () {
     .then((response) => response.json())
     .then((datas) => datas);
   activities = activities.map((data) => {
+    // return this for calendar format properly
     return {
       id: data.id_activity,
       title: data.title,
-      // start: new Date(`${data.date} ${data.time}`).toISOString(),
       start: `${data.date}T${data.time}`,
-      end: `${data.date}T${data.time}`,
       allDay: false,
     };
   });
