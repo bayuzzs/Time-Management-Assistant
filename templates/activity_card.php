@@ -26,8 +26,9 @@ $overdue = $overdue == 'none' ? '<p class="activity__content-item__left-overdue"
       </p>
     </div>
     <div class="activity__content-item__right-action">
-      <button class="activity__content-item__right-action-edit btn">
-        <img src="./assets/images/dashboard/edit.svg">
+      <button class="activity__content-item__right-action-edit btn" data-id="<?= $id_activity ?>"
+        onclick="showModalEdit(event)">
+        <img src=" ./assets/images/dashboard/edit.svg">
       </button>
       <button class="activity__content-item__right-action-delete btn" data-id="<?= $id_activity ?>"
         onclick="showModalDelete(event)">

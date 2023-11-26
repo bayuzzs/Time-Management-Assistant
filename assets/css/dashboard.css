@@ -400,6 +400,7 @@
   display: flex;
   animation: showModal 0.5s;
 }
+/* modal add start */
 .modal__add {
   display: none;
   flex-direction: column;
@@ -532,7 +533,142 @@
   color: var(--main-color);
   background-color: #ffffff;
 }
-/* modal delete */
+/* modal add end */
+/* modal edit start */
+.modal__edit {
+  display: none;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  max-width: 300px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal__edit.show {
+  display: flex;
+}
+.modal__edit__form {
+  display: flex;
+  flex-direction: column;
+}
+/* give margin to p child */
+.modal__edit__form > p {
+  margin-bottom: 5px;
+}
+.modal__edit__form-title,
+.modal__edit__form-description {
+  color: var(--main-color);
+  background-color: var(--input-color);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.modal__edit__form-title::placeholder,
+.modal__edit__form-description::placeholder {
+  color: var(--main-color);
+}
+.modal__edit__form-title:focus,
+.modal__edit__form-description:focus {
+  outline: 2px solid var(--main-color);
+}
+.modal__edit__form-description {
+  min-height: 50px;
+  resize: vertical;
+}
+.modal__edit__form__datetime {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.modal__edit__form__datetime-date,
+.modal__edit__form__datetime-time {
+  color: var(--main-color);
+  background-color: var(--input-color);
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+}
+.modal__edit__form__datetime-date:focus,
+.modal__edit__form__datetime-time:focus {
+  outline: 2px solid var(--main-color);
+}
+.modal__edit__form__priority {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.modal__edit__form__priority label {
+  padding: 8px 20px;
+  border-radius: 10px;
+  background-color: var(--input-color);
+  color: var(--main-color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.modal__edit__form__priority label:has(input[type='radio']:checked) {
+  background-color: var(--main-color);
+  color: #ffffff;
+}
+.modal__edit__form__priority label input[type='radio'] {
+  display: none;
+}
+.modal__edit__form__repetition {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+.modal__edit__form__repetition label {
+  padding: 8px 20px;
+  border-radius: 10px;
+  background-color: var(--input-color);
+  color: var(--main-color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.modal__edit__form__repetition label:has(input[type='radio']:checked) {
+  background-color: var(--main-color);
+  color: #ffffff;
+}
+.modal__edit__form__repetition label input[type='radio'] {
+  display: none;
+}
+.modal__edit__form__button {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.modal__edit__form__button-cancel,
+.modal__edit__form__button-add {
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.modal__edit__form__button-cancel {
+  color: var(--main-color);
+  background-color: #ffffff;
+  border: 1px solid var(--main-color);
+  transition: all 0.2s;
+}
+.modal__edit__form__button-cancel:hover {
+  color: #ffffff;
+  background-color: var(--main-color);
+}
+.modal__edit__form__button-add {
+  color: #ffffff;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  transition: all 0.2s;
+}
+.modal__edit__form__button-add:hover {
+  color: var(--main-color);
+  background-color: #ffffff;
+}
+/* modal edit end */
+/* modal delete  start*/
 .modal__delete {
   display: none;
   flex-direction: column;
@@ -575,7 +711,7 @@
 .modal__delete__form-delete:hover {
   opacity: 0.7;
 }
-
+/* modal delete end */
 @keyframes showModal {
   0% {
     opacity: 0;
@@ -596,6 +732,9 @@
   .modal__add {
     max-width: 500px;
   }
+  .modal__edit {
+    max-width: 500px;
+  }
   .modal__delete {
     max-width: 500px;
   }
@@ -614,6 +753,18 @@
   }
   .modal__add__form__button-cancel,
   .modal__add__form__button-add {
+    padding: 10px 30px;
+  }
+  .modal__edit {
+    max-width: 800px;
+  }
+  .modal__edit__form__priority,
+  .modal__edit__form__repetition,
+  .modal__edit__form__button {
+    gap: 20px;
+  }
+  .modal__edit__form__button-cancel,
+  .modal__edit__form__button-edit {
     padding: 10px 30px;
   }
   .modal__delete {

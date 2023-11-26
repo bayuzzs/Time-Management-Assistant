@@ -3,7 +3,6 @@ require_once 'mysqli.php';
 require_once 'auth.php';
 session_start();
 
-$json = file_get_contents("php://input"); // json string
 // if doesn't have cookie
 if (!isset($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
   echo json_encode(['error' => 'no cookie']);
@@ -16,7 +15,8 @@ if (!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
   die();
 }
 
-$query = "SELECT * FROM activities WHERE id_user = ?";
+$query = "SELECT * FROM activities WHERE id_activity = ? AND id_user = ?";
+$activityId = $_GET['id'];
 $userId = $_COOKIE["auth_user"];
 
 // Prepare the statement
@@ -27,13 +27,13 @@ if (!$stmt) {
 }
 
 // Bind the parameter
-$stmt->bind_param("s", $userId);
+$stmt->bind_param("ss", $activityId, $userId);
 
 // Execute the query
 $stmt->execute();
 
 // Get the result
-$result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$result = $stmt->get_result()->fetch_assoc();
 // Output the JSON data
 echo json_encode($result);
 ?>

@@ -17,6 +17,47 @@ function hideModalAdd() {
   document.querySelector('.modal').classList.remove('show');
   document.querySelector('.modal__add').classList.remove('show');
 }
+// munculin modal buat edit data
+async function showModalEdit(event) {
+  const activity_id = event.currentTarget.dataset.id;
+  const activity = await fetch(
+    `/utils/get_activity.php?id=${activity_id}`
+  ).then((response) => response.json());
+  console.log(activity);
+  document.querySelector('.modal').classList.add('show');
+  document.querySelector('.modal__edit').classList.add('show');
+  document.querySelector('.modal__edit__form-title').focus();
+
+  // get the form elements
+  const formId = document.querySelector('.modal__edit__form-id');
+  const formTitle = document.querySelector('.modal__edit__form-title');
+  const formDescription = document.querySelector(
+    '.modal__edit__form-description'
+  );
+  const formDate = document.querySelector('.modal__edit__form__datetime-date');
+  const formTime = document.querySelector('.modal__edit__form__datetime-time');
+  const formPriority = document.querySelector(
+    `.modal__edit__form__priority input[value="${activity.priority}"]`
+  );
+  const formRepetition = document.querySelector(
+    `.modal__edit__form__repetition input[value="${activity.repetition}"]`
+  );
+
+  // set the form values
+  formId.value = activity.id_activity;
+  formTitle.value = activity.title;
+  formDescription.value = activity.description;
+  formDate.value = activity.date;
+  formTime.value = activity.time;
+  formPriority.checked = true;
+  formRepetition.checked = true;
+}
+
+// sembunyiin modal buat edit data
+function hideModalEdit() {
+  document.querySelector('.modal').classList.remove('show');
+  document.querySelector('.modal__edit').classList.remove('show');
+}
 
 function showModalDelete(event) {
   const currentCard = event.currentTarget.parentNode.parentNode.parentNode;

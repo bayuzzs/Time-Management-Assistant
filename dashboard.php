@@ -251,6 +251,57 @@ if (count($activities)) {
       </form>
     </div>
     <!-- Modal delete end -->
+
+    <!-- modal edit start -->
+    <div class="modal__edit" id="modalEdit">
+      <form class="modal__edit__form" action="utils/edit_activity.php" method="POST">
+        <input class="modal__edit__form-id" type="hidden" name="id_activity">
+        <p>Task Details</p>
+        <input class="modal__edit__form-title" type="text" name="title" tabindex="1" required>
+        <textarea class="modal__edit__form-description" name="description" rows="5" tabindex="2" required></textarea>
+        <p>Task Date</p>
+        <div class="modal__edit__form__datetime">
+          <input class="modal__edit__form__datetime-date" type="date" name="date" tabindex="3" required>
+          <input class="modal__edit__form__datetime-time" type="time" name="time" tabindex="4" required>
+        </div>
+        <p>Task Priority</p>
+        <div class="modal__edit__form__priority">
+          <label>
+            <input type="radio" name="priority" value="none">
+            None
+          </label>
+          <label>
+            <input type="radio" name="priority" value="important">
+            Important
+          </label>
+        </div>
+        <p>Task Repetition</p>
+        <div class="modal__edit__form__repetition">
+          <label>
+            <input type="radio" name="repetition" value="none">
+            None
+          </label>
+          <label>
+            <input type="radio" name="repetition" value="daily">
+            Daily
+          </label>
+          <label>
+            <input type="radio" name="repetition" value="weekly">
+            Weekly
+          </label>
+          <label>
+            <input type="radio" name="repetition" value="monthly">
+            Monthly
+          </label>
+        </div>
+        <div class="modal__edit__form__button">
+          <button class="modal__edit__form__button-cancel" type="reset" title="Cancel" tabindex="5"
+            onclick="hideModalEdit()">Cancel</button>
+          <button class="modal__edit__form__button-add" type="submit" title="Edit Activity" tabindex="6">Save</button>
+        </div>
+      </form>
+    </div>
+    <!-- modal edit end -->
   </div>
 
   <script src="./assets/js/dashboard.js"></script>
