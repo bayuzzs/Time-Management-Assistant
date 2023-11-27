@@ -92,4 +92,29 @@ function unsetAuthCookie()
   setcookie("auth_user", "", -1, "/");
   setcookie("auth_token", "", -1, "/");
 }
+
+function validatePassword($oldPassword, $id_user)
+{
+  global $mysqli;
+  $stmt = $mysqli->prepare("SELECT password FROM users WHERE id_user = ?");
+  $stmt->bind_param("s", $id_user);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $userPassword = $result->fetch_assoc();
+  $stmt->close();
+
+  return password_verify($oldPassword, $userPassword['password']);
+}
+
+function updatePassword($newPassword, $id_user)
+{
+  global $mysqli;
+  $password = password_hash($newPassword, PASSWORD_BCRYPT, ["cost" => 12]);
+  $stmt = $mysqli->prepare("UPDATE users SET password = ? WHERE id_user = ?");
+  $stmt->bind_param("ss", $password, $id_user);
+  $stmt->execute();
+  $stmt->close();
+
+  return true;
+}
 ?>

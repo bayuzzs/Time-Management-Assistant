@@ -103,8 +103,13 @@ body {
   background-color: var(--main-color);
   color: #ffffff;
 }
+.sidebar__profile__menu .settings.active,
+.sidebar__profile__menu .notifications.active {
+  background-color: var(--main-color);
+  color: #ffffff;
+}
 /* if button have notifications exist */
-.sidebar__profile__menu .notifications.exist::after {
+.sidebar__profile__menu .notifications.active::after {
   content: '';
   display: block;
   width: 8px;

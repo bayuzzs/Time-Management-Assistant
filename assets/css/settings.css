@@ -1,0 +1,118 @@
+:root {
+  --main-color: #0091ff;
+  --color-dark: #333333;
+  --border-color: #1a2744;
+  --base-color: #f5f5f5;
+  --color-danger: #d46a6a;
+  --color-success: #77dd77;
+  --main-color: #008fff;
+  --color-dark: #333333;
+  --card-color: #acdaff;
+  --input-color: #d4ecff;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+main {
+  padding: 20px;
+}
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.settings__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.settings__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.settings__form label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.settings__form label input {
+  padding: 8px 10px;
+  border-radius: 5px;
+  background-color: var(--input-color);
+  color: var(--main-color);
+}
+.settings__form label input:focus {
+  outline: none;
+  border: 1px solid var(--main-color);
+}
+.settings__form-submit {
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: var(--main-color);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.settings__form-submit:hover {
+  opacity: 0.8;
+}
+
+/* alert style start */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  position: fixed;
+  top: 20px;
+  width: 300px;
+  left: calc(50% - 150px);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  z-index: 9999;
+  animation: alert 0.5s;
+  transition: opacity 0.5s;
+}
+.alert-success {
+  background-color: var(--main-color);
+}
+.alert-error {
+  background-color: #ff635e;
+}
+.alert.alert-hide {
+  opacity: 0;
+}
+.alert__message {
+  color: white;
+}
+@keyframes alert {
+  0% {
+    top: -50px;
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    top: 20px;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media screen and (min-width: 768px) {
+  .alert {
+    width: 400px;
+    left: calc(50% - 200px);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .alert {
+    width: 500px;
+    left: calc(50% - 250px);
+  }
+}
+/* alert style end */
