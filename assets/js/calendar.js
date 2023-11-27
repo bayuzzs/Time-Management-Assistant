@@ -5,12 +5,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     .then((datas) => datas);
   activities = activities.map((data) => {
     // return this for calendar format properly
-    // console.log();
     return {
       id: data.id_activity,
       title: data.title,
-      start: new Date(data.date + ' ' + data.time).toISOString(),
-      end: new Date(data.date + ' ' + data.time).toISOString(),
+      start: new Date(data.date + ' ' + data.time).getTime(),
       color: `#${data.priority === 'important' ? 'fdd527' : '0091ff'}`,
       textColor: `#${data.priority === 'important' ? '000000' : 'ffffff'}`,
       display: 'block',
@@ -42,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       right: 'add_event,prev,next',
     },
     events: activities,
-    nextDayThreshold: '00:30:00',
+    nextDayThreshold: '01:00:00',
     initialView: 'dayGridMonth',
   });
   calendar.render();
