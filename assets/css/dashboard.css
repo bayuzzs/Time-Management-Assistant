@@ -11,9 +11,9 @@
   --input-color: #d4ecff;
 }
 /* Main start */
-/* main {
-  padding: 20px;
-} */
+main {
+  padding-bottom: 100px;
+}
 .banner {
   display: flex;
   justify-content: center;
@@ -98,8 +98,6 @@
   right: 20px;
   bottom: 20px;
   z-index: 9999;
-}
-.activity__action:hover {
 }
 .activity__action.show {
   background-color: salmon;
