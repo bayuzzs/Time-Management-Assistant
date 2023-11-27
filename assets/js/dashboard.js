@@ -23,7 +23,7 @@ async function showModalEdit(event) {
   const activity = await fetch(
     `/utils/get_activity.php?id=${activity_id}`
   ).then((response) => response.json());
-  console.log(activity);
+
   document.querySelector('.modal').classList.add('show');
   document.querySelector('.modal__edit').classList.add('show');
   document.querySelector('.modal__edit__form-title').focus();

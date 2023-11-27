@@ -117,7 +117,7 @@ if (count($activities)) {
           <p class="heading__priority__detail-count">
             <?= $importantActivities ?>
           </p>
-          <p>Priority Tasks</p>
+          <p>Important Tasks</p>
         </div>
       </div>
       <div class="heading__overdue">

@@ -63,12 +63,15 @@ main {
 .heading__priority img,
 .heading__overdue img,
 .heading__all img {
-  display: none;
   padding: 5px;
   border: 2px solid white;
   border-radius: 100%;
 }
+.heading__priority img {
+  border: 2px solid black;
+}
 .heading__priority {
+  color: black;
   background-color: #fdd527;
 }
 .heading__overdue {
