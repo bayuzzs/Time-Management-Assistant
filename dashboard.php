@@ -247,13 +247,13 @@ if (count($activities)) {
       <form class="modal__delete__form" action="utils/delete_activity.php" method="POST">
         <input class="modal__delete__form-id" name="id_activity" type="hidden">
         <button class="modal__delete__form-cancel" type="reset" onclick="hideModalDelete()">Cancel</button>
-        <button class="modal__delete__form-delete" type="submit" onclick="deleteActivity()">Delete</button>
+        <button class="modal__delete__form-delete" type="submit">Delete</button>
       </form>
     </div>
     <!-- Modal delete end -->
 
     <!-- modal edit start -->
-    <div class="modal__edit" id="modalEdit">
+    <div class=" modal__edit" id="modalEdit">
       <form class="modal__edit__form" action="utils/edit_activity.php" method="POST">
         <input class="modal__edit__form-id" type="hidden" name="id_activity">
         <p>Task Details</p>

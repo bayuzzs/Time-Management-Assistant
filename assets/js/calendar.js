@@ -69,7 +69,6 @@ function hideModalAdd() {
 
 async function showModalEdit(event) {
   const activity_id = event.event.id;
-  console.log(event.event);
   const activity = await fetch(
     `/utils/get_activity.php?id=${activity_id}`
   ).then((response) => response.json());
@@ -107,4 +106,20 @@ async function showModalEdit(event) {
 function hideModalEdit() {
   document.querySelector('.modal').classList.remove('show');
   document.querySelector('.modal__edit').classList.remove('show');
+}
+
+function showModalDelete(event) {
+  const id = event.currentTarget.parentNode.parentNode.id_activity.value;
+  const title = event.currentTarget.parentNode.parentNode.title.value;
+  document.querySelector(
+    '.modal__delete-title'
+  ).innerHTML = `Are you sure you want to delete "<b>${title}</b>" activity?`;
+  document.querySelector('.modal__delete__wrapper').classList.add('show');
+  document.querySelector('.modal__delete').classList.add('show');
+  document.querySelector('.modal__delete__form-id').value = id;
+}
+
+function hideModalDelete() {
+  document.querySelector('.modal__delete__wrapper').classList.remove('show');
+  document.querySelector('.modal__delete').classList.remove('show');
 }

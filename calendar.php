@@ -168,11 +168,26 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
         <div class="modal__edit__form__button">
           <button class="modal__edit__form__button-cancel" type="reset" title="Cancel" tabindex="5"
             onclick="hideModalEdit()">Cancel</button>
-          <button class="modal__edit__form__button-add" type="submit" title="Edit Activity" tabindex="6">Save</button>
+          <button class="modal__edit__form__button-delete" type="button" title="Delete Activity" tabindex="6"
+            onclick="showModalDelete(event)">Delete</button>
+          <button class="modal__edit__form__button-add" type="submit" title="Edit Activity" tabindex="7">Save</button>
         </div>
       </form>
     </div>
     <!-- modal edit end -->
+
+    <!-- Modal delete start -->
+    <div class="modal__delete__wrapper">
+      <div class="modal__delete" id="modalDelete">
+        <p class="modal__delete-title"></p>
+        <form class="modal__delete__form" action="utils/delete_activity.php" method="POST">
+          <input class="modal__delete__form-id" name="id_activity" type="hidden">
+          <button class="modal__delete__form-cancel" type="reset" onclick="hideModalDelete()">Cancel</button>
+          <button class="modal__delete__form-delete" type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
+    <!-- Modal delete end -->
   </div>
   <script type="javascript" src="./assets/js/dashboard.js"></script>
   <script src="./assets/js/calendar.js"></script>
