@@ -30,9 +30,37 @@ $stmt->bind_param("s", $userId);
 
 // Execute the query
 $stmt->execute();
+$result = $stmt->get_result();
+// no activity
+if (!$result->num_rows) {
+  echo json_encode(['data' => ['activities' => []]]);
+  $stmt->close();
+  die();
+}
 
 // Get the result
-$result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-// Output the JSON data
-echo json_encode($result);
+$total = 0;
+$priority = 0;
+$overdue = 0;
+$activities = [];
+while ($row = $result->fetch_assoc()) {
+  $total++;
+  if ($row['priority'] == 'important') {
+    $priority++;
+  }
+  if (strtotime($row['date'] . ' ' . $row['time']) < time()) {
+    $overdue++;
+  }
+  array_push($activities, $row);
+}
+
+$data = [
+  'total' => $total,
+  'priority' => $priority,
+  'overdue' => $overdue,
+  'activities' => $activities,
+];
+
+echo json_encode($data);
+$stmt->close();
 ?>

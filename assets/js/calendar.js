@@ -1,9 +1,27 @@
 document.addEventListener('DOMContentLoaded', async function () {
   // fetch activities
-  let activities = await fetch('/utils/get_activities.php')
+  const activities = await getActivities();
+  const calendarActivities = calendarFormatActivities(activities);
+  // render calendar
+  renderCalendar(calendarActivities);
+
+  // for alert
+  const message = document.querySelector('.alert');
+  if (message) {
+    setTimeout(function () {
+      message.classList.add('alert-hide');
+    }, 2500);
+  }
+});
+
+async function getActivities() {
+  return await fetch('/utils/get_activities.php')
     .then((response) => response.json())
-    .then((datas) => datas);
-  activities = activities.map((data) => {
+    .then((data) => data.activities);
+}
+
+function calendarFormatActivities(activities) {
+  return activities.map((data) => {
     // return this for calendar format properly
     return {
       id: data.id_activity,
@@ -14,8 +32,9 @@ document.addEventListener('DOMContentLoaded', async function () {
       display: 'block',
     };
   });
+}
 
-  // render calendar
+function renderCalendar(events) {
   const calendarEl = document.getElementById('calendar');
   const calendar = new FullCalendar.Calendar(calendarEl, {
     eventClick: function (info) {
@@ -39,20 +58,12 @@ document.addEventListener('DOMContentLoaded', async function () {
       center: 'title',
       right: 'add_event,prev,next',
     },
-    events: activities,
+    events,
     nextDayThreshold: '01:00:00',
     initialView: 'dayGridMonth',
   });
   calendar.render();
-
-  // for alert
-  const message = document.querySelector('.alert');
-  if (message) {
-    setTimeout(function () {
-      message.classList.add('alert-hide');
-    }, 2500);
-  }
-});
+}
 
 // munculin modal buat tambah data
 function showModalAdd() {
