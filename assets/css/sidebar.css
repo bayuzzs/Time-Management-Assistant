@@ -80,6 +80,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  position: relative;
 }
 .sidebar__profile__menu .settings,
 .sidebar__profile__menu .notifications {
@@ -93,8 +94,7 @@ body {
 .sidebar__profile__menu .notifications {
   position: relative;
 }
-.sidebar__profile__menu .settings:hover,
-.sidebar__profile__menu .notifications:hover {
+.sidebar__profile__menu .settings:hover {
   background-color: var(--main-color);
   color: #ffffff;
 }
@@ -103,8 +103,7 @@ body {
   background-color: var(--main-color);
   color: #ffffff;
 }
-.sidebar__profile__menu .settings.active,
-.sidebar__profile__menu .notifications.active {
+.sidebar__profile__menu .settings.active {
   background-color: var(--main-color);
   color: #ffffff;
 }
@@ -112,13 +111,63 @@ body {
 .sidebar__profile__menu .notifications.active::after {
   content: '';
   display: block;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background-color: red;
   border-radius: 50%;
   position: absolute;
   top: 0;
   right: 0;
+}
+.notifications__content {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  z-index: 999;
+  min-width: 300px;
+  max-width: 300px;
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 5px;
+  max-height: 70vh;
+  overflow: auto;
+}
+.notifications__content::-webkit-scrollbar {
+  width: 10px;
+}
+.notifications__content::-webkit-scrollbar-thumb {
+  background-color: #3498db;
+  border-radius: 6px;
+}
+.notifications__content.show {
+  display: flex;
+}
+.notifications__content__item {
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* supaya element terakhir notif gapunya border */
+.notifications__content__item:nth-last-child(1) {
+  border: none;
+}
+.notifications__content__item:hover {
+  background-color: var(--base-color);
+}
+.notifications__content__item-title {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.notifications__content__item-datetime {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.9rem;
 }
 .sidebar__menu {
   flex-grow: 1;
@@ -176,5 +225,8 @@ make the sidebar static again */
   }
   main {
     margin-left: 250px;
+  }
+  .notifications__content {
+    min-width: 500px;
   }
 }

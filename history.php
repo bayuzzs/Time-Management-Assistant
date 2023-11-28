@@ -68,7 +68,8 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
 
   <!-- Sidebar start -->
   <?php
-  renderSidebar($id_user, $name, $email, 'history');
+  $active = 'history';
+  require_once 'templates/sidebar.php';
   ?>
   <!-- Sidebar end -->
 

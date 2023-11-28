@@ -26,6 +26,28 @@ $user = loginFromCookie($_COOKIE["auth_user"]);
 // destructuring from user data
 ['id_user' => $id_user, 'name' => $name, 'email' => $email] = $user;
 
+// Ambil activity
+$stmt = $mysqli->prepare("SELECT * FROM activities WHERE id_user = ?");
+$stmt->bind_param("s", $id_user);
+$stmt->execute();
+$activities = $stmt->get_result();
+$activities = $activities->fetch_all(MYSQLI_ASSOC);
+$stmt->close();
+$totalActivities = 0;
+$importantActivities = 0;
+$overdueActivities = 0;
+if (count($activities)) {
+  foreach ($activities as $activity) {
+    $totalActivities++;
+    if ($activity['priority'] == 'important') {
+      $importantActivities++;
+    }
+    if (strtotime($activity['date'] . ' ' . $activity['time']) < time()) {
+      $overdueActivities++;
+    }
+  }
+}
+
 // check session to show an alert
 if (isset($_SESSION['message'], $_SESSION['type'])) {
   $message = $_SESSION['message'];
@@ -68,7 +90,9 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
 
   <!-- Sidebar start -->
   <?php
-  renderSidebar($id_user, $name, $email, 'dashboard');
+  // renderSidebar($mysqli, $id_user, $name, $email, 'dashboard');
+  $active = 'dashboard';
+  require_once 'templates/sidebar.php';
   ?>
   <!-- Sidebar end -->
   <!-- Main start -->
@@ -90,21 +114,27 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
       <div class="heading__priority">
         <img src="assets/images/dashboard/timer-priority.svg">
         <div class="heading__priority__detail">
-          <p class="heading__priority__detail-count">0</p>
+          <p class="heading__priority__detail-count">
+            <?= $importantActivities ?>
+          </p>
           <p>Important Tasks</p>
         </div>
       </div>
       <div class="heading__overdue">
         <img src="assets/images/dashboard/timer-overdue.svg">
         <div class="heading__overdue__detail">
-          <p class="heading__overdue__detail-count">0</p>
+          <p class="heading__overdue__detail-count">
+            <?= $overdueActivities ?>
+          </p>
           <p>Overdue Tasks</p>
         </div>
       </div>
       <div class="heading__all">
         <img src="assets/images/dashboard/timer-all.svg">
         <div class="heading__all__detail">
-          <p class="heading__all__detail-count">0</p>
+          <p class="heading__all__detail-count">
+            <?= $totalActivities ?>
+          </p>
           <p>All Tasks</p>
         </div>
       </div>
@@ -135,7 +165,25 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
         </div>
       </div>
       <div class="activity__content">
-
+        <?php if (!count($activities)): ?>
+          <!-- empty activity -->
+          <div class="activity__content__empty">
+            <img src="./assets/images/dashboard/empty.png">
+            <p>No activities yet</p>
+          </div>
+        <?php endif; ?>
+        <?php foreach ($activities as $activitiy) {
+          [
+            'id_activity' => $id_activity,
+            'title' => $title,
+            'description' => $description,
+            'date' => $date,
+            'time' => $time,
+            'priority' => $priority,
+            'repetition' => $repetition
+          ] = $activitiy;
+          renderActivity($id_activity, $title, $description, $date, $time, $priority, $repetition);
+        } ?>
       </div>
     </div>
   </main>

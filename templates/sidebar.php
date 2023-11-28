@@ -1,12 +1,41 @@
 <?php
-// Declare global variables
-// global ;
-if (!isset($id_user, $name, $email, $active)) {
-  die('make sidebar yang bener napa');
+try {
+  $currentDate = date('Y-m-d H:i:s');
+
+  // Calculate the date 2 days from now
+  $twoDaysFromNow = date('Y-m-d H:i:s', strtotime('+2 days'));
+
+  // Prepare the SQL query
+  $query = "SELECT * FROM activities WHERE date BETWEEN ? AND ?";
+  $statement = $mysqli->prepare($query);
+
+  // Bind the parameters
+  $statement->bind_param('ss', $currentDate, $twoDaysFromNow);
+
+  // Execute the query
+  $statement->execute();
+  // Get the result
+  $result = $statement->get_result();
+
+  // Check if any rows were returned
+  if ($result->num_rows > 0) {
+    // Fetch the data
+    $notificationsData = $result->fetch_all(MYSQLI_ASSOC);
+  } else {
+    // Handle the case where no data is found
+    $notificationsData = [];
+  }
+
+  // Close te statement and the connection
+  $statement->close();
+  $mysqli->close();
+} catch (Exception $e) {
+  // Handle any exceptions or errors
+  echo "An error occurred: " . $e->getMessage();
+  die();
 }
 ?>
-
-<section class="sidebar">
+<section class="sidebar active">
   <!-- Hamburger Menur -->
   <div class="sidebar__hamburger" onclick="toggleSidebar()">
     <div></div>
@@ -41,13 +70,41 @@ if (!isset($id_user, $name, $email, $active)) {
           </g>
         </svg>
       </a>
-      <button href="#" class="notifications <?= $active == 'notifications' ? 'active' : '' ?>" title="Notifications">
+      <button class="notifications <?= count($notificationsData) ? 'active' : '' ?>" title="Notifications"
+        onclick="toggleNotifications()">
         <svg width="25" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M13.75 28.875H19.25C19.25 30.3875 18.0125 31.625 16.5 31.625C14.9875 31.625 13.75 30.3875 13.75 28.875ZM28.875 26.125V27.5H4.125V26.125L6.875 23.375V15.125C6.875 10.8625 9.625 7.15 13.75 5.9125V5.5C13.75 3.9875 14.9875 2.75 16.5 2.75C18.0125 2.75 19.25 3.9875 19.25 5.5V5.9125C23.375 7.15 26.125 10.8625 26.125 15.125V23.375L28.875 26.125ZM23.375 15.125C23.375 11.275 20.35 8.25 16.5 8.25C12.65 8.25 9.625 11.275 9.625 15.125V24.75H23.375V15.125Z"
             fill="currentColor" />
         </svg>
       </button>
+      <div class="notifications__content">
+        <?php if (!count($notificationsData)): ?>
+          <p class="notifications__content__text">No new notifications</p>
+        <?php endif ?>
+        <?php if (count($notificationsData)): ?>
+          <p><small>
+              <?= count($notificationsData) ?> new notifications in next 2 days
+            </small>
+          </p>
+          <?php foreach ($notificationsData as $notification): ?>
+            <div class="notifications__content__item">
+              <p class="notifications__content__item-title">
+                <?= $notification['title'] ?>
+              </p>
+              <div class="notifications__content__item-datetime">
+                <p>
+                  <?= date_format(date_create($notification['date']), 'l, d M Y') ?>
+                </p>
+                |
+                <p>
+                  <?= $notification['time'] ?>
+                </p>
+              </div>
+            </div>
+          <?php endforeach ?>
+        <?php endif ?>
+      </div>
     </div>
   </div>
   <div class="sidebar__menu">
@@ -121,5 +178,9 @@ if (!isset($id_user, $name, $email, $active)) {
   function toggleSidebar() {
     let sidebar = document.querySelector('.sidebar');
     sidebar.classList.toggle('active');
+  }
+  function toggleNotifications() {
+    document.querySelector('.notifications').classList.toggle('clicked');
+    document.querySelector('.notifications__content').classList.toggle('show');
   }
 </script>

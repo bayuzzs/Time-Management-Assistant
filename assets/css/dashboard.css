@@ -63,6 +63,7 @@ main {
 .heading__priority img,
 .heading__overdue img,
 .heading__all img {
+  display: none;
   padding: 5px;
   border: 2px solid white;
   border-radius: 100%;

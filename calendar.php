@@ -63,7 +63,9 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
     </div>
   <?php endif; ?>
   <?php
-  renderSidebar($id_user, $name, $email, 'calendar');
+  // renderSidebar($id_user, $name, $email, 'calendar');
+  $active = 'calendar';
+  require_once 'templates/sidebar.php';
   ?>
   <!-- Main start -->
   <main>

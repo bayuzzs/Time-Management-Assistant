@@ -33,34 +33,12 @@ $stmt->execute();
 $result = $stmt->get_result();
 // no activity
 if (!$result->num_rows) {
-  echo json_encode(['data' => ['activities' => []]]);
+  // return an empty array
+  echo json_encode([]);
   $stmt->close();
   die();
 }
-
-// Get the result
-$total = 0;
-$priority = 0;
-$overdue = 0;
-$activities = [];
-while ($row = $result->fetch_assoc()) {
-  $total++;
-  if ($row['priority'] == 'important') {
-    $priority++;
-  }
-  if (strtotime($row['date'] . ' ' . $row['time']) < time()) {
-    $overdue++;
-  }
-  array_push($activities, $row);
-}
-
-$data = [
-  'total' => $total,
-  'priority' => $priority,
-  'overdue' => $overdue,
-  'activities' => $activities,
-];
-
+$data = $result->fetch_all(MYSQLI_ASSOC);
 echo json_encode($data);
 $stmt->close();
 ?>

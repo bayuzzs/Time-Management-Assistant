@@ -62,6 +62,7 @@ function checkAuthCookie($authUser, $authToken)
   // get user
   global $mysqli;
   $sql = "SELECT email FROM `users` WHERE `id_user` = ?";
+  $stmt = $mysqli->prepare($sql);
   if ($stmt = $mysqli->prepare($sql)) {
     $stmt->bind_param("s", $authUser);
     $stmt->execute();

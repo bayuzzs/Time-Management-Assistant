@@ -1,12 +1,6 @@
 // if the browser has render the page
-document.addEventListener('DOMContentLoaded', async function () {
-  const { total, priority, overdue, activities } = await getActivities();
-
-  // render heading
-  renderHeading(total, priority, overdue);
-
-  // render card
-  renderActivity(activities);
+document.addEventListener('DOMContentLoaded', function () {
+  // for alert
   const message = document.querySelector('.alert');
   if (message) {
     setTimeout(function () {
@@ -14,12 +8,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     }, 2500);
   }
 });
-
-async function getActivities() {
-  return await fetch('/utils/get_activities.php')
-    .then((response) => response.json())
-    .then((datas) => datas);
-}
 
 // munculin add sama edit yang ada di pojok kanan bawah dashboard
 function toggleAction() {
@@ -116,56 +104,3 @@ function toggleEdit() {
     button.classList.toggle('show');
   });
 }
-
-function renderHeading(all, priority, overdue) {
-  document.querySelector('.heading__priority__detail-count').innerHTML =
-    priority;
-  document.querySelector('.heading__overdue__detail-count').innerHTML = overdue;
-  document.querySelector('.heading__all__detail-count').innerHTML = all;
-}
-
-function renderActivity(activities) {
-  const activityContainer = document.querySelector('.activity__content');
-  activities.forEach((activity) => {
-    activityContainer.innerHTML += Activity(activity);
-  });
-}
-
-const Activity = ({
-  id_activity,
-  title,
-  priority,
-  repetition,
-  description,
-  date,
-  time,
-}) => {
-  return `<div class="activity__content-item">
-  <div class="activity__content-item__left">
-    <p class="activity__content-item__left-title">${title}</p>
-    <p class="activity__content-item__left-priority">${priority}</p>
-    <p class="activity__content-item__left-repetition">${repetition}</p>
-    <p class="activity__content-item__left-overdue">${repetition}</p>
-    <p class="activity__content-item__left-description">${description}</p>
-  </div>
-  <div class="activity__content-item__right">
-    <div class="activity__content-item__right-time">
-      <p>${date}</p>
-      <p>${time}</p>
-    </div>
-    <div class="activity__content-item__right-action">
-      <button class="activity__content-item__right-action-edit btn" data-id="${id_activity}"
-        onclick="showModalEdit(event)">
-        <img src=" ./assets/images/dashboard/edit.svg">
-      </button>
-      <button class="activity__content-item__right-action-delete btn" data-id="${id_activity}"
-        onclick="showModalDelete(event)">
-        <img src="./assets/images/dashboard/delete.svg">
-      </button>
-      <button class="activity__content-item__right-action-complete btn">
-        <img src="./assets/images/dashboard/complete.svg">
-      </button>
-    </div>
-  </div>
-</div>`;
-};

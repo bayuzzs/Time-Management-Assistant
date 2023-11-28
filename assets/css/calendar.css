@@ -435,7 +435,7 @@ main {
   .modal__edit__form__priority,
   .modal__edit__form__repetition,
   .modal__edit__form__button {
-    gap: 20px;
+    gap: 10px;
   }
   .modal__delete {
     max-width: 800px;
