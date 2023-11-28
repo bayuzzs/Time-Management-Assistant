@@ -74,6 +74,7 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
 
   <main>
     <h1>ini body</h1>
+    <h1>Hello world!❤️🤩😍🥰</h1>
   </main>
 
   <script src="./assets/js/history.js"></script>
