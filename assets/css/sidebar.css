@@ -108,16 +108,17 @@ body {
   color: #ffffff;
 }
 /* if button have notifications exist */
-.sidebar__profile__menu .notifications.active::after {
-  content: '';
+.notifications__count {
   display: block;
-  width: 10px;
-  height: 10px;
+  padding: 5px 7px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ffffff;
   background-color: red;
   border-radius: 50%;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -10px;
+  right: -10px;
 }
 .notifications__content {
   display: none;
@@ -146,6 +147,9 @@ body {
 }
 .notifications__content.show {
   display: flex;
+}
+.notifications__content__empty {
+  padding: 20px;
 }
 .notifications__content__item {
   padding: 15px;
