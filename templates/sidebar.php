@@ -3,7 +3,10 @@ try {
   $currentDate = date('Y-m-d H:i:s');
 
   // Calculate the date 2 days from now
-  $twoDaysFromNow = date('Y-m-d H:i:s', strtotime('+2 days'));
+  $twoDaysFromNow = date('Y-m-d H:i:s', strtotime('+3 days'));
+  // var_dump($currentDate);
+  // var_dump($twoDaysFromNow);
+  // die();
 
   // Prepare the SQL query
   $query = "SELECT * FROM activities WHERE id_user = ? AND date BETWEEN ? AND ? ";
@@ -72,9 +75,11 @@ try {
       </a>
       <button class="notifications <?= count($notificationsData) ? 'active' : '' ?>" title="Notifications"
         onclick="toggleNotifications()">
-        <p class="notifications__count">
-          <?= count($notificationsData) ?>
-        </p>
+        <?php if (count($notificationsData)): ?>
+          <p class="notifications__count">
+            <?= count($notificationsData) ?>
+          </p>
+        <?php endif; ?>
         <svg width="25" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M13.75 28.875H19.25C19.25 30.3875 18.0125 31.625 16.5 31.625C14.9875 31.625 13.75 30.3875 13.75 28.875ZM28.875 26.125V27.5H4.125V26.125L6.875 23.375V15.125C6.875 10.8625 9.625 7.15 13.75 5.9125V5.5C13.75 3.9875 14.9875 2.75 16.5 2.75C18.0125 2.75 19.25 3.9875 19.25 5.5V5.9125C23.375 7.15 26.125 10.8625 26.125 15.125V23.375L28.875 26.125ZM23.375 15.125C23.375 11.275 20.35 8.25 16.5 8.25C12.65 8.25 9.625 11.275 9.625 15.125V24.75H23.375V15.125Z"
@@ -87,7 +92,7 @@ try {
         <?php endif ?>
         <?php if (count($notificationsData)): ?>
           <p><small>
-              <?= count($notificationsData) ?> new notifications in next 2 days
+              <?= count($notificationsData) ?> new notifications in next 3 days
             </small>
           </p>
           <?php foreach ($notificationsData as $notification): ?>

@@ -104,3 +104,17 @@ function toggleEdit() {
     button.classList.toggle('show');
   });
 }
+
+async function search(event) {
+  const input = event.currentTarget.value;
+  const parentCard = document.querySelector('.activity__content');
+  let cards = await fetch(`/utils/search_activity.php?title=${input}`);
+  cards = await cards.text();
+  console.log(cards);
+  parentCard.innerHTML = cards;
+  // const cardsContainer = document.querySelector('.activity__content');
+  // cardsContainer.innerHTML = '';
+  // cards.forEach((card) => {
+  //   const cardContainer = document.createElement('div');
+  // });
+}

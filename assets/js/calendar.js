@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async function () {
   // fetch activities
   const activities = await getActivities();
-  const calendarActivities = calendarFormatActivities(activities.data);
+  const calendarActivities = calendarFormatActivities(activities);
   // render calendar
   renderCalendar(calendarActivities);
 
@@ -21,19 +21,20 @@ async function getActivities() {
 }
 
 function calendarFormatActivities(activities) {
-  !activities
-    ? (activities = [])
-    : activities.map((data) => {
-        // return this for calendar format properly
-        return {
-          id: data.id_activity,
-          title: data.title,
-          start: new Date(data.date + ' ' + data.time).getTime(),
-          color: `#${data.priority === 'important' ? 'fdd527' : '0091ff'}`,
-          textColor: `#${data.priority === 'important' ? '000000' : 'ffffff'}`,
-          display: 'block',
-        };
-      });
+  if (!activities) {
+    activities = [];
+  }
+
+  return activities.map((data) => {
+    return {
+      id: data.id_activity,
+      title: data.title,
+      start: new Date(data.date + ' ' + data.time).getTime(),
+      color: `#${data.priority === 'important' ? 'fdd527' : '0091ff'}`,
+      textColor: `#${data.priority === 'important' ? '000000' : 'ffffff'}`,
+      display: 'block',
+    };
+  });
 }
 
 function renderCalendar(events) {

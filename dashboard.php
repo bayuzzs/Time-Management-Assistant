@@ -27,7 +27,7 @@ $user = loginFromCookie($_COOKIE["auth_user"]);
 ['id_user' => $id_user, 'name' => $name, 'email' => $email] = $user;
 
 // Ambil activity
-$stmt = $mysqli->prepare("SELECT * FROM activities WHERE id_user = ?");
+$stmt = $mysqli->prepare("SELECT * FROM activities WHERE id_user = ? ORDER BY date, time");
 $stmt->bind_param("s", $id_user);
 $stmt->execute();
 $activities = $stmt->get_result();
@@ -155,7 +155,7 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
         <p class="activity__heading-text">Current Activites</p>
         <div class="activity__heading-action">
           <div class="activity__heading-action__find">
-            <input class="search" type="text" placeholder="Search...">
+            <input class="search" type="text" placeholder="Search..." onkeyup="search(event)">
             <select class="filter">
               <option value="all">All</option>
               <option value="important">Important</option>
