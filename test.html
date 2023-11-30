@@ -16,25 +16,9 @@
 </head>
 
 <body>
-  <button onclick="fetch()">klik me</button>
-  <p></p>
   <script>
-    // // payload object
-    // const data = {
-    //   first_name: "first name",
-    //   last_name: "last name"
-    // }
-
-    // // make the request
-    // fetch("/utils/get_activity.php", {
-    //   method: "POST",
-    //   body: JSON.stringify(data),
-    //   headers: {
-    //     "Content-Type": "application/json; charset=UTF-8"
-    //   }
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data))
+    var userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    console.log("User Timezone:", userTimeZone);
   </script>
 </body>
 

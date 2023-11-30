@@ -105,12 +105,15 @@ function toggleEdit() {
   });
 }
 
-async function search(event) {
-  const input = event.currentTarget.value;
+async function search() {
+  const search = document.querySelector('.search').value;
+  const filter = document.querySelector('.filter').value;
+
   const parentCard = document.querySelector('.activity__content');
-  let cards = await fetch(`/utils/search_activity.php?title=${input}`);
+  let cards = await fetch(
+    `/utils/search_activity.php?title=${search}&filter=${filter}`
+  );
   cards = await cards.text();
-  console.log(cards == false);
   if (cards === 'empty') {
     parentCard.innerHTML = `<div class="activity__content__empty"><img src="./assets/images/dashboard/not-found.png"><p>We couldn't find the task you were looking for.</p></div>`;
     return;

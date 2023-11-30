@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('Asia/Jakarta');
 // Establish connection with MySQLi
 $servername = "localhost";
 $username = "root";
