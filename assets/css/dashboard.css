@@ -170,6 +170,26 @@ main {
   border-radius: 5px;
   font-size: 0.8rem;
 }
+.activity__heading-action .filter {
+  background-color: var(--main-color);
+  color: #ffffff;
+}
+.activity__heading-action .filter:hover {
+  filter: brightness(0.9);
+  cursor: pointer;
+}
+.activity__heading-action .filter:focus {
+  outline: none;
+  border: none;
+}
+.activity__heading-action .filter option {
+  color: var(--main-color);
+  background-color: var(--input-color);
+}
+.activity__heading-action .filter option:hover {
+  color: #ffffff;
+  background-color: #ffffff;
+}
 .activity__content {
   display: grid;
   grid-template-columns: auto;
@@ -337,7 +357,8 @@ main {
   .activity__heading-action__find {
     flex-direction: row;
   }
-  .activity__heading-action__find .search {
+  .activity__heading-action .search,
+  .activity__heading-action .filter {
     max-width: 200px;
   }
 }

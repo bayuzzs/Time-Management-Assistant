@@ -1,12 +1,9 @@
 <?php
 try {
-  $currentDate = date('Y-m-d H:i:s');
+  $currentDate = date('Y-m-d H:i:s', strtotime('-1 days'));
 
   // Calculate the date 2 days from now
   $twoDaysFromNow = date('Y-m-d H:i:s', strtotime('+3 days'));
-  // var_dump($currentDate);
-  // var_dump($twoDaysFromNow);
-  // die();
 
   // Prepare the SQL query
   $query = "SELECT * FROM activities WHERE id_user = ? AND date BETWEEN ? AND ? ";
@@ -102,7 +99,15 @@ try {
               </p>
               <div class="notifications__content__item-datetime">
                 <p>
-                  <?= date_format(date_create($notification['date']), 'l, d M Y') ?>
+                  <?php
+                  $notificationDate = date_create($notification['date']);
+                  $currentDate = date_create();
+                  if ($notificationDate->format('Y-m-d') == $currentDate->format('Y-m-d')) {
+                    echo 'Today';
+                  } else {
+                    echo date_format($notificationDate, 'l, d M Y');
+                  }
+                  ?>
                 </p>
                 |
                 <p>
