@@ -7,7 +7,7 @@
   --color-success: #77dd77;
   --main-color: #008fff;
   --color-dark: #333333;
-  --card-color: #acdaff;
+  --card-border: #acdaff;
   --input-color: #d4ecff;
 }
 /* Main start */
@@ -104,10 +104,11 @@ main {
   z-index: 9999;
 }
 .activity__action.show {
-  background-color: salmon;
+  background-color: var(--card-border);
 }
 .activity__action-edit,
 .activity__action-add {
+  background-color: var(--main-color);
   position: fixed;
   bottom: 25px;
   right: 25px;
@@ -119,19 +120,38 @@ main {
 }
 .activity__action-edit:hover,
 .activity__action-add:hover {
-  filter: brightness(0.9);
-}
-.activity__action-add {
-  background-color: var(--main-color);
-}
-.activity__action-edit {
-  background-color: #fdd527;
+  background-color: var(--card-border);
 }
 .activity__action-add.show {
   right: 85px;
 }
 .activity__action-edit.show {
   right: 130px;
+}
+.activity__action-edit.disabled {
+  background-color: var(--card-border);
+  cursor: not-allowed;
+}
+.activity__action-edit.disabled:hover {
+  filter: none;
+}
+.activity__action-edit.disabled::after {
+  content: 'Add some tasks first!';
+  position: fixed;
+  bottom: 70px;
+  right: 0;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: var(--card-border);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.activity__action-edit.disabled:hover::after {
+  opacity: 1;
 }
 .activity__heading {
   display: flex;
@@ -153,22 +173,26 @@ main {
 }
 .activity__heading-action {
   display: flex;
-  justify-content: right;
-  align-items: center;
-  gap: 5px;
-}
-.activity__heading-action__find {
-  display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 5px;
 }
 .activity__heading-action .search,
 .activity__heading-action .filter {
-  background-color: var(--base-color);
+  background-color: var(--card-border);
+  color: #000000;
   max-width: 100px;
   padding: 5px;
   border-radius: 5px;
   font-size: 0.8rem;
+}
+.activity__heading-action .search.disabled:hover,
+.activity__heading-action .filter.disabled:hover {
+  cursor: not-allowed;
+  filter: none;
+}
+.activity__heading-action .search:focus {
+  outline: 2px solid var(--main-color);
 }
 .activity__heading-action .filter {
   background-color: var(--main-color);
@@ -210,11 +234,15 @@ main {
   gap: 10px;
 
   padding: 15px;
+  border: 2px solid var(--base-color);
   border-radius: 10px;
 
   font-size: 0.8rem;
   background-color: var(--base-color);
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.activity__content-item:hover {
+  border: 2px solid var(--card-border);
 }
 .activity__content-item__left {
   flex-grow: 1;
@@ -354,7 +382,7 @@ main {
     grid-template-columns: auto auto;
     gap: 10px;
   }
-  .activity__heading-action__find {
+  .activity__heading-action {
     flex-direction: row;
   }
   .activity__heading-action .search,

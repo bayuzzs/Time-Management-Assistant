@@ -154,17 +154,15 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
       <div class="activity__heading">
         <p class="activity__heading-text">Current Activites</p>
         <div class="activity__heading-action">
-          <div class="activity__heading-action__find">
-            <input class="search" type="text" placeholder="Search..." onkeyup="search()">
-            <select class="filter" onchange="search()">
-              <option value="date" selected>Date</option>
-              <option value="important">Important</option>
-              <option value="overdue">overdue</option>
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
-          </div>
+          <input class="search" type="text" placeholder="Search..." onkeyup="search()">
+          <select class="filter" onchange="search()">
+            <option value="date" selected>Date</option>
+            <option value="important">Important</option>
+            <option value="overdue">overdue</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+          </select>
         </div>
       </div>
       <div class="activity__content">

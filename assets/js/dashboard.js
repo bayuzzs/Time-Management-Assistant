@@ -7,6 +7,26 @@ document.addEventListener('DOMContentLoaded', function () {
       message.classList.add('alert-hide');
     }, 2500);
   }
+  // if user doesn't have activities
+  const isCardExist = document.querySelectorAll('.activity__content-item');
+  if (!isCardExist.length) {
+    // disable search and filter button
+    const searchBtn = document.querySelector(
+      '.activity__heading-action .search'
+    );
+    searchBtn.disabled = true;
+    searchBtn.classList.add('disabled');
+    const filterBtn = document.querySelector(
+      '.activity__heading-action .filter'
+    );
+    filterBtn.disabled = true;
+    filterBtn.classList.add('disabled');
+
+    // disable edit button
+    const editBtn = document.querySelector('.activity__action-edit');
+    editBtn.disabled = true;
+    editBtn.classList.add('disabled');
+  }
 });
 
 // munculin add sama edit yang ada di pojok kanan bawah dashboard
