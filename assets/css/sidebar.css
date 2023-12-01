@@ -5,12 +5,25 @@
   --base-color: #f5f5f5;
   --color-danger: #d46a6a;
   --color-success: #77dd77;
-  --color-edit: #ff7f50;
+  --main-color: #008fff;
+  --color-dark: #333333;
+  --card-border: #acdaff;
+  --input-color: #d4ecff;
 }
 body {
   font-family: 'Outfit', sans-serif;
 }
-
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--card-border);
+  border: 2px solid var(--base-color);
+  border-radius: 6px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-color);
+}
 /* sidebar start */
 .sidebar {
   display: flex;
@@ -139,11 +152,14 @@ body {
   overflow: auto;
 }
 .notifications__content::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 .notifications__content::-webkit-scrollbar-thumb {
-  background-color: #3498db;
+  background-color: var(--card-border);
   border-radius: 6px;
+}
+.notifications__content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-color);
 }
 .notifications__content.show {
   display: flex;

@@ -2,6 +2,8 @@
   --main-color: #008fff;
   --color-dark: #333333;
   --card-color: #acdaff;
+  --base-color: #f5f5f5;
+  --card-border: #acdaff;
 }
 html {
   scroll-behavior: smooth;
@@ -9,6 +11,17 @@ html {
 body {
   background: #f5f5f5;
   font-family: 'Outfit', sans-serif;
+}
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--card-border);
+  border: 2px solid var(--base-color);
+  border-radius: 6px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-color);
 }
 /* Navbar style start */
 header {

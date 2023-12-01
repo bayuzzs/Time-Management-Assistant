@@ -57,7 +57,9 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
         <img src="assets/images/blob/login-left.svg" class="float left" loading="lazy">
         <img src="assets/images/blob/login-right.svg" class="float right" loading="lazy">
         <div class="description">
-          <img src="assets/images/sign-in/logo.png" alt="Chrono">
+          <a href="/">
+            <img src="assets/images/sign-in/logo.png" alt="Chrono">
+          </a>
           <p>TIME MANAGEMENT ASSISTANT</p>
         </div>
         <img src="assets/images/sign-in/illustration.png" class="signin-illustration">

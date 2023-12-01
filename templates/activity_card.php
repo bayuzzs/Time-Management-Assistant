@@ -34,7 +34,8 @@ $overdue = $overdue == 'none' ? '<p class="activity__content-item__left-overdue"
         onclick="showModalDelete(event)">
         <img src="./assets/images/dashboard/delete.svg">
       </button>
-      <button class="activity__content-item__right-action-complete btn">
+      <button class="activity__content-item__right-action-complete btn" data-id="<?= $id_activity ?>"
+        onclick="showModalComplete(event)">
         <img src="./assets/images/dashboard/complete.svg">
       </button>
     </div>

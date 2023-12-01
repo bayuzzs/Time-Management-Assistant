@@ -242,17 +242,6 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
     </div>
     <!-- modal add end -->
 
-    <!-- Modal delete start -->
-    <div class="modal__delete" id="modalDelete">
-      <p class="modal__delete-title"></p>
-      <form class="modal__delete__form" action="utils/delete_activity.php" method="POST">
-        <input class="modal__delete__form-id" name="id_activity" type="hidden">
-        <button class="modal__delete__form-cancel" type="reset" onclick="hideModalDelete()">Cancel</button>
-        <button class="modal__delete__form-delete" type="submit">Delete</button>
-      </form>
-    </div>
-    <!-- Modal delete end -->
-
     <!-- modal edit start -->
     <div class=" modal__edit" id="modalEdit">
       <form class="modal__edit__form" action="utils/edit_activity.php" method="POST">
@@ -303,6 +292,29 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
       </form>
     </div>
     <!-- modal edit end -->
+
+    <!-- Modal delete start -->
+    <div class="modal__delete" id="modalDelete">
+      <p class="modal__delete-title"></p>
+      <form class="modal__delete__form" action="utils/delete_activity.php" method="POST">
+        <input class="modal__delete__form-id" name="id_activity" type="hidden">
+        <button class="modal__delete__form-cancel" type="reset" onclick="hideModalDelete()">Cancel</button>
+        <button class="modal__delete__form-delete" type="submit">Delete</button>
+      </form>
+    </div>
+    <!-- Modal delete end -->
+
+    <!-- Modal complete start -->
+    <div class="modal__complete" id="modalComplete">
+      <p class="modal__complete-title"></p>
+      <form class="modal__complete__form" action="utils/complete_activity.php" method="POST">
+        <input class="modal__complete__form-id" name="id_activity" type="hidden">
+        <input class="modal__complete__form-repetition" name="repetition" type="hidden">
+        <button class="modal__complete__form-cancel" type="reset" onclick="hideModalComplete()">Yes</button>
+        <button class="modal__complete__form-delete" type="submit">No</button>
+      </form>
+    </div>
+    <!-- Modal complete end -->
   </div>
 
   <script src="./assets/js/dashboard.js"></script>
