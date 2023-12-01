@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // Validate new password
   if ($newPassword !== $confirmPassword) {
-    $_SESSION['message'] = "New passwords do not match!";
+    $_SESSION['message'] = "New passwords doesn't match!";
     $_SESSION['type'] = "error";
     header("Location: /settings.php");
     exit();
@@ -116,15 +116,15 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
       <form class="settings__form" action="settings.php" method="POST">
         <label>
           Old Password
-          <input type="password" name="old_password">
+          <input type="password" name="old_password" required>
         </label>
         <label>
           New Password
-          <input type="password" name="new_password">
+          <input type="password" name="new_password" required>
         </label>
         <label>
           Confirm Password
-          <input type="password" name="confirm_password">
+          <input type="password" name="confirm_password" required>
         </label>
         <input class="settings__form-submit" type="submit" value="Change Password">
       </form>

@@ -1,34 +1,37 @@
 <?php
-// Set the timezone to Asia/Jakarta
 date_default_timezone_set('Asia/Jakarta');
-// Ambil waktu server
-$serverTime = new DateTime('now', new DateTimeZone('UTC')); // Menggunakan zona waktu UTC sebagai referensi
+// Establish connection with MySQLi
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "tma";
 
-// Format waktu server sebagai string ISO dan tambahkan zona waktu
-$serverTimeISO = $serverTime->format("Y-m-d\TH:i:sP");
+$mysqli = new mysqli($servername, $username, $password, $database);
 
-// Kirim waktu server dan zona waktu ke browser
-$response = [
-  'serverTime' => $serverTimeISO,
-  'serverTimeZone' => 'UTC', // Atau zona waktu server yang sesuai
-];
-
-echo json_encode($response);
+// Check connection
+if ($mysqli->connect_error) {
+  die("Connection failed: " . $mysqli->connect_error);
+}
+$id_user = '655ea72c62a';
+$stmt = $mysqli->prepare("SELECT * FROM activities WHERE id_user = ? ORDER BY date, time");
+$stmt->bind_param("s", $id_user);
+$stmt->execute();
+$activities = $stmt->get_result();
+$activities = $activities->fetch_all(MYSQLI_ASSOC);
+$stmt->close();
+var_dump($activities);
+// $totalActivities = 0;
+// $importantActivities = 0;
+// $overdueActivities = 0;
+// if (count($activities)) {
+//   foreach ($activities as $activity) {
+//     $totalActivities++;
+//     if ($activity['priority'] == 'important') {
+//       $importantActivities++;
+//     }
+//     if (strtotime($activity['date'] . ' ' . $activity['time']) < time()) {
+//       $overdueActivities++;
+//     }
+//   }
+// }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <script>
-    console.log(new Date().getTimezoneOffset());
-  </script>
-</body>
-
-</html>

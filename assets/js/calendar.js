@@ -40,9 +40,9 @@ function calendarFormatActivities(activities) {
 function renderCalendar(events) {
   const calendarEl = document.getElementById('calendar');
   const calendar = new FullCalendar.Calendar(calendarEl, {
-    eventClick: function (info) {
-      showModalEdit(info);
-    },
+    eventClick: (info) => showModalEdit(info),
+    dateClick: (info) =>
+      info.view.type === 'dayGridMonth' ? showModalAdd(info.dateStr) : null,
     eventMouseEnter: function (info) {
       info.el.style.cursor = 'pointer';
       info.el.style.opacity = '0.8';
@@ -69,7 +69,11 @@ function renderCalendar(events) {
 }
 
 // munculin modal buat tambah data
-function showModalAdd() {
+function showModalAdd(date = '') {
+  // set the date
+  if (date) {
+    document.querySelector('.modal__add__form__datetime-date').value = date;
+  }
   document.querySelector('.modal').classList.add('show');
   document.querySelector('.modal__add').classList.add('show');
   document.querySelector('.modal__add__form-title').focus();

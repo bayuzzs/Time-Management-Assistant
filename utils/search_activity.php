@@ -74,6 +74,7 @@ while ($row = $result->fetch_assoc()) {
     'priority' => $priority,
     'repetition' => $repetition
   ] = $row;
+
   require '../templates/activity_card.php';
 }
 ?>
