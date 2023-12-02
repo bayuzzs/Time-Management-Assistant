@@ -172,7 +172,9 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
             onclick="hideModalEdit()">Cancel</button>
           <button class="modal__edit__form__button-delete" type="button" title="Delete Activity" tabindex="6"
             onclick="showModalDelete(event)">Delete</button>
-          <button class="modal__edit__form__button-add" type="submit" title="Edit Activity" tabindex="7">Save</button>
+          <button class="modal__edit__form__button-complete" type="button" title="Complete Activity" tabindex="7"
+            onclick="showModalComplete(event)">Complete</button>
+          <button class="modal__edit__form__button-add" type="submit" title="Edit Activity" tabindex="8">Save</button>
         </div>
       </form>
     </div>
@@ -190,6 +192,22 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
       </div>
     </div>
     <!-- Modal delete end -->
+    <!-- Modal complete start -->
+    <div class="modal__complete__wrapper">
+      <div class="modal__complete" id="modalComplete">
+        <p class="modal__complete-title"></p>
+        <form class="modal__complete__form" action="utils/complete_activity.php" method="POST">
+          <input class="modal__complete__form-id" name="id_activity" type="hidden">
+          <input class="modal__complete__form-title" name="title" type="hidden">
+          <input class="modal__complete__form-description" name="description" type="hidden">
+          <input class="modal__complete__form-date" name="date" type="hidden">
+          <input class="modal__complete__form-repetition" name="repetition" type="hidden">
+          <button class="modal__complete__form-cancel" type="reset" onclick="hideModalComplete()">No</button>
+          <button class="modal__complete__form-complete" type="submit">Yes</button>
+        </form>
+      </div>
+    </div>
+    <!-- Modal complete end -->
   </div>
   <script type="javascript" src="./assets/js/dashboard.js"></script>
   <script src="./assets/js/calendar.js"></script>

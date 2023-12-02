@@ -110,15 +110,16 @@ function hideModalDelete() {
   document.querySelector('.modal__delete').classList.remove('show');
 }
 function showModalComplete(event) {
-  const currentCard = event.currentTarget.parentNode.parentNode.parentNode;
-  let title = currentCard.querySelector(
-    '.activity__content-item__left-title'
-  ).innerHTML;
+  const title = event.currentTarget.dataset.title;
   document.querySelector(
     '.modal__complete-title'
   ).innerHTML = `Complete the "<b>${title}</b>" activity?`;
+
+  // show the modal
   document.querySelector('.modal').classList.add('show');
   document.querySelector('.modal__complete').classList.add('show');
+
+  // set value form
   document.querySelector('.modal__complete__form-id').value =
     event.currentTarget.dataset.id;
   document.querySelector('.modal__complete__form-title').value =

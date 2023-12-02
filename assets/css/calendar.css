@@ -9,6 +9,7 @@
   --color-dark: #333333;
   --card-color: #acdaff;
   --input-color: #d4ecff;
+  --card-border: #acdaff;
 }
 main {
   padding: 20px;
@@ -24,7 +25,7 @@ main {
   background-color: var(--main-color) !important;
 }
 .fc-button-primary:hover {
-  filter: brightness(0.8);
+  background-color: var(--card-border) !important;
 }
 .fc-button-primary:focus {
   outline: none !important;
@@ -289,10 +290,12 @@ main {
 .modal__edit__form__button {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 10px;
 }
 .modal__edit__form__button-cancel,
 .modal__edit__form__button-delete,
+.modal__edit__form__button-complete,
 .modal__edit__form__button-add {
   padding: 10px 20px;
   border-radius: 10px;
@@ -315,6 +318,15 @@ main {
   transition: all 0.2s;
 }
 .modal__edit__form__button-delete:hover {
+  filter: brightness(0.9);
+}
+.modal__edit__form__button-complete {
+  color: #ffffff;
+  background-color: var(--color-success);
+  border: 1px solid var(--color-success);
+  transition: all 0.2s;
+}
+.modal__edit__form__button-complete:hover {
   filter: brightness(0.9);
 }
 .modal__edit__form__button-add {
@@ -389,6 +401,67 @@ main {
   opacity: 0.7;
 }
 /* modal delete end */
+/* modal complete  start*/
+.modal__complete__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: hideModal 0.5s;
+}
+.modal__complete__wrapper.show {
+  display: flex;
+  animation: showModal 0.5s;
+}
+.modal__complete {
+  display: none;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  max-width: 300px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal__complete.show {
+  display: flex;
+}
+.modal__complete-title {
+  font-size: 1rem;
+}
+.modal__complete__form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-top: 50px;
+}
+.modal__complete__form-cancel {
+  color: #ffffff;
+  background-color: var(--main-color);
+  transition: all 0.2s;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.modal__complete__form-complete {
+  color: #ffffff;
+  background-color: var(--color-danger);
+  transition: all 0.2s;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.modal__complete__form-cancel:hover,
+.modal__complete__form-complete:hover {
+  opacity: 0.7;
+}
+/* modal complete end */
 @keyframes showModal {
   0% {
     opacity: 0;
@@ -418,6 +491,12 @@ main {
   .modal__delete-title {
     font-size: 1.3rem;
   }
+  .modal__complete {
+    max-width: 500px;
+  }
+  .modal__complete-title {
+    font-size: 1.3rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .modal__add {
@@ -441,6 +520,9 @@ main {
     gap: 10px;
   }
   .modal__delete {
+    max-width: 800px;
+  }
+  .modal__complete {
     max-width: 800px;
   }
 }

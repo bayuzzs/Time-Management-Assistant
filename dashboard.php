@@ -112,7 +112,9 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
     <!-- banner end -->
     <div class="heading">
       <div class="heading__priority">
-        <img src="assets/images/dashboard/timer-priority.svg">
+        <div class="heading__priority__img">
+          <img src="assets/images/dashboard/timer-priority.svg">
+        </div>
         <div class="heading__priority__detail">
           <p class="heading__priority__detail-count">
             <?= $importantActivities ?>
@@ -121,7 +123,9 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
         </div>
       </div>
       <div class="heading__overdue">
-        <img src="assets/images/dashboard/timer-overdue.svg">
+        <div class="heading__overdue__img">
+          <img src="assets/images/dashboard/timer-overdue.svg">
+        </div>
         <div class="heading__overdue__detail">
           <p class="heading__overdue__detail-count">
             <?= $overdueActivities ?>
@@ -130,7 +134,9 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
         </div>
       </div>
       <div class="heading__all">
-        <img src="assets/images/dashboard/timer-all.svg">
+        <div class="heading__all__img">
+          <img src="assets/images/dashboard/timer-all.svg">
+        </div>
         <div class="heading__all__detail">
           <p class="heading__all__detail-count">
             <?= $totalActivities ?>

@@ -61,15 +61,15 @@ main {
   border-radius: 10px;
   text-align: center;
 }
-.heading__priority img,
-.heading__overdue img,
-.heading__all img {
+.heading__priority__img,
+.heading__overdue__img,
+.heading__all__img {
   display: none;
-  padding: 5px;
+  padding: 8px;
   border: 2px solid white;
   border-radius: 100%;
 }
-.heading__priority img {
+.heading__priority__img {
   border: 2px solid black;
 }
 .heading__priority {
@@ -191,6 +191,9 @@ main {
 .activity__heading-action .filter.disabled:hover {
   cursor: not-allowed;
   filter: none;
+}
+.activity__heading-action .search::placeholder {
+  color: #000000;
 }
 .activity__heading-action .search:focus {
   outline: 2px solid var(--main-color);
@@ -368,9 +371,9 @@ main {
     font-size: 1rem;
     text-align: left;
   }
-  .heading__priority img,
-  .heading__overdue img,
-  .heading__all img {
+  .heading__priority__img,
+  .heading__overdue__img,
+  .heading__all__img {
     display: block;
   }
   .heading__priority__detail-count,

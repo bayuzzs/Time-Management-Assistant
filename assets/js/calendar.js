@@ -109,6 +109,10 @@ async function showModalEdit(event) {
   const formRepetition = document.querySelector(
     `.modal__edit__form__repetition input[value="${activity.repetition}"]`
   );
+  const deleteBtn = document.querySelector('.modal__edit__form__button-delete');
+  const completeBtn = document.querySelector(
+    '.modal__edit__form__button-complete'
+  );
 
   // set the form values
   formId.value = activity.id_activity;
@@ -118,6 +122,15 @@ async function showModalEdit(event) {
   formTime.value = activity.time;
   formPriority.checked = true;
   formRepetition.checked = true;
+
+  // set data-value
+  deleteBtn.dataset.id = activity.id_activity;
+  deleteBtn.dataset.title = activity.title;
+  completeBtn.dataset.id = activity.id_activity;
+  completeBtn.dataset.title = activity.title;
+  completeBtn.dataset.description = activity.description;
+  completeBtn.dataset.date = activity.date;
+  completeBtn.dataset.repetition = activity.repetition;
 }
 
 // sembunyiin modal buat edit data
@@ -127,8 +140,8 @@ function hideModalEdit() {
 }
 
 function showModalDelete(event) {
-  const id = event.currentTarget.parentNode.parentNode.id_activity.value;
-  const title = event.currentTarget.parentNode.parentNode.title.value;
+  const id = event.currentTarget.dataset.id_activity;
+  const title = event.currentTarget.dataset.title;
   document.querySelector(
     '.modal__delete-title'
   ).innerHTML = `Are you sure you want to delete "<b>${title}</b>" activity?`;
@@ -140,4 +153,31 @@ function showModalDelete(event) {
 function hideModalDelete() {
   document.querySelector('.modal__delete__wrapper').classList.remove('show');
   document.querySelector('.modal__delete').classList.remove('show');
+}
+function showModalComplete(event) {
+  const title = event.currentTarget.dataset.title;
+  document.querySelector(
+    '.modal__complete-title'
+  ).innerHTML = `Complete the "<b>${title}</b>" activity?`;
+
+  // show the modal
+  document.querySelector('.modal__complete__wrapper').classList.add('show');
+  document.querySelector('.modal__complete').classList.add('show');
+
+  // set value form
+  document.querySelector('.modal__complete__form-id').value =
+    event.currentTarget.dataset.id;
+  document.querySelector('.modal__complete__form-title').value =
+    event.currentTarget.dataset.title;
+  document.querySelector('.modal__complete__form-description').value =
+    event.currentTarget.dataset.description;
+  document.querySelector('.modal__complete__form-date').value =
+    event.currentTarget.dataset.date;
+  document.querySelector('.modal__complete__form-repetition').value =
+    event.currentTarget.dataset.repetition;
+}
+
+function hideModalComplete() {
+  document.querySelector('.modal__complete__wrapper').classList.remove('show');
+  document.querySelector('.modal__complete').classList.remove('show');
 }
