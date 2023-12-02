@@ -109,6 +109,32 @@ function hideModalDelete() {
   document.querySelector('.modal').classList.remove('show');
   document.querySelector('.modal__delete').classList.remove('show');
 }
+function showModalComplete(event) {
+  const currentCard = event.currentTarget.parentNode.parentNode.parentNode;
+  let title = currentCard.querySelector(
+    '.activity__content-item__left-title'
+  ).innerHTML;
+  document.querySelector(
+    '.modal__complete-title'
+  ).innerHTML = `Complete the "<b>${title}</b>" activity?`;
+  document.querySelector('.modal').classList.add('show');
+  document.querySelector('.modal__complete').classList.add('show');
+  document.querySelector('.modal__complete__form-id').value =
+    event.currentTarget.dataset.id;
+  document.querySelector('.modal__complete__form-title').value =
+    event.currentTarget.dataset.title;
+  document.querySelector('.modal__complete__form-description').value =
+    event.currentTarget.dataset.description;
+  document.querySelector('.modal__complete__form-date').value =
+    event.currentTarget.dataset.date;
+  document.querySelector('.modal__complete__form-repetition').value =
+    event.currentTarget.dataset.repetition;
+}
+
+function hideModalComplete() {
+  document.querySelector('.modal').classList.remove('show');
+  document.querySelector('.modal__complete').classList.remove('show');
+}
 
 function toggleEdit() {
   const parentButtons = document.querySelectorAll(

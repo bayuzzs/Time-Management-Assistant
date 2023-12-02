@@ -1,17 +1,19 @@
 <?php
 $overdue = strtotime($date . ' ' . $time) < time() ? 'overdue' : 'none';
 
-$title = '<p class="activity__content-item__left-title">' . $title . '</p>';
-$priority = $priority == 'none' ? '<p class="activity__content-item__left-priority"></p>' : '<p class="activity__content-item__left-priority">' . $priority . '</p>';
-$repetition = $repetition == 'none' ? '<p class="activity__content-item__left-repetition"></p>' : '<p class="activity__content-item__left-repetition">' . $repetition . '</p>';
-$overdue = $overdue == 'none' ? '<p class="activity__content-item__left-overdue"></p>' : '<p class="activity__content-item__left-overdue">' . $overdue . '</p>';
 ?>
 <div class="activity__content-item">
   <div class="activity__content-item__left">
-    <?= $title ?>
-    <?= $priority ?>
-    <?= $repetition ?>
-    <?= $overdue ?>
+    <?= '<p class="activity__content-item__left-title">' . $title . '</p>' ?>
+    <?= $priority == 'none'
+      ? '<p class="activity__content-item__left-priority"></p>'
+      : '<p class="activity__content-item__left-priority">' . $priority . '</p>' ?>
+    <?= $repetition == 'none'
+      ? '<p class="activity__content-item__left-repetition"></p>'
+      : '<p class="activity__content-item__left-repetition">' . $repetition . '</p>' ?>
+    <?= $overdue == 'none'
+      ? '<p class="activity__content-item__left-overdue"></p>'
+      : '<p class="activity__content-item__left-overdue">' . $overdue . '</p>' ?>
     <p class="activity__content-item__left-description">
       <?= $description ?>
     </p>
@@ -35,7 +37,8 @@ $overdue = $overdue == 'none' ? '<p class="activity__content-item__left-overdue"
         <img src="./assets/images/dashboard/delete.svg">
       </button>
       <button class="activity__content-item__right-action-complete btn" data-id="<?= $id_activity ?>"
-        onclick="showModalComplete(event)">
+        data-title="<?= $title ?>" data-description="<?= $description ?>" data-date="<?= $date ?>"
+        data-repetition="<?= $repetition ?>" onclick="showModalComplete(event)">
         <img src="./assets/images/dashboard/complete.svg">
       </button>
     </div>

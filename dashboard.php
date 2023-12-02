@@ -309,9 +309,12 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
       <p class="modal__complete-title"></p>
       <form class="modal__complete__form" action="utils/complete_activity.php" method="POST">
         <input class="modal__complete__form-id" name="id_activity" type="hidden">
+        <input class="modal__complete__form-title" name="title" type="hidden">
+        <input class="modal__complete__form-description" name="description" type="hidden">
+        <input class="modal__complete__form-date" name="date" type="hidden">
         <input class="modal__complete__form-repetition" name="repetition" type="hidden">
-        <button class="modal__complete__form-cancel" type="reset" onclick="hideModalComplete()">Yes</button>
-        <button class="modal__complete__form-delete" type="submit">No</button>
+        <button class="modal__complete__form-cancel" type="reset" onclick="hideModalComplete()">No</button>
+        <button class="modal__complete__form-complete" type="submit">Yes</button>
       </form>
     </div>
     <!-- Modal complete end -->
