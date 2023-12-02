@@ -29,7 +29,10 @@ main {
 .fc-button-primary:focus {
   outline: none !important;
 }
-
+.fc-daygrid-day:hover {
+  background-color: var(--base-color);
+  cursor: pointer;
+}
 /* modal add start */
 .modal {
   position: fixed;
