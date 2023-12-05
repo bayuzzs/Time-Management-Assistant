@@ -22,14 +22,17 @@ switch ($filter) {
   case 'week':
     $query = "SELECT DAYNAME(date) as day, count(*) as total FROM history_activities WHERE id_user = ? AND YEARWEEK(date) = YEARWEEK(CURDATE()) GROUP BY day";
     $label = "Activities in Day";
+    $labels = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     break;
   case 'month':
-    $query = "SELECT WEEKOFYEAR(date) - WEEKOFYEAR(date - INTERVAL DAY(date) - 1 DAY) + 1 AS week_number, count(*) AS total FROM history_activities WHERE id_user = ? AND YEAR(date) = YEAR(CURDATE()) AND MONTH(date) = MONTH(CURDATE()) GROUP BY WEEKOFYEAR(date)";
+    $query = "SELECT CONCAT('Week - ', WEEKOFYEAR(date) - WEEKOFYEAR(date - INTERVAL DAY(date) - 1 DAY) + 1) AS week_number, count(*) AS total FROM history_activities WHERE id_user = ? AND YEAR(date) = YEAR(CURDATE()) AND MONTH(date) = MONTH(CURDATE()) GROUP BY WEEKOFYEAR(date)";
     $label = "Activities in Week";
+    $labels = ["Week - 1", "Week - 2", "Week - 3", "Week - 4", "Week - 5"];
     break;
   case 'year':
     $query = "SELECT MONTHNAME(date) as month, count(*) as total FROM history_activities WHERE id_user = ? AND YEAR(date) = YEAR(CURDATE()) GROUP BY MONTH(date)";
     $label = "Activities in Month";
+    $labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     break;
 }
 
@@ -47,6 +50,7 @@ $stmt->bind_param("s", $userId);
 $stmt->execute();
 $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
+// data for chartjs
 $data = [
   "labels" => [],
   "datasets" => [
@@ -59,14 +63,35 @@ $data = [
     ]
   ]
 ];
+// die(var_dump($result));
 // initial max value
 $max = 0;
-foreach ($result as $row) {
-  $key = array_keys($row);
-  array_push($data["labels"], $row[$key[0]]);
-  array_push($data["datasets"][0]["data"], $row[$key[1]]);
-  $row["total"] > $max ? $max = $row["total"] : null;
+foreach ($labels as $key => $label) {
+  array_push($data["labels"], $label);
+  if (isset($result[$key])) {
+    $resultKey = array_keys($result[0]);
+    if ($result[$key][$resultKey[0]] != $label) {
+      array_splice($result, $key, 0, [[$resultKey[0] => $label, 'total' => 0]]);
+    }
+    // die(var_dump($result));
+    // die(var_dump($result[$key]["total"]));
+    array_push($data["datasets"][0]["data"], $result[$key]["total"]);
+    if ($result[$key]["total"] > $max) {
+      $max = $result[$key]["total"];
+    }
+  } else {
+    array_push($result, [
+      array_keys($result[0])[0] => $labels[$key],
+      "total" => 0
+    ]);
+    array_push($data["datasets"][0]["data"], $result[$key]["total"]);
+    if ($result[$key]["total"] > $max) {
+      $max = $result[$key]["total"];
+    }
+  }
 }
+// die(var_dump($result));
+// die(var_dump($data["datasets"][0]["data"]));
 $options = [
   "scales" => [
     "y" => [
@@ -77,10 +102,10 @@ $options = [
   ],
   "responsive" => true
 ];
-
 $result = [
   "data" => $data,
   "options" => $options
 ];
+// die(var_dump($result, $result["data"]["datasets"][0]["data"]));
 echo json_encode($result);
 ?>
