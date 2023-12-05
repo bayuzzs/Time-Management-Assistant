@@ -26,7 +26,7 @@ $repetition = $_POST['repetition'];
 
 switch ($repetition) {
   case 'none':
-    $stmt = $mysqli->prepare("DELETE activities WHERE id_activity = ? AND id_user = ?");
+    $stmt = $mysqli->prepare("DELETE FROM activities WHERE id_activity = ? AND id_user = ?");
     $stmt->bind_param("ss", $id_activity, $id_user);
     $stmt->execute();
     break;

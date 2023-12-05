@@ -91,10 +91,7 @@ function hideModalEdit() {
 }
 
 function showModalDelete(event) {
-  const currentCard = event.currentTarget.parentNode.parentNode.parentNode;
-  let title = currentCard.querySelector(
-    '.activity__content-item__left-title'
-  ).innerHTML;
+  let title = event.currentTarget.dataset.title;
   document.querySelector(
     '.modal__delete-title'
   ).innerHTML = `Are you sure you want to delete "<b>${title}</b>" activity?`;

@@ -449,7 +449,6 @@ main {
   display: none;
   justify-content: center;
   align-items: center;
-  animation: hideModal 0.5s;
 }
 .modal.show {
   display: flex;
@@ -817,14 +816,6 @@ main {
   }
   100% {
     opacity: 1;
-  }
-}
-@keyframes hideModal {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }
 @media screen and (min-width: 768px) {

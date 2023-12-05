@@ -35,7 +35,7 @@ try {
   die();
 }
 ?>
-<section class="sidebar active">
+<section class="sidebar">
   <!-- Hamburger Menur -->
   <div class="sidebar__hamburger" onclick="toggleSidebar()">
     <div></div>
@@ -95,7 +95,7 @@ try {
           <?php foreach ($notificationsData as $notification): ?>
             <div class="notifications__content__item">
               <p class="notifications__content__item-title">
-                <?= $notification['title'] ?>
+                <?= htmlspecialchars($notification['title']) ?>
               </p>
               <div class="notifications__content__item-datetime">
                 <p>
