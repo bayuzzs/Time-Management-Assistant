@@ -17,11 +17,51 @@ main {
 .summary {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 .summary__info-title {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 10px;
+}
+.chart__select {
+  background-color: var(--main-color);
+  color: #ffffff;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+.chart__select:hover {
+  filter: brightness(0.9);
+  cursor: pointer;
+}
+.chart__select:focus {
+  outline: none;
+  border: none;
+}
+.chart__select option {
+  color: var(--main-color);
+  background-color: var(--input-color);
+}
+.chart__select option:hover {
+  color: #ffffff;
+  background-color: #ffffff;
+}
+@media screen and (min-width: 768px) {
+  .summary {
+    flex-direction: row;
+  }
+  .summary__info {
+    flex-grow: 2;
+  }
+  .chart {
+    flex-grow: 1;
+  }
+  .chart__select {
+    padding: 5px 10px;
+  }
+  #historyChart {
+    width: 100%;
+  }
 }
 /* chart style start */
 .chart canvas {

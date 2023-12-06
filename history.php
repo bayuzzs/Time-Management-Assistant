@@ -89,7 +89,7 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
         </p>
       </div>
       <div class="chart">
-        <select onchange="updateChart(event)" class="chart__select">
+        <select class="chart__select" onchange="updateChart(event)" class="chart__select">
           <option value="week" selected>Day</option>
           <option value="month">Week</option>
           <option value="year">Month</option>

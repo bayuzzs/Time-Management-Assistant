@@ -48,7 +48,13 @@ $stmt->bind_param("s", $userId);
 
 // Execute the query
 $stmt->execute();
-$result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+if ($stmt->get_result()->num_rows === 0) {
+  echo json_encode(['error' => 'No data found']);
+  die();
+}
+
+$result = $stmt->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 // data for chartjs
 $data = [
@@ -59,7 +65,7 @@ $data = [
       "data" => [],
       "backgroundColor" => "#acdaff",
       "borderColor" => "#0091ff",
-      "borderWidth" => 1
+      "borderWidth" => 2
     ]
   ]
 ];
