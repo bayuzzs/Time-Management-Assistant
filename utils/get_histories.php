@@ -48,13 +48,14 @@ $stmt->bind_param("s", $userId);
 
 // Execute the query
 $stmt->execute();
+$result = $stmt->get_result();
 
-if ($stmt->get_result()->num_rows === 0) {
+if ($result->num_rows === 0) {
   echo json_encode(['error' => 'No data found']);
   die();
 }
 
-$result = $stmt->fetch_all(MYSQLI_ASSOC);
+$result = $result->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 // data for chartjs
 $data = [
