@@ -24,6 +24,11 @@ main {
   font-weight: 600;
   margin-bottom: 10px;
 }
+.chart__filter {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
 .chart__select {
   background-color: var(--main-color);
   color: #ffffff;
@@ -55,6 +60,9 @@ main {
   }
   .chart {
     flex-grow: 1;
+  }
+  .chart__filter-text {
+    display: inline;
   }
   .chart__select {
     padding: 5px 10px;

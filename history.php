@@ -5,7 +5,7 @@ require_once 'utils/functions.php';
 session_start();
 
 // check user and token from cookie
-if (!isset($_COOKIE["auth_user"]) || !isset($_COOKIE["auth_token"])) {
+if(!isset($_COOKIE["auth_user"]) || !isset($_COOKIE["auth_token"])) {
   // if doesn't have cookie
   $_SESSION['message'] = "You need to login first!";
   $_SESSION['type'] = "error";
@@ -14,7 +14,7 @@ if (!isset($_COOKIE["auth_user"]) || !isset($_COOKIE["auth_token"])) {
 }
 
 // if user cookie isn't valid
-if (!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
+if(!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
   $_SESSION['message'] = "You need to login first!";
   $_SESSION['type'] = "error";
   header("Location: /sign-in.php");
@@ -34,7 +34,7 @@ $history_activities = $stmt->get_result();
 $stmt->close();
 
 // check session to show an alert
-if (isset($_SESSION['message'], $_SESSION['type'])) {
+if(isset($_SESSION['message'], $_SESSION['type'])) {
   $message = $_SESSION['message'];
   $type = $_SESSION['type'];
   unset($_SESSION['message']);
@@ -64,7 +64,7 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
 </head>
 
 <body>
-  <?php if (isset($message, $type)): ?>
+  <?php if(isset($message, $type)): ?>
     <div class="alert alert-<?= $type ?>">
       <img src="assets/images/<?= $type ?>.svg">
       <p class="alert__message">
@@ -89,11 +89,14 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
         </p>
       </div>
       <div class="chart">
-        <select class="chart__select" onchange="updateChart(event)" class="chart__select">
-          <option value="week" selected>Day</option>
-          <option value="month">Week</option>
-          <option value="year">Month</option>
-        </select>
+        <div class="chart__filter">
+          <p>Filter chart By:</p>
+          <select class="chart__select" onchange="updateChart(event)" class="chart__select">
+            <option value="week" selected>Day</option>
+            <option value="month">Week</option>
+            <option value="year">Month</option>
+          </select>
+        </div>
         <div class="chart__container">
           <canvas id="historyChart">
           </canvas>
@@ -119,7 +122,7 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
           </tr>
         </thead>
         <tbody class="table__body">
-          <?php while ($history_activity = $history_activities->fetch_assoc()): ?>
+          <?php while($history_activity = $history_activities->fetch_assoc()): ?>
             <tr>
               <td>
                 <?= htmlspecialchars($history_activity['title']) ?>

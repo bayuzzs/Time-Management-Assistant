@@ -18,7 +18,7 @@ try {
   $result = $statement->get_result();
 
   // Check if any rows were returned
-  if ($result->num_rows > 0) {
+  if($result->num_rows > 0) {
     // Fetch the data
     $notificationsData = $result->fetch_all(MYSQLI_ASSOC);
   } else {
@@ -31,7 +31,7 @@ try {
   $mysqli->close();
 } catch (Exception $e) {
   // Handle any exceptions or errors
-  echo "An error occurred: " . $e->getMessage();
+  echo "An error occurred: ".$e->getMessage();
   die();
 }
 ?>
@@ -72,7 +72,7 @@ try {
       </a>
       <button class="notifications <?= count($notificationsData) ? 'active' : '' ?>" title="Notifications"
         onclick="toggleNotifications()">
-        <?php if (count($notificationsData)): ?>
+        <?php if(count($notificationsData)): ?>
           <p class="notifications__count">
             <?= count($notificationsData) ?>
           </p>
@@ -84,15 +84,15 @@ try {
         </svg>
       </button>
       <div class="notifications__content">
-        <?php if (!count($notificationsData)): ?>
+        <?php if(!count($notificationsData)): ?>
           <p class="notifications__content__empty">No new notifications</p>
         <?php endif ?>
-        <?php if (count($notificationsData)): ?>
+        <?php if(count($notificationsData)): ?>
           <p><small>
               <?= count($notificationsData) ?> new notifications in next 3 days
             </small>
           </p>
-          <?php foreach ($notificationsData as $notification): ?>
+          <?php foreach($notificationsData as $notification): ?>
             <div class="notifications__content__item">
               <p class="notifications__content__item-title">
                 <?= htmlspecialchars($notification['title']) ?>
@@ -102,7 +102,7 @@ try {
                   <?php
                   $notificationDate = date_create($notification['date']);
                   $currentDate = date_create();
-                  if ($notificationDate->format('Y-m-d') == $currentDate->format('Y-m-d')) {
+                  if($notificationDate->format('Y-m-d') == $currentDate->format('Y-m-d')) {
                     echo 'Today';
                   } else {
                     echo date_format($notificationDate, 'l, d M Y');
