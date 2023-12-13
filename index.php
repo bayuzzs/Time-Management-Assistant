@@ -466,7 +466,7 @@ if (isset($_COOKIE["auth_user"]) && isset($_COOKIE["auth_token"])) {
           <div class="team-item-wrapper">
             <div class="team-item">
               <h4>Bayu Maulana</h4>
-              <p>Programmer</p>
+              <p>Developer</p>
               <hr>
               <div class="logo-container">
                 <a href="#" class="svg-wrap">
@@ -602,7 +602,7 @@ if (isset($_COOKIE["auth_user"]) && isset($_COOKIE["auth_token"])) {
           <div class="team-item-wrapper">
             <div class="team-item">
               <h4>Ajeng Wulan</h4>
-              <p>Programmer</p>
+              <p>Developer</p>
               <hr>
               <div class="logo-container">
                 <a href="#" class="svg-wrap">
@@ -670,7 +670,7 @@ if (isset($_COOKIE["auth_user"]) && isset($_COOKIE["auth_token"])) {
           <div class="team-item-wrapper">
             <div class="team-item">
               <h4>Dwi Nurul</h4>
-              <p>QA Tester</p>
+              <p>Analyst</p>
               <hr>
               <div class="logo-container">
                 <a href="#" class="svg-wrap">
@@ -739,7 +739,7 @@ if (isset($_COOKIE["auth_user"]) && isset($_COOKIE["auth_token"])) {
           <div class="team-item-wrapper">
             <div class="team-item">
               <h4>Miftahul Fazra</h4>
-              <p>Designer</p>
+              <p>QA Tester</p>
               <hr>
               <div class="logo-container">
                 <a href="#" class="svg-wrap">

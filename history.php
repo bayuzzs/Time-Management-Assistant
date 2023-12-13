@@ -5,7 +5,7 @@ require_once 'utils/functions.php';
 session_start();
 
 // check user and token from cookie
-if(!isset($_COOKIE["auth_user"]) || !isset($_COOKIE["auth_token"])) {
+if (!isset($_COOKIE["auth_user"]) || !isset($_COOKIE["auth_token"])) {
   // if doesn't have cookie
   $_SESSION['message'] = "You need to login first!";
   $_SESSION['type'] = "error";
@@ -14,7 +14,7 @@ if(!isset($_COOKIE["auth_user"]) || !isset($_COOKIE["auth_token"])) {
 }
 
 // if user cookie isn't valid
-if(!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
+if (!checkAuthCookie($_COOKIE["auth_user"], $_COOKIE["auth_token"])) {
   $_SESSION['message'] = "You need to login first!";
   $_SESSION['type'] = "error";
   header("Location: /sign-in.php");
@@ -34,7 +34,7 @@ $history_activities = $stmt->get_result();
 $stmt->close();
 
 // check session to show an alert
-if(isset($_SESSION['message'], $_SESSION['type'])) {
+if (isset($_SESSION['message'], $_SESSION['type'])) {
   $message = $_SESSION['message'];
   $type = $_SESSION['type'];
   unset($_SESSION['message']);
@@ -64,7 +64,7 @@ if(isset($_SESSION['message'], $_SESSION['type'])) {
 </head>
 
 <body>
-  <?php if(isset($message, $type)): ?>
+  <?php if (isset($message, $type)): ?>
     <div class="alert alert-<?= $type ?>">
       <img src="assets/images/<?= $type ?>.svg">
       <p class="alert__message">
@@ -81,68 +81,76 @@ if(isset($_SESSION['message'], $_SESSION['type'])) {
   <!-- Sidebar end -->
 
   <main>
-    <div class="summary">
-      <div class="summary__info">
-        <h1 class="summary__info-title">History</h1>
-        <p class="summary__count">Total History :
-          <?= $history_activities->num_rows ?>
-        </p>
+    <?php if ($history_activities->num_rows == 0): ?>
+      <div class="history__none">
+        <img src="assets/images/dashboard/history.png">
+        <p>No History yet</p>
       </div>
-      <div class="chart">
-        <div class="chart__filter">
-          <p>Filter chart By:</p>
-          <select class="chart__select" onchange="updateChart(event)" class="chart__select">
-            <option value="week" selected>Day</option>
-            <option value="month">Week</option>
-            <option value="year">Month</option>
-          </select>
+    <?php endif; ?>
+    <?php if ($history_activities->num_rows > 0): ?>
+      <div class="summary">
+        <div class="summary__info">
+          <h1 class="summary__info-title">History</h1>
+          <p class="summary__count">Total History :
+            <?= $history_activities->num_rows ?>
+          </p>
         </div>
-        <div class="chart__container">
-          <canvas id="historyChart">
-          </canvas>
+        <div class="chart">
+          <div class="chart__filter">
+            <p>Filter chart By:</p>
+            <select class="chart__select" onchange="updateChart(event)" class="chart__select">
+              <option value="week" selected>Day</option>
+              <option value="month">Week</option>
+              <option value="year">Month</option>
+            </select>
+          </div>
+          <div class="chart__container">
+            <canvas id="historyChart">
+            </canvas>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="table__wrapper">
-      <table class="table" cellspacing="0">
-        <h1>All History </h1>
-        <!-- colgroup for template column in table -->
-        <colgroup>
-          <col class="table__col-1">
-          <col class="table__col-2">
-          <col class="table__col-3">
-          <col class="table__col-4">
-        </colgroup>
-        <thead class="table__head">
-          <tr>
-            <th class="table__head-title">Title</th>
-            <th class="table__head-description">Description</th>
-            <th class="table__head-date">Date</th>
-            <th class="table__head-action">Action</th>
-          </tr>
-        </thead>
-        <tbody class="table__body">
-          <?php while($history_activity = $history_activities->fetch_assoc()): ?>
+      <div class="table__wrapper">
+        <table class="table" cellspacing="0">
+          <h1>All History </h1>
+          <!-- colgroup for template column in table -->
+          <colgroup>
+            <col class="table__col-1">
+            <col class="table__col-2">
+            <col class="table__col-3">
+            <col class="table__col-4">
+          </colgroup>
+          <thead class="table__head">
             <tr>
-              <td>
-                <?= htmlspecialchars($history_activity['title']) ?>
-              </td>
-              <td>
-                <?= htmlspecialchars($history_activity['description']) ?>
-              </td>
-              <td>
-                <?= $history_activity['date'] ?>
-              </td>
-              <td class="table__body-delete">
-                <button data-id="<?= $history_activity['id_history'] ?>" data-title="<?= $history_activity['title'] ?>"
-                  onclick="showModalDelete(event)" title="Delete">Delete</button>
-              </td>
+              <th class="table__head-title">Title</th>
+              <th class="table__head-description">Description</th>
+              <th class="table__head-date">Date</th>
+              <th class="table__head-action">Action</th>
             </tr>
-          <?php endwhile; ?>
+          </thead>
+          <tbody class="table__body">
+            <?php while ($history_activity = $history_activities->fetch_assoc()): ?>
+              <tr>
+                <td>
+                  <?= htmlspecialchars($history_activity['title']) ?>
+                </td>
+                <td>
+                  <?= htmlspecialchars($history_activity['description']) ?>
+                </td>
+                <td>
+                  <?= $history_activity['date'] ?>
+                </td>
+                <td class="table__body-delete">
+                  <button data-id="<?= $history_activity['id_history'] ?>" data-title="<?= $history_activity['title'] ?>"
+                    onclick="showModalDelete(event)" title="Delete">Delete</button>
+                </td>
+              </tr>
+            <?php endwhile; ?>
 
-        </tbody>
-      </table>
-    </div>
+          </tbody>
+        </table>
+      </div>
+    <?php endif; ?>
   </main>
   <!-- modal start -->
   <div class="modal">

@@ -301,6 +301,7 @@ main {
   font-weight: 600;
   font-size: 0.8rem;
   text-align: center;
+  min-width: 100px;
 }
 .activity__content-item__right-time p {
   line-height: 1rem;
@@ -309,11 +310,7 @@ main {
   display: flex;
   justify-content: space-evenly;
   gap: 5px;
-  margin-top: -30px;
-  transition: all 0.2s;
-}
-.activity__content-item__right-action.show {
-  margin-top: 0;
+  margin-top: 10px;
 }
 .activity__content-item__right-action-edit,
 .activity__content-item__right-action-delete,
@@ -321,8 +318,8 @@ main {
   padding: 5px;
   border-radius: 5px;
   transform: scale(0);
-  transform-origin: bottom;
-  transition: all 0.2s;
+  transform-origin: center;
+  transition: all 0.1s;
   cursor: pointer;
 }
 .activity__content-item__right-action-edit img,
@@ -339,8 +336,6 @@ main {
 .activity__content-item__right-action-delete.show,
 .activity__content-item__right-action-complete.show {
   transform: scale(1);
-  margin-top: 10px;
-  display: block;
 }
 .activity__content-item__right-action-edit {
   background-color: var(--color-edit);

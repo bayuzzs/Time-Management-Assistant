@@ -14,6 +14,17 @@
 main {
   padding: 20px 10px;
 }
+main:has(.history__none) {
+  padding: 0;
+}
+.history__none {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 .summary {
   display: flex;
   flex-direction: column;

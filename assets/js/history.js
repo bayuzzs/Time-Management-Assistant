@@ -9,8 +9,11 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   // make chart
-  const { data, options } = await getHistories('week');
-  createChart(data, options);
+  // if user have history
+  if (document.querySelector('#historyChart')) {
+    const { data, options } = await getHistories('week');
+    createChart(data, options);
+  }
 });
 
 function showModalDelete(event) {

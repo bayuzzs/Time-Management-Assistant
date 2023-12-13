@@ -1,6 +1,5 @@
 <?php
 $overdue = strtotime($date . ' ' . $time) < time() ? 'overdue' : 'none';
-
 ?>
 <div class="activity__content-item">
   <div class="activity__content-item__left">
@@ -15,7 +14,7 @@ $overdue = strtotime($date . ' ' . $time) < time() ? 'overdue' : 'none';
       ? '<p class="activity__content-item__left-overdue"></p>'
       : '<p class="activity__content-item__left-overdue">' . $overdue . '</p>' ?>
     <p class="activity__content-item__left-description">
-      <?= $description ?>
+      <?= htmlspecialchars($description) ?>
     </p>
   </div>
   <div class="activity__content-item__right">

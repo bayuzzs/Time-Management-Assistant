@@ -19,9 +19,6 @@ links.forEach((link, index) => {
       .getBoundingClientRect().top;
     const bbody = document.body.getBoundingClientRect().top;
     const destination = section - bbody;
-    // console.log(bbody);
-    // console.log(destination);
-    // console.log(link.getBoundingClientRect().top);
     window.scrollTo(0, destination - 100);
   });
 });

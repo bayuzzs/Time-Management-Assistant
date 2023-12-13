@@ -45,6 +45,12 @@ if (!($datetime > time())) {
   $_SESSION['type'] = "error";
   exit(header("Location: " . $_SERVER['HTTP_REFERER']));
 }
+// If datetime more than 10 Year
+if ($datetime > time() + (3600 * 24 * 30 * 12 * 10)) {
+  $_SESSION['message'] = "Cannot add activities more than 10 years!";
+  $_SESSION['type'] = "error";
+  exit(header("Location: " . $_SERVER['HTTP_REFERER']));
+}
 
 $query = "UPDATE activities SET title = ?, description = ?, date = ?, time = ?, repetition = ?, priority = ? WHERE id_activity = ? AND id_user = ?";
 $stmt = $mysqli->prepare($query);
