@@ -818,9 +818,9 @@ if (isset($_COOKIE["auth_user"]) && isset($_COOKIE["auth_token"])) {
       </div>
       <div class="contact-form-container">
         <div class="from-wrap">
-          <form>
-            <input type="email" placeholder="Email">
-            <textarea placeholder="Message"></textarea>
+          <form action="https://script.google.com/macros/s/AKfycbyQSapm3WEF4HQYwBaP8hIA6gq7Q1WDCRIM3tgLdlFmuce4KW8ggVWe18HELWnRjFzr/exec" method="POST" onsubmit="userSubmit(event)">
+            <input type="email" placeholder="Email" name="Email" required>
+            <textarea placeholder="Message" name="Message" required></textarea>
             <button type="submit">Send Message</button>
           </form>
         </div>

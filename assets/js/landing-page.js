@@ -37,3 +37,7 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.feature-item').forEach((feature) => {
   observer.observe(feature);
 });
+
+async function userSubmit(e) {
+  // e.preventDefault();
+}
