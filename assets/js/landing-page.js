@@ -39,5 +39,32 @@ document.querySelectorAll('.feature-item').forEach((feature) => {
 });
 
 async function userSubmit(e) {
-  // e.preventDefault();
+  e.preventDefault();
+  const body = new FormData(e.currentTarget);
+  loader(true);
+  try {
+    const response = await fetch(
+      'https://script.google.com/macros/s/AKfycbyQSapm3WEF4HQYwBaP8hIA6gq7Q1WDCRIM3tgLdlFmuce4KW8ggVWe18HELWnRjFzr/exec',
+      {
+        method: 'POST',
+        body,
+      }
+    );
+    // const responseData = await response.json();
+    loader(false);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function loader(action) {
+  if (action) {
+    document.querySelector('.alert-loader').style.display = 'grid';
+    document.querySelector('.alert.alert-success').style.display = 'none';
+    document.querySelector('.form-wrap form').style.display = 'none';
+  } else {
+    document.querySelector('.alert-loader').style.display = 'none';
+    document.querySelector('.alert.alert-success').style.display = 'flex';
+    document.querySelector('.form-wrap form').style.display = 'block';
+  }
 }

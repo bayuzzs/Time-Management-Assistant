@@ -817,8 +817,13 @@ if (isset($_COOKIE["auth_user"]) && isset($_COOKIE["auth_token"])) {
         <p>Are you looking for help or have any questions? Drop us a message in this form!</p>
       </div>
       <div class="contact-form-container">
-        <div class="from-wrap">
-          <form action="https://script.google.com/macros/s/AKfycbyQSapm3WEF4HQYwBaP8hIA6gq7Q1WDCRIM3tgLdlFmuce4KW8ggVWe18HELWnRjFzr/exec" method="POST" onsubmit="userSubmit(event)">
+        <div class="form-wrap">
+          <div class="alert-loader"></div>
+          <div class="alert alert-success">
+            <img src="assets/images/success.svg">
+            <p class="alert__message">Your Message has been Submitted!</p>
+          </div>
+          <form class="form" action="" method="POST" onsubmit="userSubmit(event)">
             <input type="email" placeholder="Email" name="Email" required>
             <textarea placeholder="Message" name="Message" required></textarea>
             <button type="submit">Send Message</button>
