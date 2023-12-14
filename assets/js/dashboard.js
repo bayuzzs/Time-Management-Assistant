@@ -34,6 +34,13 @@ function toggleAction() {
   document.querySelector('.activity__action').classList.toggle('show');
   document.querySelector('.activity__action-add').classList.toggle('show');
   document.querySelector('.activity__action-edit').classList.toggle('show');
+
+  const buttons = document.querySelectorAll(
+    '.activity__content-item__right-action .btn'
+  );
+  buttons.forEach((button) => {
+    button.classList.remove('show');
+  });
 }
 
 // munculin modal buat tambah data

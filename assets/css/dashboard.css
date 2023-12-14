@@ -251,6 +251,12 @@ main {
 .activity__content-item__left {
   flex-grow: 1;
 }
+.activity__content-item__left-badge {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 15px;
+}
 .activity__content-item__left-title {
   max-width: 200px;
   word-wrap: break-word;
@@ -266,7 +272,6 @@ main {
   padding: 5px;
   border-radius: 5px;
   font-size: 0.8rem;
-  margin-bottom: 15px;
   font-weight: 600;
 }
 .activity__content-item__left-priority:empty,

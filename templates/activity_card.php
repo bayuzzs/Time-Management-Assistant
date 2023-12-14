@@ -4,15 +4,17 @@ $overdue = strtotime($date . ' ' . $time) < time() ? 'overdue' : 'none';
 <div class="activity__content-item">
   <div class="activity__content-item__left">
     <?= '<p class="activity__content-item__left-title">' . htmlspecialchars($title) . '</p>' ?>
-    <?= $priority == 'none'
-      ? '<p class="activity__content-item__left-priority"></p>'
-      : '<p class="activity__content-item__left-priority">' . htmlspecialchars($priority) . '</p>' ?>
-    <?= $repetition == 'none'
-      ? '<p class="activity__content-item__left-repetition"></p>'
-      : '<p class="activity__content-item__left-repetition">' . $repetition . '</p>' ?>
-    <?= $overdue == 'none'
-      ? '<p class="activity__content-item__left-overdue"></p>'
-      : '<p class="activity__content-item__left-overdue">' . $overdue . '</p>' ?>
+    <div class="activity__content-item__left-badge">
+      <?= $priority == 'none'
+        ? '<p class="activity__content-item__left-priority"></p>'
+        : '<p class="activity__content-item__left-priority">' . htmlspecialchars($priority) . '</p>' ?>
+      <?= $repetition == 'none'
+        ? '<p class="activity__content-item__left-repetition"></p>'
+        : '<p class="activity__content-item__left-repetition">' . $repetition . '</p>' ?>
+      <?= $overdue == 'none'
+        ? '<p class="activity__content-item__left-overdue"></p>'
+        : '<p class="activity__content-item__left-overdue">' . $overdue . '</p>' ?>
+    </div>
     <p class="activity__content-item__left-description">
       <?= htmlspecialchars($description) ?>
     </p>
