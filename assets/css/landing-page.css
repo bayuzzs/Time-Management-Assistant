@@ -658,7 +658,7 @@ section#features img.left {
   margin-inline: auto;
   border: 4px solid transparent;
   border-radius: 100%;
-  filter: contrast(0.8);
+  filter: contrast(0.7);
   transition: 0.2;
   position: absolute;
   top: -50px;
@@ -866,8 +866,14 @@ footer {
   font-weight: 200;
   padding: 30px 20px;
 }
+.container-footer .company {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 .container-footer img {
-  width: 150px;
+  max-width: 150px;
   margin-inline: auto;
 }
 .container-footer .desc {

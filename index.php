@@ -299,9 +299,17 @@ if (isset($_COOKIE["auth_user"]) && isset($_COOKIE["auth_token"])) {
   <!-- Footer Start -->
   <footer>
     <div class="container container-footer">
-      <a href="index.html">
-        <img src="assets/images/index/footer.png">
-      </a>
+      <div class="company">
+        <a href="https://polibatam.ac.id" target="_blank">
+          <img src="assets/images/index/polibatam-white.png">
+        </a>
+        <a href="https://if.polibatam.ac.id/teknologi-rekayasa-perangkat-lunak/" target="_blank">
+          <img src="assets/images/index/trpl-white.png">
+        </a>
+        <a href="/">
+          <img src="assets/images/index/footer.png">
+        </a>
+      </div>
       <p class="desc">Chrono is a web-based Time Management Asisstant for productivity optimization</p>
       <div class="logo-container">
         <a href="#" class="svg-wrap">
@@ -361,7 +369,7 @@ if (isset($_COOKIE["auth_user"]) && isset($_COOKIE["auth_token"])) {
         </a>
       </div>
       <p class="copyright"><small>&copy; Copryright Chrono. All Rights Reserved Designed by <u>Team 3 Mini-PBL
-            TRPL</u></small></p>
+            TRPL 1A</u></small></p>
     </div>
   </footer>
   <!-- Footer End -->
