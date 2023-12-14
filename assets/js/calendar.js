@@ -140,7 +140,7 @@ function hideModalEdit() {
 }
 
 function showModalDelete(event) {
-  const id = event.currentTarget.dataset.id_activity;
+  const id = event.currentTarget.dataset.id;
   const title = event.currentTarget.dataset.title;
   document.querySelector(
     '.modal__delete-title'

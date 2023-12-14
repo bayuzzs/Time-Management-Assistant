@@ -50,8 +50,35 @@ $stmt->bind_param("s", $userId);
 $stmt->execute();
 $result = $stmt->get_result();
 
+// Check if the query returned any rows
 if ($result->num_rows === 0) {
-  echo json_encode(['error' => 'No data found']);
+  $data = [
+    "labels" => $labels,
+    "datasets" => [
+      [
+        "label" => $label,
+        "data" => [],
+        "backgroundColor" => "#acdaff",
+        "borderColor" => "#0091ff",
+        "borderWidth" => 2
+      ]
+    ]
+  ];
+  $options = [
+    "scales" => [
+      "y" => [
+        "beginAtZero" => true,
+        "max" => 10,
+        "stepSize" => 2
+      ]
+    ],
+    "responsive" => true
+  ];
+  $result = [
+    "data" => $data,
+    "options" => $options
+  ];
+  echo json_encode($result);
   die();
 }
 
@@ -73,32 +100,37 @@ $data = [
 // die(var_dump($result));
 // initial max value
 $max = 0;
+// looping to fill data
 foreach ($labels as $key => $label) {
   array_push($data["labels"], $label);
+
+  // if data-i has value
   if (isset($result[$key])) {
     $resultKey = array_keys($result[0]);
     if ($result[$key][$resultKey[0]] != $label) {
       array_splice($result, $key, 0, [[$resultKey[0] => $label, 'total' => 0]]);
     }
-    // die(var_dump($result));
-    // die(var_dump($result[$key]["total"]));
     array_push($data["datasets"][0]["data"], $result[$key]["total"]);
+
+    // set the highest value in y axis chart
     if ($result[$key]["total"] > $max) {
       $max = $result[$key]["total"];
     }
   } else {
+    // if data-i doesn't have value, add new with value 0
     array_push($result, [
       array_keys($result[0])[0] => $labels[$key],
       "total" => 0
     ]);
     array_push($data["datasets"][0]["data"], $result[$key]["total"]);
+
+    // set the highest value in y axis chart
     if ($result[$key]["total"] > $max) {
       $max = $result[$key]["total"];
     }
   }
 }
-// die(var_dump($result));
-// die(var_dump($data["datasets"][0]["data"]));
+
 $options = [
   "scales" => [
     "y" => [
@@ -109,6 +141,7 @@ $options = [
   ],
   "responsive" => true
 ];
+
 $result = [
   "data" => $data,
   "options" => $options
