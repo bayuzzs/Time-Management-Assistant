@@ -103,7 +103,6 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
 
   <!-- Sidebar start -->
   <?php
-  // renderSidebar($id_user, $name, $email, 'settings');
   $active = 'settings';
   require_once 'templates/sidebar.php';
   ?>

@@ -36,6 +36,7 @@ $stmt->close();
 $totalActivities = 0;
 $importantActivities = 0;
 $overdueActivities = 0;
+// if activity exist
 if (count($activities)) {
   foreach ($activities as $activity) {
     $totalActivities++;
@@ -90,7 +91,6 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
 
   <!-- Sidebar start -->
   <?php
-  // renderSidebar($mysqli, $id_user, $name, $email, 'dashboard');
   $active = 'dashboard';
   require_once 'templates/sidebar.php';
   ?>
