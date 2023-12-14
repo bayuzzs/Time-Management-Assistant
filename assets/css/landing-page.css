@@ -221,10 +221,11 @@ main .container-main {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
   transform: scale(0.7);
 }
-.container-main aside .floating svg {
+.container-main aside .floating img {
   width: 40px;
   color: white;
 }
+
 .container-main aside .floating.success {
   background-color: #fdd527;
   bottom: -30px;
@@ -423,6 +424,10 @@ main img.floating.right-2 {
 /* Main style end */
 
 /* Features style start */
+/* fill the svg */
+.fil0 {
+  fill: currentColor;
+}
 section#features {
   position: relative;
 }
@@ -915,7 +920,7 @@ footer {
   width: 50px;
   height: 50px;
   display: none;
-  animation: s4 8s infinite;
+  animation: s4 4s infinite;
 }
 .alert-loader::before,
 .alert-loader::after {
@@ -925,7 +930,7 @@ footer {
   border-radius: 50%;
   border-color: #008fff #008fff #0000 #0000;
   mix-blend-mode: darken;
-  animation: s4 2s infinite linear;
+  animation: s4 1s infinite linear;
 }
 .alert-loader::after {
   border-color: #0000 #0000 #acdaff #acdaff;

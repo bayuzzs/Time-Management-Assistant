@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Al Ghazali",
+    "role": "Analyst",
+    "picture": "assets/images/team/ali.png",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "whatsapp": "https://whatsapp.com"
+  },
+  {
+    "name": "Ibnu Hanif",
+    "role": "Designer",
+    "picture": "assets/images/team/ibnu.png",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "whatsapp": "https://whatsapp.com"
+  },
+  {
+    "name": "Bayu Maulana",
+    "role": "Developer",
+    "picture": "assets/images/team/bayu.png",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "whatsapp": "https://whatsapp.com"
+  },
+  {
+    "name": "Ajeng Wulan",
+    "role": "Developer",
+    "picture": "assets/images/team/ajeng.png",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "whatsapp": "https://whatsapp.com"
+  },
+  {
+    "name": "Dwi Nurul",
+    "role": "Analyst",
+    "picture": "assets/images/team/dwi.png",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "whatsapp": "https://whatsapp.com"
+  },
+  {
+    "name": "Miftahul Fazra",
+    "role": "Tester",
+    "picture": "assets/images/team/fazra.png",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "whatsapp": "https://whatsapp.com"
+  }
+]
