@@ -24,10 +24,10 @@ F013 Users can delete activity history
 
 ## Teams
 
-Project Manager:
+Project Manager:  
 122277  Noper Ardi, S.Pd., M.eng
 
-Leader:
+Leader:  
 4342301013   Bayu Maulana  
 
 Members:  
