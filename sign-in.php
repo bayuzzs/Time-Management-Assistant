@@ -54,8 +54,8 @@ if (isset($_SESSION['message'], $_SESSION['type'])) {
     <div class="container">
       <!-- illustration start -->
       <aside id="illustration">
-        <img src="assets/images/blob/login-left.svg" class="float left" loading="lazy">
-        <img src="assets/images/blob/login-right.svg" class="float right" loading="lazy">
+        <img src="assets/images/index/login-left.svg" class="float left" loading="lazy">
+        <img src="assets/images/index/login-right.svg" class="float right" loading="lazy">
         <div class="description">
           <a href="/">
             <img src="assets/images/sign-in/logo.png" alt="Chrono">

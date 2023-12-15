@@ -41,7 +41,7 @@ if (isset($_COOKIE["auth_user"]) && isset($_COOKIE["auth_token"])) {
   <header>
     <div class="container container-header">
       <div class="logo">
-        <a href="index.html">
+        <a href="index.php">
           <img src="assets/images/index/chrono-nav.png" alt="Chrono" title="Home">
         </a>
       </div>
