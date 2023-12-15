@@ -1,4 +1,3 @@
-
 # Time Management Assistant
 
 ## Description
@@ -25,10 +24,15 @@ F013 Users can delete activity history
 
 ## Teams
 
- 1. Noper Ardi, S.Pd., M.eng (Project Manager)
- 2. Bayu Maulana (Leader)
- 3. Ibnu Hanif Salsabila
- 4. Muhammad Al Ghazali
- 5. Ajeng Wulan Barokah
- 6. Dwi Nurul Azizah
- 7. Miftahul Fazra
+Project Manager:
+122277  Noper Ardi, S.Pd., M.eng
+
+Leader:
+4342301013   Bayu Maulana  
+
+Members:  
+4342301011   Muhammad Al Ghazali  
+4342301012   Ibnu Hanif Salsabila  
+4342301016   Ajeng Wulan Barokah  
+4342301017   Dwi Nurul Azizah  
+4342301018   Miftahul Fazra
